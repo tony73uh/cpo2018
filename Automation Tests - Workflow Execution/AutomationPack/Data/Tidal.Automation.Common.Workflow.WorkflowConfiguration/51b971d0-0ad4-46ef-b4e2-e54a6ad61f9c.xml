@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>51b971d0-0ad4-46ef-b4e2-e54a6ad61f9c</Id>
+  <DisplayName>Twn190172c: Test Workflow Executed on Server Where Triggered</DisplayName>
+  <CreatedTime>2019-06-20T23:35:33.8770169Z</CreatedTime>
+  <ModifiedTime>2019-06-20T23:35:33.8770169Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>6f5a764d-f10f-4792-a59d-7a9513517f98</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>3f0202ca-4c9a-4eaf-980b-199740bf8f4a</Id>
+        <DisplayName>Find All Orchestrator Servers</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>bf7c9711-7e9d-4919-ab3c-4c2a7ab008c5</Id>
+            <ActivityNodeId>3f0202ca-4c9a-4eaf-980b-199740bf8f4a</ActivityNodeId>
+            <CompletedId>cda206a7-4971-4694-bfaf-6f8608cca2f3</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="BuiltinFindTargetsActivityConfiguration" xml:space="preserve">
+          <Id>3f0202ca-4c9a-4eaf-980b-199740bf8f4a</Id>
+          <DisplayName>Find All Orchestrator Servers</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>e280df4b-555a-47b2-b620-8fa7ad928041</ContainingProcessId>
+          <TargetTypeName>Tidal.Automation.Windows.Common.WindowsTargetConfiguration, Tidal.Automation.Windows.Common</TargetTypeName>
+          <TargetTypeExtensionId>2097ba7b-3e94-0c5b-8243-90df2cca8626</TargetTypeExtensionId>
+          <TargetGroupId>bc5933b4-512f-46ce-86a9-3b40331ba395</TargetGroupId>
+          <MatchingCriteria />
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ForEachNode">
+        <Id>6ac60d5b-0e95-43a4-a943-8a74a1d9de09</Id>
+        <DisplayName>For Each Orchestrator Server</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>0ccb7f5c-0802-4e3f-ad5e-3695d3cf5711</Id>
+            <DisplayName>Execute Windows PowerShell Script</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                <Id>4f36ba43-2be9-40d0-af68-4126405b93b4</Id>
+                <ActivityNodeId>0ccb7f5c-0802-4e3f-ad5e-3695d3cf5711</ActivityNodeId>
+                <CompletedId>f7964310-6739-4578-93f6-f212e194a68f</CompletedId>
+              </ActivityNode>
+            </Children>
+            <Configuration xsi:type="WindowsPowerShellScriptActivityConfiguration" xml:space="preserve">
+              <Id>0ccb7f5c-0802-4e3f-ad5e-3695d3cf5711</Id>
+              <DisplayName>Execute Windows PowerShell Script</DisplayName>
+              <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                <FormattedCode />
+                <HardcodedValue>
+                  <Id>00000000-0000-0000-0000-000000000000</Id>
+                  <ObjectType>RuntimeUser</ObjectType>
+                </HardcodedValue>
+              </RuntimeUserObject>
+              <TargetLoadBalancer xsi:type="OrchestratorServerLoadBalancer">
+                <TargetGroupId>bc5933b4-512f-46ce-86a9-3b40331ba395</TargetGroupId>
+              </TargetLoadBalancer>
+              <InheritTarget>false</InheritTarget>
+              <ContainingProcessId>e280df4b-555a-47b2-b620-8fa7ad928041</ContainingProcessId>
+              <WorkingDirectory>
+                <HardcodedValue />
+              </WorkingDirectory>
+              <FailReturnCodeNonZero>true</FailReturnCodeNonZero>
+              <UseTaskScheduler>false</UseTaskScheduler>
+              <TimeWindow>
+                <Milliseconds>300000</Milliseconds>
+                <Units>Minutes</Units>
+              </TimeWindow>
+              <Script>
+                <HardcodedValue>$ComputerName = $args[0]
+([System.Net.DNS]::GetHostByName($ComputerName)).AddressList.IPAddressToString
+</HardcodedValue>
+              </Script>
+              <Arguments>
+                <SubstitutableObject xsi:type="SubstitutableString">
+                  <FormattedCode>{0}</FormattedCode>
+                  <References>
+                    <VariableReference xsi:type="PropertyReference">
+                      <DisplayPath>Workflow.For Each Orchestrator Server.Item.Computer Name</DisplayPath>
+                      <LinkChain>
+                        <Link xsi:type="PropertyNameLink">
+                          <PropertyName>GetReferencedObject</PropertyName>
+                        </Link>
+                        <Link xsi:type="PropertyNameLink">
+                          <PropertyName>NetBiosName</PropertyName>
+                        </Link>
+                      </LinkChain>
+                      <ObjectId>6ac60d5b-0e95-43a4-a943-8a74a1d9de09</ObjectId>
+                      <ObjectType>ActivityInstance</ObjectType>
+                    </VariableReference>
+                  </References>
+                </SubstitutableObject>
+              </Arguments>
+              <Use32BitPowerShell>false</Use32BitPowerShell>
+            </Configuration>
+          </ActivityNode>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>931f4f1c-f026-4aca-b11f-3179e481bd49</Id>
+            <DisplayName>Reset Counter</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                <Id>d120a70c-cbaf-4f9c-9b81-d242cb7a14a3</Id>
+                <ActivityNodeId>931f4f1c-f026-4aca-b11f-3179e481bd49</ActivityNodeId>
+                <CompletedId>29799159-4902-405e-9505-679dfd04dbdb</CompletedId>
+              </ActivityNode>
+            </Children>
+            <Configuration xsi:type="SetVariableActivityConfiguration" xml:space="preserve">
+              <Id>931f4f1c-f026-4aca-b11f-3179e481bd49</Id>
+              <DisplayName>Reset Counter</DisplayName>
+              <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                <SingleTargetId>
+                  <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                </SingleTargetId>
+              </TargetLoadBalancer>
+              <InheritTarget>false</InheritTarget>
+              <ContainingProcessId>e280df4b-555a-47b2-b620-8fa7ad928041</ContainingProcessId>
+              <VariableToSet>
+                <DisplayPath>Process.Variables.Local.Loop Counter</DisplayPath>
+                <LinkChain />
+                <ObjectId>f996c835-79ce-4476-9327-d76358debe37</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableToSet>
+              <NewValue xsi:type="SubstitutableNumber">
+                <HardcodedValue>0</HardcodedValue>
+              </NewValue>
+            </Configuration>
+          </ActivityNode>
+          <ActivityNode xsi:type="WhileNode">
+            <Id>91b7db87-7619-4f1c-94c9-b39f2e5bf440</Id>
+            <DisplayName>While (Loop Counter &lt; 10)</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="ExecuteActivityNode">
+                <Id>4cf42ed7-8bbf-4857-82b3-2faff59fbdb1</Id>
+                <DisplayName>Start a Process</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                    <Id>90ada54a-5b89-419c-ac02-d8df937b722e</Id>
+                    <ActivityNodeId>4cf42ed7-8bbf-4857-82b3-2faff59fbdb1</ActivityNodeId>
+                    <CompletedId>f142376b-b084-48d7-b451-2481088e65d0</CompletedId>
+                  </ActivityNode>
+                </Children>
+                <Configuration xsi:type="WebHttpTargetAwareRequestActivityConfiguration" xml:space="preserve">
+                  <Id>4cf42ed7-8bbf-4857-82b3-2faff59fbdb1</Id>
+                  <DisplayName>Start a Process</DisplayName>
+                  <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                    <FormattedCode />
+                    <HardcodedValue>
+                      <Id>00000000-0000-0000-0000-000000000000</Id>
+                      <ObjectType>RuntimeUser</ObjectType>
+                    </HardcodedValue>
+                  </RuntimeUserObject>
+                  <TargetLoadBalancer xsi:type="SingleTargetReferenceLoadBalancer">
+                    <SingleTargetReference>
+                      <FormattedCode />
+                      <HardcodedValue>
+                        <Id>a1227d4d-aac6-46d1-8956-30ff6e2481a1</Id>
+                        <ObjectType>Target</ObjectType>
+                      </HardcodedValue>
+                    </SingleTargetReference>
+                  </TargetLoadBalancer>
+                  <InheritTarget>false</InheritTarget>
+                  <ContainingProcessId>e280df4b-555a-47b2-b620-8fa7ad928041</ContainingProcessId>
+                  <UseCredentials>true</UseCredentials>
+                  <RelativeUrl>
+                    <FormattedCode>http://{0}:51527/api/v1/Processes/QueryComputerName</FormattedCode>
+                    <References>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.Execute Windows PowerShell Script.Output</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>Output</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>0ccb7f5c-0802-4e3f-ad5e-3695d3cf5711</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </References>
+                  </RelativeUrl>
+                  <ContentType>
+                    <HardcodedValue>application/xml; charset=utf-8</HardcodedValue>
+                  </ContentType>
+                  <Method>
+                    <HardcodedValue>POST</HardcodedValue>
+                  </Method>
+                  <UserAgent>
+                    <HardcodedValue />
+                  </UserAgent>
+                  <Request>
+                    <FormattedCode>&lt;value&gt;
+   &lt;targetOverride&gt;{0}&lt;/targetOverride&gt;
+&lt;/value&gt;</FormattedCode>
+                    <References>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.For Each Orchestrator Server.Item.Target Id</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>GetReferencedObject</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>Id</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>6ac60d5b-0e95-43a4-a943-8a74a1d9de09</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </References>
+                  </Request>
+                  <ProtocolVersion>Version11</ProtocolVersion>
+                  <AllowAutoRedirect>true</AllowAutoRedirect>
+                  <Timeout>
+                    <DisplayUnits>Seconds</DisplayUnits>
+                    <Period>
+                      <HardcodedValue>100</HardcodedValue>
+                    </Period>
+                  </Timeout>
+                  <Accept>
+                    <HardcodedValue />
+                  </Accept>
+                  <AcceptCookies>false</AcceptCookies>
+                  <Headers />
+                  <OutputFormat>Html</OutputFormat>
+                </Configuration>
+              </ActivityNode>
+              <ActivityNode xsi:type="ExecuteActivityNode">
+                <Id>9a80dba0-aa11-4e00-b9c4-fa99b971efad</Id>
+                <DisplayName>Increment Counter</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                    <Id>0eff52ee-b209-4cd3-b6f3-abc36e0e5fc7</Id>
+                    <ActivityNodeId>9a80dba0-aa11-4e00-b9c4-fa99b971efad</ActivityNodeId>
+                    <CompletedId>2acbeed2-c50d-47b6-9b22-96d627d504f9</CompletedId>
+                  </ActivityNode>
+                </Children>
+                <Configuration xsi:type="SetVariableActivityConfiguration" xml:space="preserve">
+                  <Id>9a80dba0-aa11-4e00-b9c4-fa99b971efad</Id>
+                  <DisplayName>Increment Counter</DisplayName>
+                  <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                    <SingleTargetId>
+                      <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                    </SingleTargetId>
+                  </TargetLoadBalancer>
+                  <InheritTarget>false</InheritTarget>
+                  <ContainingProcessId>e280df4b-555a-47b2-b620-8fa7ad928041</ContainingProcessId>
+                  <VariableToSet>
+                    <DisplayPath>Process.Variables.Local.Loop Counter</DisplayPath>
+                    <LinkChain />
+                    <ObjectId>f996c835-79ce-4476-9327-d76358debe37</ObjectId>
+                    <ObjectType>GlobalVariable</ObjectType>
+                  </VariableToSet>
+                  <NewValue xsi:type="SubstitutableNumber">
+                    <FormattedCode>{0} + 1</FormattedCode>
+                    <References>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Process.Variables.Local.Loop Counter</DisplayPath>
+                        <LinkChain />
+                        <ObjectId>f996c835-79ce-4476-9327-d76358debe37</ObjectId>
+                        <ObjectType>GlobalVariable</ObjectType>
+                      </VariableReference>
+                    </References>
+                  </NewValue>
+                </Configuration>
+              </ActivityNode>
+            </Children>
+            <Condition>
+              <Id>606ca785-9030-45ca-a1b5-8970d8bd4287</Id>
+              <Operator>Or</Operator>
+              <Conditions>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>e3ce0e99-e0b6-413a-b315-601b3cf76354</Id>
+                  <Expression xsi:type="SubstitutableNumber">
+                    <HardcodedValue>10</HardcodedValue>
+                  </Expression>
+                  <Comparison>LessThan</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Process.Variables.Local.Loop Counter</DisplayPath>
+                    <LinkChain />
+                    <ObjectId>f996c835-79ce-4476-9327-d76358debe37</ObjectId>
+                    <ObjectType>GlobalVariable</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+              </Conditions>
+            </Condition>
+          </ActivityNode>
+        </Children>
+        <ForEachSource xsi:type="PropertyReference">
+          <DisplayPath>Workflow.Find All Orchestrator Servers.Found Targets.Items</DisplayPath>
+          <LinkChain>
+            <Link xsi:type="PropertyNameLink">
+              <PropertyName>GetAllFoundTargets</PropertyName>
+            </Link>
+            <Link xsi:type="PropertyNameLink">
+              <PropertyName>Items</PropertyName>
+            </Link>
+          </LinkChain>
+          <ObjectId>3f0202ca-4c9a-4eaf-980b-199740bf8f4a</ObjectId>
+          <ObjectType>ActivityInstance</ObjectType>
+        </ForEachSource>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>e280df4b-555a-47b2-b620-8fa7ad928041</ProcessId>
+</WorkflowConfiguration>

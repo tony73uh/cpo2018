@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>26418731-f63a-4cf3-81c7-4beea62964a7</Id>
+  <DisplayName>Query Computer Name</DisplayName>
+  <CreatedTime>2019-06-20T23:35:33.8240134Z</CreatedTime>
+  <ModifiedTime>2019-06-20T23:35:33.8240134Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>103aac65-adcd-40d5-ba57-690a4af0d8da</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>6a02c43e-9656-464b-af8c-3a188056e35c</Id>
+        <DisplayName>Query ComputerName from Registry</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>eaa8a781-38f8-4930-be23-9ba2212ef541</Id>
+            <ActivityNodeId>6a02c43e-9656-464b-af8c-3a188056e35c</ActivityNodeId>
+            <CompletedId>e8d74684-5c49-4e4b-8b35-e06d5e41b526</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="WindowsReadRegistryValueActivityConfiguration" xml:space="preserve">
+          <Id>6a02c43e-9656-464b-af8c-3a188056e35c</Id>
+          <DisplayName>Query ComputerName from Registry</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>3298812c-fca8-4388-a3c0-4de732a4caf8</ContainingProcessId>
+          <RegistryHive>LocalMachine</RegistryHive>
+          <ValueName>
+            <HardcodedValue>ComputerName</HardcodedValue>
+          </ValueName>
+          <RegistryKey>
+            <HardcodedValue>SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName</HardcodedValue>
+          </RegistryKey>
+          <CheckKeyExistence>false</CheckKeyExistence>
+          <Options>Query64BitRegistrySection</Options>
+        </Configuration>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>3298812c-fca8-4388-a3c0-4de732a4caf8</ProcessId>
+</WorkflowConfiguration>

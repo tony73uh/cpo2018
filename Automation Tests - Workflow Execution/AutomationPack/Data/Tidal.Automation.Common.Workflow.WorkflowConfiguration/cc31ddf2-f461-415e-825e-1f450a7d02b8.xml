@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>cc31ddf2-f461-415e-825e-1f450a7d02b8</Id>
+  <DisplayName>Do Not Start If Already Run on Same Target</DisplayName>
+  <CreatedTime>2019-06-20T23:35:33.5049973Z</CreatedTime>
+  <ModifiedTime>2019-06-20T23:35:33.5049973Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>7c88a641-d164-4629-a68a-5342ccf0d70b</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>5f8def15-c82e-4bd4-bfca-211cb8c0e5cb</Id>
+        <DisplayName>Execute Windows PowerShell Script</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>d7158431-c6ad-474a-bf2e-78dc1d048df0</Id>
+            <ActivityNodeId>5f8def15-c82e-4bd4-bfca-211cb8c0e5cb</ActivityNodeId>
+            <CompletedId>88c67dec-b6d5-4474-aab1-8b8625f2dec8</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="WindowsPowerShellScriptActivityConfiguration" xml:space="preserve">
+          <Id>5f8def15-c82e-4bd4-bfca-211cb8c0e5cb</Id>
+          <DisplayName>Execute Windows PowerShell Script</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>f0338b0e-02f1-4140-8781-ff41b2b2ce05</ContainingProcessId>
+          <WorkingDirectory>
+            <HardcodedValue />
+          </WorkingDirectory>
+          <FailReturnCodeNonZero>true</FailReturnCodeNonZero>
+          <UseTaskScheduler>false</UseTaskScheduler>
+          <TimeWindow>
+            <Milliseconds>300000</Milliseconds>
+            <Units>Minutes</Units>
+          </TimeWindow>
+          <Script>
+            <HardcodedValue>$Seconds = $args[0]
+Start-Sleep $Seconds
+</HardcodedValue>
+          </Script>
+          <Arguments>
+            <SubstitutableObject xsi:type="SubstitutableString">
+              <FormattedCode>{0}</FormattedCode>
+              <References>
+                <VariableReference xsi:type="PropertyReference">
+                  <DisplayPath>Process.Variables.Input.Sleep Time</DisplayPath>
+                  <LinkChain />
+                  <ObjectId>6d446e39-a0c1-4a09-9696-247d80612b49</ObjectId>
+                  <ObjectType>GlobalVariable</ObjectType>
+                </VariableReference>
+              </References>
+            </SubstitutableObject>
+          </Arguments>
+          <Use32BitPowerShell>false</Use32BitPowerShell>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>241651fc-b37c-44a1-b3a2-bc752726d444</Id>
+        <DisplayName>Create Alert</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>b605790e-c045-45e4-bb58-37f90252f024</Id>
+            <ActivityNodeId>241651fc-b37c-44a1-b3a2-bc752726d444</ActivityNodeId>
+            <CompletedId>f976dbed-54a4-4f56-863c-2def313a6b5b</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="AlertActivityConfiguration" xml:space="preserve">
+          <Id>241651fc-b37c-44a1-b3a2-bc752726d444</Id>
+          <DisplayName>Create Alert</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>f0338b0e-02f1-4140-8781-ff41b2b2ce05</ContainingProcessId>
+          <TaskExpiresPeriod>
+            <DisplayUnits>Days</DisplayUnits>
+            <Period>
+              <FormattedCode>{0}</FormattedCode>
+              <References>
+                <VariableReference xsi:type="PropertyReference">
+                  <DisplayPath>Adapters.Core Functions Adapter.Default Task Expiration Days</DisplayPath>
+                  <LinkChain>
+                    <Link xsi:type="PropertyNameLink">
+                      <PropertyName>DefaultTaskExpirationDays</PropertyName>
+                    </Link>
+                  </LinkChain>
+                  <ObjectId>042b6e8a-90b1-4518-aa3e-398399e1b195</ObjectId>
+                  <ObjectType>Adapter</ObjectType>
+                </VariableReference>
+              </References>
+            </Period>
+          </TaskExpiresPeriod>
+          <TaskAssignees />
+          <TaskPriority>Medium</TaskPriority>
+          <TaskBlock>false</TaskBlock>
+          <TaskXslFileName>
+            <FormattedCode>{0}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Adapters.Core Functions Adapter.Default Alert Task Transform</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>DefaultAlertTaskTransform</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>042b6e8a-90b1-4518-aa3e-398399e1b195</ObjectId>
+                <ObjectType>Adapter</ObjectType>
+              </VariableReference>
+            </References>
+          </TaskXslFileName>
+          <TaskName>
+            <HardcodedValue>Do Not Start If Already Run on Same Target</HardcodedValue>
+          </TaskName>
+          <TaskDescription>
+            <FormattedCode>{0}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Process.Variables.Input.Parent Process Instance ID</DisplayPath>
+                <LinkChain />
+                <ObjectId>4e393676-5448-48db-aa2b-e9d5fc0c99e9</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableReference>
+            </References>
+          </TaskDescription>
+          <TaskCategoryIds />
+          <TaskInheritCategories>true</TaskInheritCategories>
+          <TaskRelatedIds />
+          <ExternalSystem>
+            <HardcodedValue />
+          </ExternalSystem>
+          <ExternalId>
+            <HardcodedValue />
+          </ExternalId>
+          <TaskOwner>
+            <FormattedCode>{0}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Process.Target.Owner</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>ResolvedTarget</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Owner</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectType>ProcessInstance</ObjectType>
+              </VariableReference>
+            </References>
+          </TaskOwner>
+          <TaskParameters />
+          <AffectedServices>
+            <HardcodedValue />
+          </AffectedServices>
+          <AffectedOrganizations>
+            <HardcodedValue />
+          </AffectedOrganizations>
+          <AffectedTargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <CreateAutomationSummary>false</CreateAutomationSummary>
+          <DiagnosticReportConfiguration>
+            <ReportStylesheet>SituationReport.xsl</ReportStylesheet>
+            <Formats />
+          </DiagnosticReportConfiguration>
+          <AlertClass>
+            <HardcodedValue>1234</HardcodedValue>
+          </AlertClass>
+          <MatchingCriteria />
+        </Configuration>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>f0338b0e-02f1-4140-8781-ff41b2b2ce05</ProcessId>
+</WorkflowConfiguration>

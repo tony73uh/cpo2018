@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>f0338b0e-02f1-4140-8781-ff41b2b2ce05</Id>
+  <DisplayName>Do Not Start If Already Run on Same Target</DisplayName>
+  <CreatedTime>2019-06-20T23:35:33.5310026Z</CreatedTime>
+  <ModifiedTime>2019-06-20T23:35:33.5310026Z</ModifiedTime>
+  <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+    <FormattedCode />
+    <HardcodedValue>
+      <Id>00000000-0000-0000-0000-000000000000</Id>
+      <ObjectType>RuntimeUser</ObjectType>
+    </HardcodedValue>
+  </RuntimeUserObject>
+  <TargetLoadBalancer xsi:type="RequireOverrideLoadBalancer" />
+  <AuditStarts>true</AuditStarts>
+  <AuditSuccesses>true</AuditSuccesses>
+  <WorkflowId>cc31ddf2-f461-415e-825e-1f450a7d02b8</WorkflowId>
+  <CategoryIds />
+  <TriggerOwner>9779d997-6e0c-45e8-bed9-af244d277d08</TriggerOwner>
+  <Triggers>
+    <TriggerDefinition>
+      <Event xsi:type="AdHocEventDefinition">
+        <Id>d900ee59-b589-451d-b2ca-b57da9b74604</Id>
+        <DisplayName>Started by User</DisplayName>
+        <Imported>true</Imported>
+        <Identities />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>713bb05a-9210-40a4-a4a8-1797b4a5eab9</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>e466068a-5dd9-4d6e-9944-51976df940ed</TriggerId>
+    </TriggerDefinition>
+    <TriggerDefinition>
+      <Event xsi:type="StartProcessEventDefinition">
+        <Id>886814ae-1b9f-4a4b-b88a-3ade5767f196</Id>
+        <DisplayName>Started by Parent Process</DisplayName>
+        <Imported>true</Imported>
+        <ProcessIds />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>badd6f2c-793b-48ad-a612-74dbeeacd625</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>6c098dfb-5067-401c-9f57-6b50072467da</TriggerId>
+    </TriggerDefinition>
+  </Triggers>
+  <VariableDefinitions>
+    <VariableConfiguration xsi:type="NumberVariableConfiguration" xml:space="preserve">
+      <Id>6d446e39-a0c1-4a09-9696-247d80612b49</Id>
+      <DisplayName>Sleep Time</DisplayName>
+      <CustomizationSetting>Yes</CustomizationSetting>
+      <double>0</double>
+      <Scope>
+        <Family>ProcessInstanceIn</Family>
+        <ControllingItemId>f0338b0e-02f1-4140-8781-ff41b2b2ce05</ControllingItemId>
+      </Scope>
+      <VariableTypeId>97f5f9a7-d76c-90c6-fcef-e0362ff3b2d2</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="StringVariableConfiguration" xml:space="preserve">
+      <Id>4e393676-5448-48db-aa2b-e9d5fc0c99e9</Id>
+      <DisplayName>Parent Process Instance ID</DisplayName>
+      <CustomizationSetting>Yes</CustomizationSetting>
+      <string />
+      <Scope>
+        <Family>ProcessInstanceIn</Family>
+        <ControllingItemId>f0338b0e-02f1-4140-8781-ff41b2b2ce05</ControllingItemId>
+      </Scope>
+      <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+  </VariableDefinitions>
+  <Notes />
+  <ValidTargetTypeNames>
+    <string>Tidal.Automation.Windows.Common.WindowsTargetConfiguration, Tidal.Automation.Windows.Common</string>
+  </ValidTargetTypeNames>
+  <ValidTargetTypeExtensionIds>
+    <guid>2097ba7b-3e94-0c5b-8243-90df2cca8626</guid>
+  </ValidTargetTypeExtensionIds>
+  <ValidRuntimeUserTypeNames>
+    <string>Tidal.Automation.WebService.Common.ClientCertificateUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.WebService.Common.OAuthUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.OpenStack.Common.User.OpenStackUserConfiguration, Tidal.Automation.OpenStack.Common</string>
+    <string>Tidal.Automation.Ssh.Common.PublicKeyAdminUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.Ssh.Common.IOSUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.BuiltinAdapter.Common.GenericRuntimeUserConfiguration, Tidal.Automation.BuiltinAdapter.Common</string>
+    <string>Tidal.Automation.Snmp.Common.SnmpUserConfiguration, Tidal.Automation.Snmp.Common</string>
+    <string>Tidal.Automation.vCloud.Common.Users.vCloudUserConfiguration, Tidal.Automation.vCloud.Common</string>
+    <string>Tidal.Automation.Windows.Common.WindowsUserConfiguration, Tidal.Automation.Windows.Common</string>
+  </ValidRuntimeUserTypeNames>
+  <ProcessOverlapBehavior>OnlyRunOnDifferentTarget</ProcessOverlapBehavior>
+</ProcessConfiguration>

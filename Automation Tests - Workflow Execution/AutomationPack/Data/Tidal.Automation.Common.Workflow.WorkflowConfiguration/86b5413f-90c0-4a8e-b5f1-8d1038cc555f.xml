@@ -1,0 +1,746 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>86b5413f-90c0-4a8e-b5f1-8d1038cc555f</Id>
+  <DisplayName>Twn190013c: Test Workflow Execution Options</DisplayName>
+  <CreatedTime>2019-06-20T23:35:33.6770129Z</CreatedTime>
+  <ModifiedTime>2019-06-20T23:35:33.6770129Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>de83f36a-b6fa-4771-a07d-711e87f23a41</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>aeb78bf5-a07d-4f67-9326-e0c0557dc19e</Id>
+        <DisplayName>Find Orchestrator Servers</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>7f6fc0fc-ecf0-4af6-87f1-1038ebc0cb19</Id>
+            <ActivityNodeId>aeb78bf5-a07d-4f67-9326-e0c0557dc19e</ActivityNodeId>
+            <CompletedId>ee586868-cd6e-45a5-a780-72a29073638b</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="BuiltinFindTargetsActivityConfiguration" xml:space="preserve">
+          <Id>aeb78bf5-a07d-4f67-9326-e0c0557dc19e</Id>
+          <DisplayName>Find Orchestrator Servers</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>1ce0b5c4-7a15-4d73-824a-c9361f002cce</ContainingProcessId>
+          <TargetTypeName>Tidal.Automation.Windows.Common.WindowsTargetConfiguration, Tidal.Automation.Windows.Common</TargetTypeName>
+          <TargetTypeExtensionId>2097ba7b-3e94-0c5b-8243-90df2cca8626</TargetTypeExtensionId>
+          <TargetGroupId>bc5933b4-512f-46ce-86a9-3b40331ba395</TargetGroupId>
+          <MatchingCriteria />
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="WhileNode">
+        <Id>f5d39974-9e38-4d6a-80d8-71b8ee7524c9</Id>
+        <DisplayName>While Loop Counter &lt; 2</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="ForEachNode">
+            <Id>dc58eaeb-09ae-4d23-a945-c5cec95e7523</Id>
+            <DisplayName>For Each Orchestrator Server</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="ParallelNode">
+                <Id>38d2e19d-cf78-42a5-8cd7-179442f42586</Id>
+                <DisplayName>Parallel Block</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="SequenceNode">
+                    <Id>c37a3075-736e-4a41-9725-f4d04f302892</Id>
+                    <DisplayName>Do not start if already run on same target</DisplayName>
+                    <Children>
+                      <ActivityNode xsi:type="StartProcessNode">
+                        <Id>ffe6bda2-0439-4ca7-bacd-466bda5cdf57</Id>
+                        <DisplayName>Do Not Start If Already Run on Same Target</DisplayName>
+                        <Children>
+                          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                            <Id>f443d067-2cf5-4a38-ae5b-28c14bef4e07</Id>
+                            <ProcessNodeId>ffe6bda2-0439-4ca7-bacd-466bda5cdf57</ProcessNodeId>
+                            <CompletedId>a343174a-8544-42fd-ba1d-b2980250de1f</CompletedId>
+                          </ActivityNode>
+                        </Children>
+                        <ProcessId>f0338b0e-02f1-4140-8781-ff41b2b2ce05</ProcessId>
+                        <InputVariableTable>
+                          <VariableAssignmentsAsArray>
+                            <InputVariableAssignment>
+                              <InputVariableId>4e393676-5448-48db-aa2b-e9d5fc0c99e9</InputVariableId>
+                              <VariableValue xsi:type="SubstitutableString">
+                                <FormattedCode>{0}</FormattedCode>
+                                <References>
+                                  <VariableReference xsi:type="PropertyReference">
+                                    <DisplayPath>Process.Process Instance Id</DisplayPath>
+                                    <LinkChain>
+                                      <Link xsi:type="PropertyNameLink">
+                                        <PropertyName>Id</PropertyName>
+                                      </Link>
+                                    </LinkChain>
+                                    <ObjectType>ProcessInstance</ObjectType>
+                                  </VariableReference>
+                                </References>
+                              </VariableValue>
+                            </InputVariableAssignment>
+                            <InputVariableAssignment>
+                              <InputVariableId>6d446e39-a0c1-4a09-9696-247d80612b49</InputVariableId>
+                              <VariableValue xsi:type="SubstitutableNumber">
+                                <HardcodedValue>60</HardcodedValue>
+                              </VariableValue>
+                            </InputVariableAssignment>
+                          </VariableAssignmentsAsArray>
+                        </InputVariableTable>
+                        <Asynchronous>true</Asynchronous>
+                        <InheritTarget>false</InheritTarget>
+                        <TargetLoadBalancer xsi:type="SingleTargetReferenceLoadBalancer">
+                          <SingleTargetReference>
+                            <FormattedCode>{0}</FormattedCode>
+                            <References>
+                              <VariableReference xsi:type="PropertyReference">
+                                <DisplayPath>Workflow.For Each Orchestrator Server.Item</DisplayPath>
+                                <LinkChain />
+                                <ObjectId>dc58eaeb-09ae-4d23-a945-c5cec95e7523</ObjectId>
+                                <ObjectType>ActivityInstance</ObjectType>
+                              </VariableReference>
+                            </References>
+                          </SingleTargetReference>
+                        </TargetLoadBalancer>
+                        <InheritPriorityClass>true</InheritPriorityClass>
+                        <RuntimeUserId>
+                          <HardcodedValue>00000000-0000-0000-0000-000000000000</HardcodedValue>
+                        </RuntimeUserId>
+                        <KnowledgeBaseId>00000000-0000-0000-0000-000000000000</KnowledgeBaseId>
+                        <StartPointId>
+                          <HardcodedValue>00000000-0000-0000-0000-000000000000</HardcodedValue>
+                        </StartPointId>
+                        <StartPointName>
+                          <FormattedCode />
+                        </StartPointName>
+                        <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                          <FormattedCode />
+                          <HardcodedValue>
+                            <Id>00000000-0000-0000-0000-000000000000</Id>
+                            <ObjectType>RuntimeUser</ObjectType>
+                          </HardcodedValue>
+                        </RuntimeUserObject>
+                      </ActivityNode>
+                    </Children>
+                  </ActivityNode>
+                  <ActivityNode xsi:type="SequenceNode">
+                    <Id>fb0ac9e3-7818-4c9f-8fa5-52f86a6ec495</Id>
+                    <DisplayName>Do not start if already run on any target</DisplayName>
+                    <Children>
+                      <ActivityNode xsi:type="StartProcessNode">
+                        <Id>8a20e9fd-1fb1-4959-a7ae-b1745e28e271</Id>
+                        <DisplayName>Do Not Start If Already Run on Any Target</DisplayName>
+                        <Children>
+                          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                            <Id>c3c162b9-b8a4-4b07-90cd-8721570a0caf</Id>
+                            <ProcessNodeId>8a20e9fd-1fb1-4959-a7ae-b1745e28e271</ProcessNodeId>
+                            <CompletedId>17bdcfb0-e4b1-4cef-9afa-18e1b41d0d23</CompletedId>
+                          </ActivityNode>
+                        </Children>
+                        <ProcessId>f2a09514-67b0-4f45-9406-e3f9583df99d</ProcessId>
+                        <InputVariableTable>
+                          <VariableAssignmentsAsArray>
+                            <InputVariableAssignment>
+                              <InputVariableId>21af31ec-18d4-4a25-9935-252e4bcfd449</InputVariableId>
+                              <VariableValue xsi:type="SubstitutableString">
+                                <FormattedCode>{0}</FormattedCode>
+                                <References>
+                                  <VariableReference xsi:type="PropertyReference">
+                                    <DisplayPath>Process.Process Instance Id</DisplayPath>
+                                    <LinkChain>
+                                      <Link xsi:type="PropertyNameLink">
+                                        <PropertyName>Id</PropertyName>
+                                      </Link>
+                                    </LinkChain>
+                                    <ObjectType>ProcessInstance</ObjectType>
+                                  </VariableReference>
+                                </References>
+                              </VariableValue>
+                            </InputVariableAssignment>
+                            <InputVariableAssignment>
+                              <InputVariableId>57c53eb5-1db0-4b47-9417-b939e793273c</InputVariableId>
+                              <VariableValue xsi:type="SubstitutableNumber">
+                                <HardcodedValue>60</HardcodedValue>
+                              </VariableValue>
+                            </InputVariableAssignment>
+                          </VariableAssignmentsAsArray>
+                        </InputVariableTable>
+                        <Asynchronous>true</Asynchronous>
+                        <InheritTarget>false</InheritTarget>
+                        <TargetLoadBalancer xsi:type="SingleTargetReferenceLoadBalancer">
+                          <SingleTargetReference>
+                            <FormattedCode>{0}</FormattedCode>
+                            <References>
+                              <VariableReference xsi:type="PropertyReference">
+                                <DisplayPath>Workflow.For Each Orchestrator Server.Item</DisplayPath>
+                                <LinkChain />
+                                <ObjectId>dc58eaeb-09ae-4d23-a945-c5cec95e7523</ObjectId>
+                                <ObjectType>ActivityInstance</ObjectType>
+                              </VariableReference>
+                            </References>
+                          </SingleTargetReference>
+                        </TargetLoadBalancer>
+                        <InheritPriorityClass>true</InheritPriorityClass>
+                        <RuntimeUserId>
+                          <HardcodedValue>00000000-0000-0000-0000-000000000000</HardcodedValue>
+                        </RuntimeUserId>
+                        <KnowledgeBaseId>00000000-0000-0000-0000-000000000000</KnowledgeBaseId>
+                        <StartPointId>
+                          <HardcodedValue>00000000-0000-0000-0000-000000000000</HardcodedValue>
+                        </StartPointId>
+                        <StartPointName>
+                          <FormattedCode />
+                        </StartPointName>
+                        <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                          <FormattedCode />
+                          <HardcodedValue>
+                            <Id>00000000-0000-0000-0000-000000000000</Id>
+                            <ObjectType>RuntimeUser</ObjectType>
+                          </HardcodedValue>
+                        </RuntimeUserObject>
+                      </ActivityNode>
+                    </Children>
+                  </ActivityNode>
+                </Children>
+              </ActivityNode>
+            </Children>
+            <ForEachSource xsi:type="PropertyReference">
+              <DisplayPath>Workflow.Find Orchestrator Servers.Found Targets.Items</DisplayPath>
+              <LinkChain>
+                <Link xsi:type="PropertyNameLink">
+                  <PropertyName>GetAllFoundTargets</PropertyName>
+                </Link>
+                <Link xsi:type="PropertyNameLink">
+                  <PropertyName>Items</PropertyName>
+                </Link>
+              </LinkChain>
+              <ObjectId>aeb78bf5-a07d-4f67-9326-e0c0557dc19e</ObjectId>
+              <ObjectType>ActivityInstance</ObjectType>
+            </ForEachSource>
+          </ActivityNode>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>5cceaa8b-9fdb-4b0d-b271-fd449abed717</Id>
+            <DisplayName>Increment Counter</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                <Id>e2547e30-7adc-4c4f-8f41-51a0d7a2ee1e</Id>
+                <ActivityNodeId>5cceaa8b-9fdb-4b0d-b271-fd449abed717</ActivityNodeId>
+                <CompletedId>1a3d7bb2-b87b-4976-a55f-7070472e28e1</CompletedId>
+              </ActivityNode>
+            </Children>
+            <Configuration xsi:type="SetVariableActivityConfiguration" xml:space="preserve">
+              <Id>5cceaa8b-9fdb-4b0d-b271-fd449abed717</Id>
+              <DisplayName>Increment Counter</DisplayName>
+              <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                <SingleTargetId>
+                  <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                </SingleTargetId>
+              </TargetLoadBalancer>
+              <InheritTarget>false</InheritTarget>
+              <ContainingProcessId>1ce0b5c4-7a15-4d73-824a-c9361f002cce</ContainingProcessId>
+              <VariableToSet>
+                <DisplayPath>Process.Variables.Local.Loop Counter</DisplayPath>
+                <LinkChain />
+                <ObjectId>ce2b459c-1300-4e5a-9794-22ae404284ad</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableToSet>
+              <NewValue xsi:type="SubstitutableNumber">
+                <FormattedCode>{0} + 1</FormattedCode>
+                <References>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Process.Variables.Local.Loop Counter</DisplayPath>
+                    <LinkChain />
+                    <ObjectId>ce2b459c-1300-4e5a-9794-22ae404284ad</ObjectId>
+                    <ObjectType>GlobalVariable</ObjectType>
+                  </VariableReference>
+                </References>
+              </NewValue>
+            </Configuration>
+          </ActivityNode>
+        </Children>
+        <Condition>
+          <Id>2b51852d-3525-482c-b678-1f059ceef33d</Id>
+          <Operator>Or</Operator>
+          <Conditions>
+            <ConditionDefinition xsi:type="VariableConditionDefinition">
+              <Id>a7f89937-0191-4b5b-a041-8306157789be</Id>
+              <Expression xsi:type="SubstitutableNumber">
+                <HardcodedValue>2</HardcodedValue>
+              </Expression>
+              <Comparison>LessThan</Comparison>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Process.Variables.Local.Loop Counter</DisplayPath>
+                <LinkChain />
+                <ObjectId>ce2b459c-1300-4e5a-9794-22ae404284ad</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableReference>
+            </ConditionDefinition>
+          </Conditions>
+        </Condition>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>0b3f9bd4-ca70-4bfd-b3dc-09b662308203</Id>
+        <DisplayName>Sleep for 5 minutes</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>2d5746a0-9454-4ce3-81c9-543f18859231</Id>
+            <ActivityNodeId>0b3f9bd4-ca70-4bfd-b3dc-09b662308203</ActivityNodeId>
+            <CompletedId>42c30c95-b082-4bfc-9805-6dbebb49afc6</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="SleepActivityConfiguration" xml:space="preserve">
+          <Id>0b3f9bd4-ca70-4bfd-b3dc-09b662308203</Id>
+          <DisplayName>Sleep for 5 minutes</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>1ce0b5c4-7a15-4d73-824a-c9361f002cce</ContainingProcessId>
+          <Seconds>
+            <HardcodedValue>300</HardcodedValue>
+          </Seconds>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ParallelNode">
+        <Id>884c80a1-566b-4195-a304-d4c083fd26ae</Id>
+        <DisplayName>Parallel Block</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="SequenceNode">
+            <Id>938b7a37-f856-4c90-9283-ba0e5182b22c</Id>
+            <DisplayName>Do not start if already run on same target</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="ExecuteActivityNode">
+                <Id>6a65f3df-d2c9-4210-b9a3-ecf20e7fc28b</Id>
+                <DisplayName>Find Alerts for 'Do Not Start If Already Run on Same Target'</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                    <Id>df5b8a02-fdaf-4787-a788-26dd5224dfea</Id>
+                    <ActivityNodeId>6a65f3df-d2c9-4210-b9a3-ecf20e7fc28b</ActivityNodeId>
+                    <CompletedId>1f134686-e97b-4f27-aad8-1e54b562f91e</CompletedId>
+                  </ActivityNode>
+                </Children>
+                <Configuration xsi:type="FindAlertsActivityConfiguration" xml:space="preserve">
+                  <Id>6a65f3df-d2c9-4210-b9a3-ecf20e7fc28b</Id>
+                  <DisplayName>Find Alerts for 'Do Not Start If Already Run on Same Target'</DisplayName>
+                  <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                    <SingleTargetId>
+                      <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                    </SingleTargetId>
+                  </TargetLoadBalancer>
+                  <InheritTarget>false</InheritTarget>
+                  <ContainingProcessId>1ce0b5c4-7a15-4d73-824a-c9361f002cce</ContainingProcessId>
+                  <CreatedTimePeriod>
+                    <DisplayUnits>Seconds</DisplayUnits>
+                    <Period>
+                      <HardcodedValue>600</HardcodedValue>
+                    </Period>
+                  </CreatedTimePeriod>
+                  <MatchingCriteria>
+                    <GenericCriteria xsi:type="StringCriteria">
+                      <LinkChain>
+                        <Link xsi:type="PropertyNameLink">
+                          <PropertyName>DisplayName</PropertyName>
+                        </Link>
+                      </LinkChain>
+                      <MatchingString>
+                        <HardcodedValue>Do Not Start If Already Run on Same Target</HardcodedValue>
+                      </MatchingString>
+                      <Comparison>Equals</Comparison>
+                    </GenericCriteria>
+                    <GenericCriteria xsi:type="StringCriteria">
+                      <LinkChain>
+                        <Link xsi:type="PropertyNameLink">
+                          <PropertyName>Description</PropertyName>
+                        </Link>
+                      </LinkChain>
+                      <MatchingString>
+                        <FormattedCode>{0}</FormattedCode>
+                        <References>
+                          <VariableReference xsi:type="PropertyReference">
+                            <DisplayPath>Process.Process Instance Id</DisplayPath>
+                            <LinkChain>
+                              <Link xsi:type="PropertyNameLink">
+                                <PropertyName>Id</PropertyName>
+                              </Link>
+                            </LinkChain>
+                            <ObjectType>ProcessInstance</ObjectType>
+                          </VariableReference>
+                        </References>
+                      </MatchingString>
+                      <Comparison>Equals</Comparison>
+                    </GenericCriteria>
+                  </MatchingCriteria>
+                  <MatchingStatus>All</MatchingStatus>
+                </Configuration>
+              </ActivityNode>
+              <ActivityNode xsi:type="ForEachNode">
+                <Id>21f979ac-c6de-4e95-8616-883f2f2cc871</Id>
+                <DisplayName>For Each Alert</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="ExecuteActivityNode">
+                    <Id>024c460e-c8d5-4088-8b96-dab694c6332d</Id>
+                    <DisplayName>Close Alert</DisplayName>
+                    <Children>
+                      <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                        <Id>2d05e9fd-6512-4f03-b33a-833ca05ac0dd</Id>
+                        <ActivityNodeId>024c460e-c8d5-4088-8b96-dab694c6332d</ActivityNodeId>
+                        <CompletedId>f5366200-f308-458f-b1bd-8267b9242bfd</CompletedId>
+                      </ActivityNode>
+                    </Children>
+                    <Configuration xsi:type="UpdateAlertActivityConfiguration" xml:space="preserve">
+                      <Id>024c460e-c8d5-4088-8b96-dab694c6332d</Id>
+                      <DisplayName>Close Alert</DisplayName>
+                      <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                        <SingleTargetId>
+                          <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                        </SingleTargetId>
+                      </TargetLoadBalancer>
+                      <InheritTarget>false</InheritTarget>
+                      <ContainingProcessId>1ce0b5c4-7a15-4d73-824a-c9361f002cce</ContainingProcessId>
+                      <TaskId>
+                        <FormattedCode>{0}</FormattedCode>
+                        <References>
+                          <VariableReference xsi:type="PropertyReference">
+                            <DisplayPath>Workflow.For Each Alert.Item.Task Id</DisplayPath>
+                            <LinkChain>
+                              <Link xsi:type="PropertyNameLink">
+                                <PropertyName>GetReferencedObject</PropertyName>
+                              </Link>
+                              <Link xsi:type="PropertyNameLink">
+                                <PropertyName>Id</PropertyName>
+                              </Link>
+                            </LinkChain>
+                            <ObjectId>21f979ac-c6de-4e95-8616-883f2f2cc871</ObjectId>
+                            <ObjectType>ActivityInstance</ObjectType>
+                          </VariableReference>
+                        </References>
+                      </TaskId>
+                      <ModificationGroup>
+                        <ObjectId>00000000-0000-0000-0000-000000000000</ObjectId>
+                        <ObjectType>Task</ObjectType>
+                        <Modifications>
+                          <PropertyModification>
+                            <DisplayPath>Task Status.Closed</DisplayPath>
+                            <LinkChain>
+                              <Link xsi:type="PropertyNameLink">
+                                <PropertyName>Closed</PropertyName>
+                              </Link>
+                            </LinkChain>
+                            <Action>Set</Action>
+                            <Value xsi:type="SubstitutableBoolean">
+                              <HardcodedValue>true</HardcodedValue>
+                            </Value>
+                          </PropertyModification>
+                        </Modifications>
+                      </ModificationGroup>
+                    </Configuration>
+                  </ActivityNode>
+                </Children>
+                <ForEachSource xsi:type="PropertyReference">
+                  <DisplayPath>Workflow.Find Alerts for 'Do Not Start If Already Run on Same Target'.Found Tasks.Items</DisplayPath>
+                  <LinkChain>
+                    <Link xsi:type="PropertyNameLink">
+                      <PropertyName>GetAllFoundTasks</PropertyName>
+                    </Link>
+                    <Link xsi:type="PropertyNameLink">
+                      <PropertyName>Items</PropertyName>
+                    </Link>
+                  </LinkChain>
+                  <ObjectId>6a65f3df-d2c9-4210-b9a3-ecf20e7fc28b</ObjectId>
+                  <ObjectType>ActivityInstance</ObjectType>
+                </ForEachSource>
+              </ActivityNode>
+              <ActivityNode xsi:type="ConditionBranchNode">
+                <Id>fe2e552c-3fef-4f29-acae-7b68c2b592bf</Id>
+                <DisplayName>Condition Branch</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="CompletedNode">
+                    <Id>4856266b-9ecd-45d7-b173-f5bf6c3cd3fb</Id>
+                    <CompletedType>Failed</CompletedType>
+                    <ResultMessage>
+                      <FormattedCode>Expected {0} instances of the child process 'Do Not Start If Already Run on Same Target'.  But {1} instances run.</FormattedCode>
+                      <References>
+                        <VariableReference xsi:type="PropertyReference">
+                          <DisplayPath>Workflow.Find Orchestrator Servers.Found Targets.Count</DisplayPath>
+                          <LinkChain>
+                            <Link xsi:type="PropertyNameLink">
+                              <PropertyName>GetAllFoundTargets</PropertyName>
+                            </Link>
+                            <Link xsi:type="PropertyNameLink">
+                              <PropertyName>ItemCount</PropertyName>
+                            </Link>
+                          </LinkChain>
+                          <ObjectId>aeb78bf5-a07d-4f67-9326-e0c0557dc19e</ObjectId>
+                          <ObjectType>ActivityInstance</ObjectType>
+                        </VariableReference>
+                        <VariableReference xsi:type="PropertyReference">
+                          <DisplayPath>Workflow.Find Alerts for 'Do Not Start If Already Run on Same Target'.Found Tasks.Count</DisplayPath>
+                          <LinkChain>
+                            <Link xsi:type="PropertyNameLink">
+                              <PropertyName>GetAllFoundTasks</PropertyName>
+                            </Link>
+                            <Link xsi:type="PropertyNameLink">
+                              <PropertyName>ItemCount</PropertyName>
+                            </Link>
+                          </LinkChain>
+                          <ObjectId>6a65f3df-d2c9-4210-b9a3-ecf20e7fc28b</ObjectId>
+                          <ObjectType>ActivityInstance</ObjectType>
+                        </VariableReference>
+                      </References>
+                    </ResultMessage>
+                  </ActivityNode>
+                </Children>
+                <Condition>
+                  <Id>1367e656-eca8-4334-9b6d-b09c53e78553</Id>
+                  <Operator>Or</Operator>
+                  <Conditions>
+                    <ConditionDefinition xsi:type="VariableConditionDefinition">
+                      <Id>68fce439-cd93-415b-b7a2-4c464004211b</Id>
+                      <Expression xsi:type="SubstitutableNumber">
+                        <FormattedCode>{0}</FormattedCode>
+                        <References>
+                          <VariableReference xsi:type="PropertyReference">
+                            <DisplayPath>Workflow.Find Orchestrator Servers.Found Targets.Count</DisplayPath>
+                            <LinkChain>
+                              <Link xsi:type="PropertyNameLink">
+                                <PropertyName>GetAllFoundTargets</PropertyName>
+                              </Link>
+                              <Link xsi:type="PropertyNameLink">
+                                <PropertyName>ItemCount</PropertyName>
+                              </Link>
+                            </LinkChain>
+                            <ObjectId>aeb78bf5-a07d-4f67-9326-e0c0557dc19e</ObjectId>
+                            <ObjectType>ActivityInstance</ObjectType>
+                          </VariableReference>
+                        </References>
+                      </Expression>
+                      <Comparison>NotEquals</Comparison>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.Find Alerts for 'Do Not Start If Already Run on Same Target'.Found Tasks.Count</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>GetAllFoundTasks</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>ItemCount</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>6a65f3df-d2c9-4210-b9a3-ecf20e7fc28b</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </ConditionDefinition>
+                  </Conditions>
+                </Condition>
+              </ActivityNode>
+            </Children>
+          </ActivityNode>
+          <ActivityNode xsi:type="SequenceNode">
+            <Id>84230700-8339-4095-9dfb-bdf51115e49e</Id>
+            <DisplayName>Do not start if already run on any target</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="ExecuteActivityNode">
+                <Id>81eeb26a-93b6-4f5d-81e0-45d0fb931e3e</Id>
+                <DisplayName>Find Alerts for 'Do Not Start If Already Run on Any Target'</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                    <Id>c1f1cf35-dd37-402d-b52f-ea3a9b47fa80</Id>
+                    <ActivityNodeId>81eeb26a-93b6-4f5d-81e0-45d0fb931e3e</ActivityNodeId>
+                    <CompletedId>560afea6-fcc8-4a48-9cf9-630e21c50d6a</CompletedId>
+                  </ActivityNode>
+                </Children>
+                <Configuration xsi:type="FindAlertsActivityConfiguration" xml:space="preserve">
+                  <Id>81eeb26a-93b6-4f5d-81e0-45d0fb931e3e</Id>
+                  <DisplayName>Find Alerts for 'Do Not Start If Already Run on Any Target'</DisplayName>
+                  <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                    <SingleTargetId>
+                      <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                    </SingleTargetId>
+                  </TargetLoadBalancer>
+                  <InheritTarget>false</InheritTarget>
+                  <ContainingProcessId>1ce0b5c4-7a15-4d73-824a-c9361f002cce</ContainingProcessId>
+                  <CreatedTimePeriod>
+                    <DisplayUnits>Seconds</DisplayUnits>
+                    <Period>
+                      <HardcodedValue>600</HardcodedValue>
+                    </Period>
+                  </CreatedTimePeriod>
+                  <MatchingCriteria>
+                    <GenericCriteria xsi:type="StringCriteria">
+                      <LinkChain>
+                        <Link xsi:type="PropertyNameLink">
+                          <PropertyName>DisplayName</PropertyName>
+                        </Link>
+                      </LinkChain>
+                      <MatchingString>
+                        <HardcodedValue>Do Not Start If Already Run on Any Target</HardcodedValue>
+                      </MatchingString>
+                      <Comparison>Equals</Comparison>
+                    </GenericCriteria>
+                    <GenericCriteria xsi:type="StringCriteria">
+                      <LinkChain>
+                        <Link xsi:type="PropertyNameLink">
+                          <PropertyName>Description</PropertyName>
+                        </Link>
+                      </LinkChain>
+                      <MatchingString>
+                        <FormattedCode>{0}</FormattedCode>
+                        <References>
+                          <VariableReference xsi:type="PropertyReference">
+                            <DisplayPath>Process.Process Instance Id</DisplayPath>
+                            <LinkChain>
+                              <Link xsi:type="PropertyNameLink">
+                                <PropertyName>Id</PropertyName>
+                              </Link>
+                            </LinkChain>
+                            <ObjectType>ProcessInstance</ObjectType>
+                          </VariableReference>
+                        </References>
+                      </MatchingString>
+                      <Comparison>Equals</Comparison>
+                    </GenericCriteria>
+                  </MatchingCriteria>
+                  <MatchingStatus>All</MatchingStatus>
+                </Configuration>
+              </ActivityNode>
+              <ActivityNode xsi:type="ForEachNode">
+                <Id>3b6262eb-1c94-4448-9729-d3d00d1a0302</Id>
+                <DisplayName>For Each Alert</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="ExecuteActivityNode">
+                    <Id>8a0f2a1e-4615-4c86-920b-2a359e99599d</Id>
+                    <DisplayName>Close Alert</DisplayName>
+                    <Children>
+                      <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                        <Id>b0599a25-b06e-47fe-ba92-61d510531ab5</Id>
+                        <ActivityNodeId>8a0f2a1e-4615-4c86-920b-2a359e99599d</ActivityNodeId>
+                        <CompletedId>d3afd8a5-aec3-4887-bc10-f46d8c4686ff</CompletedId>
+                      </ActivityNode>
+                    </Children>
+                    <Configuration xsi:type="UpdateAlertActivityConfiguration" xml:space="preserve">
+                      <Id>8a0f2a1e-4615-4c86-920b-2a359e99599d</Id>
+                      <DisplayName>Close Alert</DisplayName>
+                      <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                        <SingleTargetId>
+                          <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                        </SingleTargetId>
+                      </TargetLoadBalancer>
+                      <InheritTarget>false</InheritTarget>
+                      <ContainingProcessId>1ce0b5c4-7a15-4d73-824a-c9361f002cce</ContainingProcessId>
+                      <TaskId>
+                        <FormattedCode>{0}</FormattedCode>
+                        <References>
+                          <VariableReference xsi:type="PropertyReference">
+                            <DisplayPath>Workflow.For Each Alert.Item.Task Id</DisplayPath>
+                            <LinkChain>
+                              <Link xsi:type="PropertyNameLink">
+                                <PropertyName>GetReferencedObject</PropertyName>
+                              </Link>
+                              <Link xsi:type="PropertyNameLink">
+                                <PropertyName>Id</PropertyName>
+                              </Link>
+                            </LinkChain>
+                            <ObjectId>3b6262eb-1c94-4448-9729-d3d00d1a0302</ObjectId>
+                            <ObjectType>ActivityInstance</ObjectType>
+                          </VariableReference>
+                        </References>
+                      </TaskId>
+                      <ModificationGroup>
+                        <ObjectId>00000000-0000-0000-0000-000000000000</ObjectId>
+                        <ObjectType>Task</ObjectType>
+                        <Modifications>
+                          <PropertyModification>
+                            <DisplayPath>Task Status.Closed</DisplayPath>
+                            <LinkChain>
+                              <Link xsi:type="PropertyNameLink">
+                                <PropertyName>Closed</PropertyName>
+                              </Link>
+                            </LinkChain>
+                            <Action>Set</Action>
+                            <Value xsi:type="SubstitutableBoolean">
+                              <HardcodedValue>true</HardcodedValue>
+                            </Value>
+                          </PropertyModification>
+                        </Modifications>
+                      </ModificationGroup>
+                    </Configuration>
+                  </ActivityNode>
+                </Children>
+                <ForEachSource xsi:type="PropertyReference">
+                  <DisplayPath>Workflow.Find Alerts for 'Do Not Start If Already Run on Any Target'.Found Tasks.Items</DisplayPath>
+                  <LinkChain>
+                    <Link xsi:type="PropertyNameLink">
+                      <PropertyName>GetAllFoundTasks</PropertyName>
+                    </Link>
+                    <Link xsi:type="PropertyNameLink">
+                      <PropertyName>Items</PropertyName>
+                    </Link>
+                  </LinkChain>
+                  <ObjectId>81eeb26a-93b6-4f5d-81e0-45d0fb931e3e</ObjectId>
+                  <ObjectType>ActivityInstance</ObjectType>
+                </ForEachSource>
+              </ActivityNode>
+              <ActivityNode xsi:type="ConditionBranchNode">
+                <Id>0c19beec-3d98-4d1a-8ecf-f856251d2aa7</Id>
+                <DisplayName>Condition Branch</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="CompletedNode">
+                    <Id>0b93fb64-ef28-47e5-a87d-df914f0d2551</Id>
+                    <CompletedType>Failed</CompletedType>
+                    <ResultMessage>
+                      <FormattedCode>Expected 1 instance of the child process 'Do Not Start If Already Run on Any Target'.  But {0} instances run.</FormattedCode>
+                      <References>
+                        <VariableReference xsi:type="PropertyReference">
+                          <DisplayPath>Workflow.Find Alerts for 'Do Not Start If Already Run on Any Target'.Found Tasks.Count</DisplayPath>
+                          <LinkChain>
+                            <Link xsi:type="PropertyNameLink">
+                              <PropertyName>GetAllFoundTasks</PropertyName>
+                            </Link>
+                            <Link xsi:type="PropertyNameLink">
+                              <PropertyName>ItemCount</PropertyName>
+                            </Link>
+                          </LinkChain>
+                          <ObjectId>81eeb26a-93b6-4f5d-81e0-45d0fb931e3e</ObjectId>
+                          <ObjectType>ActivityInstance</ObjectType>
+                        </VariableReference>
+                      </References>
+                    </ResultMessage>
+                  </ActivityNode>
+                </Children>
+                <Condition>
+                  <Id>1367e656-eca8-4334-9b6d-b09c53e78553</Id>
+                  <Operator>Or</Operator>
+                  <Conditions>
+                    <ConditionDefinition xsi:type="VariableConditionDefinition">
+                      <Id>68fce439-cd93-415b-b7a2-4c464004211b</Id>
+                      <Expression xsi:type="SubstitutableNumber">
+                        <HardcodedValue>1</HardcodedValue>
+                      </Expression>
+                      <Comparison>NotEquals</Comparison>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.Find Alerts for 'Do Not Start If Already Run on Any Target'.Found Tasks.Count</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>GetAllFoundTasks</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>ItemCount</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>81eeb26a-93b6-4f5d-81e0-45d0fb931e3e</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </ConditionDefinition>
+                  </Conditions>
+                </Condition>
+              </ActivityNode>
+            </Children>
+          </ActivityNode>
+        </Children>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>1ce0b5c4-7a15-4d73-824a-c9361f002cce</ProcessId>
+</WorkflowConfiguration>
