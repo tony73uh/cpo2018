@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>a3ae8d06-bf54-4525-ac1b-9f34b41a87de</Id>
+  <DisplayName>Tony Sleep</DisplayName>
+  <CreatedTime>2019-06-26T15:44:43.1137771Z</CreatedTime>
+  <ModifiedTime>2019-06-26T15:44:43.1137771Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>880d6945-dc81-4346-aece-653df3c4edd3</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>4542cc4b-12ee-424c-911d-4eec2e1b6ead</Id>
+        <DisplayName>Sleep</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>c31af8e9-2030-405c-856f-3497b54fc062</Id>
+            <ActivityNodeId>4542cc4b-12ee-424c-911d-4eec2e1b6ead</ActivityNodeId>
+            <CompletedId>4cf7a889-c4db-490f-ad97-52c4f5296161</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="SleepActivityConfiguration" xml:space="preserve">
+          <Id>4542cc4b-12ee-424c-911d-4eec2e1b6ead</Id>
+          <DisplayName>Sleep</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>b1c103df-a15d-420d-8313-a13d97b16884</ContainingProcessId>
+          <Seconds>
+            <HardcodedValue>60</HardcodedValue>
+          </Seconds>
+        </Configuration>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>b1c103df-a15d-420d-8313-a13d97b16884</ProcessId>
+</WorkflowConfiguration>
