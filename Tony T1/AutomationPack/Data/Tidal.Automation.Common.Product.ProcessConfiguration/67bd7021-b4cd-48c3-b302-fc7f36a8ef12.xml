@@ -2,8 +2,9 @@
 <ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>67bd7021-b4cd-48c3-b302-fc7f36a8ef12</Id>
   <DisplayName>Tony Export</DisplayName>
+  <VersionNumber>-1</VersionNumber>
   <CreatedTime>2019-06-26T21:05:17.6450533Z</CreatedTime>
-  <ModifiedTime>2019-06-26T21:05:17.6450533Z</ModifiedTime>
+  <ModifiedTime>2019-06-26T22:08:10.4920832Z</ModifiedTime>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>
