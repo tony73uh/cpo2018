@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>2b57dee6-9050-43d0-a919-c58acbf39aa3</Id>
+  <DisplayName>_TEST Process</DisplayName>
+  <CreatedTime>2019-06-26T22:00:25.3264089Z</CreatedTime>
+  <ModifiedTime>2019-06-26T22:00:25.3264089Z</ModifiedTime>
+  <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+    <FormattedCode />
+    <HardcodedValue>
+      <Id>00000000-0000-0000-0000-000000000000</Id>
+      <ObjectType>RuntimeUser</ObjectType>
+    </HardcodedValue>
+  </RuntimeUserObject>
+  <TargetLoadBalancer xsi:type="TargetNameLoadBalancer">
+    <TargetGroupId>4a4df09e-cb8e-48d6-8f14-fc3b4c2d7d87</TargetGroupId>
+    <NameToMatch>
+      <FormattedCode>{0}</FormattedCode>
+      <References>
+        <VariableReference xsi:type="PropertyReference">
+          <DisplayPath>Global Variables.TEST target name</DisplayPath>
+          <LinkChain />
+          <ObjectId>89c2a3c6-3a3d-4cac-b42e-99ca7b54f333</ObjectId>
+          <ObjectType>GlobalVariable</ObjectType>
+        </VariableReference>
+      </References>
+    </NameToMatch>
+  </TargetLoadBalancer>
+  <AuditStarts>true</AuditStarts>
+  <AuditSuccesses>true</AuditSuccesses>
+  <WorkflowId>713fe8a7-dbec-43d9-94e0-afc3383ddcb6</WorkflowId>
+  <CategoryIds />
+  <TriggerOwner>cf98ae5a-652c-49ab-a5f5-183045b5f324</TriggerOwner>
+  <Triggers>
+    <TriggerDefinition>
+      <Event xsi:type="AdHocEventDefinition">
+        <Id>e529d163-e984-4543-9199-f2bc0337289f</Id>
+        <DisplayName>Started by User</DisplayName>
+        <Imported>true</Imported>
+        <Identities />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>9a305295-5be5-419c-bca9-d4e19446166d</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>d72523c4-6325-4cc3-aab8-633bcf41e6e0</TriggerId>
+    </TriggerDefinition>
+    <TriggerDefinition>
+      <Event xsi:type="StartProcessEventDefinition">
+        <Id>b0a55fd9-cb47-409d-b49c-c0f32b7ef049</Id>
+        <DisplayName>Started by Parent Process</DisplayName>
+        <Imported>true</Imported>
+        <ProcessIds />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>aa3fdea3-5537-4d3d-a2ba-811bab7c7647</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>9b5bca33-265a-4e85-b6b5-491bf61337e9</TriggerId>
+    </TriggerDefinition>
+  </Triggers>
+  <VariableDefinitions />
+  <Notes />
+  <ValidTargetTypeNames>
+    <string>Tidal.Automation.WebService.Common.WebTargetConfiguration, Tidal.Automation.WebService.Common</string>
+  </ValidTargetTypeNames>
+  <ValidTargetTypeExtensionIds>
+    <guid>86e5a024-9ad5-462c-819b-c0e479e34d17</guid>
+  </ValidTargetTypeExtensionIds>
+  <ValidRuntimeUserTypeNames>
+    <string>Tidal.Automation.WebService.Common.ClientCertificateUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.CloudCenter.Users.CloudCenterApiAccessCredentialsConfiguration, Tidal.Automation.CloudCenter.Common</string>
+    <string>Tidal.Automation.WebService.Common.OAuthUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.OpenStack.Common.User.OpenStackUserConfiguration, Tidal.Automation.OpenStack.Common</string>
+    <string>Tidal.Automation.Ssh.Common.PublicKeyAdminUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.Ssh.Common.IOSUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.BuiltinAdapter.Common.GenericRuntimeUserConfiguration, Tidal.Automation.BuiltinAdapter.Common</string>
+    <string>Tidal.Automation.Azure.Common.AzureAccessKeyConfiguration, Tidal.Automation.Azure.Common</string>
+    <string>Tidal.Automation.Snmp.Common.SnmpUserConfiguration, Tidal.Automation.Snmp.Common</string>
+    <string>Tidal.Automation.vCloud.Common.Users.vCloudUserConfiguration, Tidal.Automation.vCloud.Common</string>
+    <string>Tidal.Automation.Windows.Common.WindowsUserConfiguration, Tidal.Automation.Windows.Common</string>
+  </ValidRuntimeUserTypeNames>
+</ProcessConfiguration>

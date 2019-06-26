@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>b9745040-6888-4a91-8696-313acbde8b86</Id>
+  <DisplayName>TEST Process</DisplayName>
+  <CreatedTime>2019-06-26T22:00:25.4714714Z</CreatedTime>
+  <ModifiedTime>2019-06-26T22:00:25.4714714Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>2b73ba65-b3d7-40ab-ba80-c8b9ac596e75</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="StartProcessNode">
+        <Id>849ca45b-0387-4fa2-a0ab-e65404227299</Id>
+        <DisplayName>_TEST Process</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>43ec03a4-7a13-4bbf-9a3c-3352cd065cdc</Id>
+            <ProcessNodeId>849ca45b-0387-4fa2-a0ab-e65404227299</ProcessNodeId>
+            <CompletedId>09cb348a-b5a3-4c45-813a-af5384187345</CompletedId>
+          </ActivityNode>
+        </Children>
+        <ProcessId>2b57dee6-9050-43d0-a919-c58acbf39aa3</ProcessId>
+        <InputVariableTable>
+          <VariableAssignmentsAsArray />
+        </InputVariableTable>
+        <Asynchronous>false</Asynchronous>
+        <InheritTarget>true</InheritTarget>
+        <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+        <InheritPriorityClass>true</InheritPriorityClass>
+        <RuntimeUserId>
+          <HardcodedValue>00000000-0000-0000-0000-000000000000</HardcodedValue>
+        </RuntimeUserId>
+        <KnowledgeBaseId>00000000-0000-0000-0000-000000000000</KnowledgeBaseId>
+        <StartPointId>
+          <HardcodedValue>00000000-0000-0000-0000-000000000000</HardcodedValue>
+        </StartPointId>
+        <StartPointName>
+          <FormattedCode />
+        </StartPointName>
+        <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+          <FormattedCode />
+          <HardcodedValue>
+            <Id>00000000-0000-0000-0000-000000000000</Id>
+            <ObjectType>RuntimeUser</ObjectType>
+          </HardcodedValue>
+        </RuntimeUserObject>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>b736fe13-31c9-43cd-a85c-5b4ba291c5d8</ProcessId>
+</WorkflowConfiguration>

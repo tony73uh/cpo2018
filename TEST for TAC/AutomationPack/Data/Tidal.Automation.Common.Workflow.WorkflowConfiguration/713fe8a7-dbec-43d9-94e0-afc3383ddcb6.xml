@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>713fe8a7-dbec-43d9-94e0-afc3383ddcb6</Id>
+  <DisplayName>_TEST Process</DisplayName>
+  <CreatedTime>2019-06-26T22:00:25.3104041Z</CreatedTime>
+  <ModifiedTime>2019-06-26T22:00:25.3104041Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>54830d9f-bab6-4dbf-9327-430a9c675477</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>fab9b314-128e-480f-95e1-8fe7431ec4f1</Id>
+        <DisplayName>Web HTTP Request</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>bcb5db8b-17f3-401f-9102-f31d82d790ea</Id>
+            <ActivityNodeId>fab9b314-128e-480f-95e1-8fe7431ec4f1</ActivityNodeId>
+            <CompletedId>0314e67a-e9fb-4f69-b80d-b2c4459d6fb0</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="WebHttpTargetAwareRequestActivityConfiguration" xml:space="preserve">
+          <Id>fab9b314-128e-480f-95e1-8fe7431ec4f1</Id>
+          <DisplayName>Web HTTP Request</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>2b57dee6-9050-43d0-a919-c58acbf39aa3</ContainingProcessId>
+          <UseCredentials>true</UseCredentials>
+          <RelativeUrl>
+            <FormattedCode />
+          </RelativeUrl>
+          <ContentType>
+            <HardcodedValue>application/xml; charset=utf-8</HardcodedValue>
+          </ContentType>
+          <Method>
+            <HardcodedValue>GET</HardcodedValue>
+          </Method>
+          <UserAgent>
+            <HardcodedValue />
+          </UserAgent>
+          <Request>
+            <FormattedCode />
+          </Request>
+          <ProtocolVersion>Version11</ProtocolVersion>
+          <AllowAutoRedirect>true</AllowAutoRedirect>
+          <Timeout>
+            <DisplayUnits>Seconds</DisplayUnits>
+            <Period>
+              <HardcodedValue>100</HardcodedValue>
+            </Period>
+          </Timeout>
+          <Accept>
+            <HardcodedValue />
+          </Accept>
+          <AcceptCookies>false</AcceptCookies>
+          <Headers />
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>2b57dee6-9050-43d0-a919-c58acbf39aa3</ProcessId>
+</WorkflowConfiguration>
