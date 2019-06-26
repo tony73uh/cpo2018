@@ -2,10 +2,11 @@
 <WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>a3ae8d06-bf54-4525-ac1b-9f34b41a87de</Id>
   <DisplayName>Tony Sleep</DisplayName>
+  <VersionNumber>3</VersionNumber>
   <CreatedTime>2019-06-26T15:44:43.1137771Z</CreatedTime>
-  <ModifiedTime>2019-06-26T15:44:43.1137771Z</ModifiedTime>
+  <ModifiedTime>2019-06-26T16:14:16.7453449Z</ModifiedTime>
   <FirstActivity xsi:type="RootNode">
-    <Id>880d6945-dc81-4346-aece-653df3c4edd3</Id>
+    <Id>c08cdd07-2000-49e2-b48f-94571f11951d</Id>
     <DisplayName />
     <Children>
       <ActivityNode xsi:type="ExecuteActivityNode">
@@ -21,6 +22,31 @@
         <Configuration xsi:type="SleepActivityConfiguration" xml:space="preserve">
           <Id>4542cc4b-12ee-424c-911d-4eec2e1b6ead</Id>
           <DisplayName>Sleep</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>b1c103df-a15d-420d-8313-a13d97b16884</ContainingProcessId>
+          <Seconds>
+            <HardcodedValue>60</HardcodedValue>
+          </Seconds>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>52e790f8-c5cf-4f77-9437-8872c26b3f85</Id>
+        <DisplayName>Sleep (2)</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>d17cf495-d349-4113-919e-9984a893398e</Id>
+            <ActivityNodeId>52e790f8-c5cf-4f77-9437-8872c26b3f85</ActivityNodeId>
+            <CompletedId>1dcc650e-c4a2-4fb2-ae06-7ce84037474d</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="SleepActivityConfiguration" xml:space="preserve">
+          <Id>52e790f8-c5cf-4f77-9437-8872c26b3f85</Id>
+          <DisplayName>Sleep (2)</DisplayName>
           <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
             <SingleTargetId>
               <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>

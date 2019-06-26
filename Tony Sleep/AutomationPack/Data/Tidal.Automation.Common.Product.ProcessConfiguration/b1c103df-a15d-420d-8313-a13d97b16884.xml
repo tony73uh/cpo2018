@@ -2,8 +2,9 @@
 <ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>b1c103df-a15d-420d-8313-a13d97b16884</Id>
   <DisplayName>Tony Sleep</DisplayName>
+  <VersionNumber>-1</VersionNumber>
   <CreatedTime>2019-06-26T15:44:43.1687796Z</CreatedTime>
-  <ModifiedTime>2019-06-26T15:44:43.1687796Z</ModifiedTime>
+  <ModifiedTime>2019-06-26T16:14:16.7163439Z</ModifiedTime>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>
@@ -54,7 +55,7 @@
     </TriggerDefinition>
   </Triggers>
   <VariableDefinitions />
-  <Notes />
+  <Notes>test</Notes>
   <ValidTargetTypeNames>
     <string>Tidal.Automation.BuiltinAdapter.Common.MasterTargetConfiguration, Tidal.Automation.BuiltinAdapter.Common</string>
   </ValidTargetTypeNames>
