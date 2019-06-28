@@ -2,9 +2,8 @@
 <WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>41d26ec2-7a0b-4bd6-a89c-0263484800c9</Id>
   <DisplayName>Tony Export</DisplayName>
-  <VersionNumber>2</VersionNumber>
-  <CreatedTime>2019-06-26T21:05:17.2610394Z</CreatedTime>
-  <ModifiedTime>2019-06-26T22:08:10.5370485Z</ModifiedTime>
+  <CreatedTime>2019-06-26T22:10:19.1434137Z</CreatedTime>
+  <ModifiedTime>2019-06-26T22:10:19.1434137Z</ModifiedTime>
   <FirstActivity xsi:type="RootNode">
     <Id>401d708f-9a79-4b1d-8d7c-5e70060afa55</Id>
     <DisplayName />

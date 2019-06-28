@@ -2,9 +2,8 @@
 <ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>67bd7021-b4cd-48c3-b302-fc7f36a8ef12</Id>
   <DisplayName>Tony Export</DisplayName>
-  <VersionNumber>-1</VersionNumber>
-  <CreatedTime>2019-06-26T21:05:17.6450533Z</CreatedTime>
-  <ModifiedTime>2019-06-26T22:08:10.4920832Z</ModifiedTime>
+  <CreatedTime>2019-06-26T22:10:19.1624207Z</CreatedTime>
+  <ModifiedTime>2019-06-26T22:10:19.1624207Z</ModifiedTime>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>
@@ -31,6 +30,7 @@
       <Event xsi:type="AdHocEventDefinition">
         <Id>f54787d9-d4d0-499d-a06f-a4dc1f56de12</Id>
         <DisplayName>Started by User</DisplayName>
+        <Imported>true</Imported>
         <Identities />
       </Event>
       <Condition xsi:type="RootConditionDefinition">
@@ -43,6 +43,7 @@
       <Event xsi:type="StartProcessEventDefinition">
         <Id>18c85096-2f31-4fcc-900c-ae0ca1fcb3e6</Id>
         <DisplayName>Started by Parent Process</DisplayName>
+        <Imported>true</Imported>
         <ProcessIds />
       </Event>
       <Condition xsi:type="RootConditionDefinition">
