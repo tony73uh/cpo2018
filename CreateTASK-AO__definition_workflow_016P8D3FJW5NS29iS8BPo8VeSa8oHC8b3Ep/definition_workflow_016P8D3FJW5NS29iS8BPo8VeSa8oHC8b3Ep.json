@@ -1,0 +1,330 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_016P8D3FJW5NS29iS8BPo8VeSa8oHC8b3Ep",
+    "name": "TN - Create Task",
+    "title": "TN - Create Task",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "TN - Create Task",
+      "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_018N4QETF1H6N2BCBJS5oQXpEvmPtqC973y",
+        "name": "Query Object",
+        "title": "Query Object -displayname",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$tasktype.task approval.output.name$",
+            "operator": "eq",
+            "right_operand": "Create Approval Request"
+          },
+          "display_name": "Query Object -displayname",
+          "query_object": {
+            "query_task": true,
+            "task_type": "task.approval"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018NRK8XUD0YF3yiNxE1WKuKXuhWSnRdhlI",
+        "name": "Query Object",
+        "title": "Query Object - status",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$tasktype.task approval.output.status.state$",
+            "operator": "eq",
+            "right_operand": "created"
+          },
+          "display_name": "Query Object - status",
+          "query_object": {
+            "query_task": true,
+            "task_type": "task.approval"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018NRLXYASI4U1XgWiiVU2zVjmDf5LsiY2i",
+        "name": "Query Object",
+        "title": "Query Object - Priority",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$tasktype.task approval.output.priority$",
+            "operator": "eq",
+            "right_operand": "high"
+          },
+          "display_name": "Query Object - Priority",
+          "query_object": {
+            "query_task": true,
+            "task_type": "task.approval"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018NRM6J5JY5L1X1LEpNCL8IqlIzXa9a3B1",
+        "name": "Query Object",
+        "title": "Query Object - Due Date",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$tasktype.task approval.output.due_date$",
+            "operator": "eq",
+            "right_operand": "2019-07-26T19:20:35Z"
+          },
+          "display_name": "Query Object - Due Date",
+          "query_object": {
+            "query_task": true,
+            "task_type": "task.approval"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018NRMDWTPM8207unnpGWfD5zjkrzoJqlEl",
+        "name": "Query Object",
+        "title": "Query Object - Task Requestor",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$tasktype.task approval.output.task_requestor$",
+            "operator": "eq",
+            "right_operand": "tonyng2Requestor@cisco.com"
+          },
+          "display_name": "Query Object - Task Requestor",
+          "query_object": {
+            "query_task": true,
+            "task_type": "task.approval"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018NRMN4GV1L81djQsmoSAamI81bm8ok4ms",
+        "name": "Query Object",
+        "title": "Query Object - Task Owner",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$tasktype.task approval.output.task_owner$",
+            "operator": "eq",
+            "right_operand": "tonyng2Owner@cisco.com"
+          },
+          "display_name": "Query Object - Task Owner",
+          "query_object": {
+            "query_task": true,
+            "task_type": "task.approval"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018NRMTLNWYC70i0Vvr4g5C09eO8Cs8A4FW",
+        "name": "Query Object",
+        "title": "Query Object - Task Assignees",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$tasktype.task approval.output.assignees[*]$",
+            "operator": "eq",
+            "right_operand": "tonyng2Assgnees@cisco.com"
+          },
+          "display_name": "Query Object - Task Assignees",
+          "query_object": {
+            "query_task": true,
+            "task_type": "task.approval"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018I3Z9QBDK9I0YPtq6bxSv7eQqOZtMWLUV",
+        "name": "Query Object",
+        "title": "Query Object -Title",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$tasktype.task approval.output.title$",
+            "operator": "eq",
+            "right_operand": "TN - Task"
+          },
+          "display_name": "Query Object -Title",
+          "query_object": {
+            "query_task": true,
+            "task_type": "task.approval"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018N4PUTWMQUO4NOWNqXh3aNaX4LMyasIlD",
+        "name": "Query Object",
+        "title": "Query Object -base_type",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$tasktype.task approval.output.base_type$",
+            "operator": "eq",
+            "right_operand": "task"
+          },
+          "display_name": "Query Object -base_type",
+          "query_object": {
+            "query_task": true,
+            "task_type": "task.approval"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018NRUJ0IGDMU0nAgAiYkXO3KSicG6AtFEq",
+        "name": "Completed",
+        "title": "Completed",
+        "type": "logic.completed",
+        "base_type": "activity",
+        "properties": {
+          "completion_type": "succeeded",
+          "display_name": "Completed"
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018JPEJNWEZTD2ufaHAjMphaWx0aMlOBo2H",
+        "name": "Create Approval Request",
+        "title": "TN - Task",
+        "type": "task.approval_request",
+        "base_type": "activity",
+        "properties": {
+          "approval_choices": [
+            {
+              "0": "A",
+              "1": "p",
+              "2": "p",
+              "3": "r",
+              "4": "o",
+              "5": "v",
+              "6": "e"
+            },
+            {
+              "0": "R",
+              "1": "e",
+              "2": "j",
+              "3": "e",
+              "4": "c",
+              "5": "t"
+            }
+          ],
+          "assignees": [
+            {
+              "0": "t",
+              "1": "o",
+              "10": "g",
+              "11": "n",
+              "12": "e",
+              "13": "e",
+              "14": "s",
+              "15": "@",
+              "16": "c",
+              "17": "i",
+              "18": "s",
+              "19": "c",
+              "2": "n",
+              "20": "o",
+              "21": ".",
+              "22": "c",
+              "23": "o",
+              "24": "m",
+              "3": "y",
+              "4": "n",
+              "5": "g",
+              "6": "2",
+              "7": "A",
+              "8": "s",
+              "9": "s"
+            }
+          ],
+          "continue_on_failure": false,
+          "description": "This is the description!",
+          "display_name": "TN - Task",
+          "due_date": {
+            "is_relative_time": true,
+            "is_specified_date": false,
+            "relative_time": {
+              "duration": 15,
+              "time_units": "days"
+            },
+            "set_due_date": true
+          },
+          "expiration_date": {
+            "is_relative_time": true,
+            "is_specified_date": false,
+            "relative_time": {
+              "duration": 15,
+              "time_units": "days"
+            }
+          },
+          "expiration_status": "Expired",
+          "minimum_approvals": 1,
+          "priority": "high",
+          "subject_line": "TN - task ceator",
+          "task_message": "This is a test for creating a Task",
+          "task_owner": "tonyng2Owner@cisco.com",
+          "task_requestor": "tonyng2Requestor@cisco.com"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  }
+}
