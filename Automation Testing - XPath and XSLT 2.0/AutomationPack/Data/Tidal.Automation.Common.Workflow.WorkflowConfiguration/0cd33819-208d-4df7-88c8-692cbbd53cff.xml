@@ -1,0 +1,2296 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>0cd33819-208d-4df7-88c8-692cbbd53cff</Id>
+  <DisplayName>XSL 1.0</DisplayName>
+  <CreatedTime>2019-05-03T15:09:48.246171Z</CreatedTime>
+  <ModifiedTime>2019-05-03T15:09:48.246171Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>f8816244-6399-4b18-97f2-464247f689b4</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>7418af51-4d65-439d-af26-72c582b22a1d</Id>
+        <DisplayName>XSL Transform</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>8eeb0c07-78ed-4a50-9fba-b15c0e31d30b</Id>
+            <ActivityNodeId>7418af51-4d65-439d-af26-72c582b22a1d</ActivityNodeId>
+            <CompletedId>fbff1224-3177-49ab-b4c3-8ceee28f4b95</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>7418af51-4d65-439d-af26-72c582b22a1d</Id>
+          <DisplayName>XSL Transform</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>012583e7-1086-490c-8102-056b946e18dc</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;?xml version="1.0"?&gt;
+&lt;?xml-stylesheet type="text/xsl" href="example.xsl"?&gt;
+&lt;Article&gt;
+  &lt;Title&gt;My Article&lt;/Title&gt;
+  &lt;Authors&gt;
+    &lt;Author&gt;Mr. Foo&lt;/Author&gt;
+    &lt;Author&gt;Mr. Bar&lt;/Author&gt;
+  &lt;/Authors&gt;
+  &lt;Body&gt;This is my article text.&lt;/Body&gt;
+&lt;/Article&gt;</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;?xml version="1.0"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+  &lt;xsl:output method="text"/&gt;
+
+  &lt;xsl:template match="/"&gt;
+    Article - &lt;xsl:value-of select="/Article/Title"/&gt;
+    Authors: &lt;xsl:apply-templates select="/Article/Authors/Author"/&gt;
+  &lt;/xsl:template&gt;
+
+  &lt;xsl:template match="Author"&gt;
+    - &lt;xsl:value-of select="." /&gt;
+  &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>bc1a9951-8b5f-4581-8baa-dab4b7209587</Id>
+        <DisplayName>XSL Transform (2)</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>77ec70d4-da74-41c3-a4e9-c27b491756b4</Id>
+            <ActivityNodeId>bc1a9951-8b5f-4581-8baa-dab4b7209587</ActivityNodeId>
+            <CompletedId>4ae021b3-4242-4355-8b53-230c3532ba60</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>bc1a9951-8b5f-4581-8baa-dab4b7209587</Id>
+          <DisplayName>XSL Transform (2)</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>012583e7-1086-490c-8102-056b946e18dc</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+  &lt;cd&gt;
+    &lt;title&gt;Empire Burlesque&lt;/title&gt;
+    &lt;artist&gt;Bob Dylan&lt;/artist&gt;
+    &lt;country&gt;USA&lt;/country&gt;
+    &lt;company&gt;Columbia&lt;/company&gt;
+    &lt;price&gt;10.90&lt;/price&gt;
+    &lt;year&gt;1985&lt;/year&gt;
+  &lt;/cd&gt;
+&lt;/catalog&gt;</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+&lt;xsl:template match="/"&gt;
+  &lt;html&gt;
+  &lt;body&gt;
+  &lt;h2&gt;My CD Collection&lt;/h2&gt;
+  &lt;table border="1"&gt;
+    &lt;tr bgcolor="#9acd32"&gt;
+      &lt;th&gt;Title&lt;/th&gt;
+      &lt;th&gt;Artist&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;xsl:for-each select="catalog/cd"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;xsl:value-of select="title"/&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;xsl:value-of select="artist"/&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/xsl:for-each&gt;
+  &lt;/table&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>aeb7d10e-f978-42d1-be5b-af64e2f2d4f4</Id>
+        <DisplayName>XSL Transform - ValueOf</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>6603485b-3588-4474-842b-680bd35ca5a2</Id>
+            <ActivityNodeId>aeb7d10e-f978-42d1-be5b-af64e2f2d4f4</ActivityNodeId>
+            <CompletedId>261a9300-751f-4cbf-81f5-b61af4930c2c</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>aeb7d10e-f978-42d1-be5b-af64e2f2d4f4</Id>
+          <DisplayName>XSL Transform - ValueOf</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>012583e7-1086-490c-8102-056b946e18dc</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Empire Burlesque&lt;/title&gt;
+		&lt;artist&gt;Bob Dylan&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Hide your heart&lt;/title&gt;
+		&lt;artist&gt;Bonnie Tyler&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS Records&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Greatest Hits&lt;/title&gt;
+		&lt;artist&gt;Dolly Parton&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;RCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1982&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Still got the blues&lt;/title&gt;
+		&lt;artist&gt;Gary Moore&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Virgin records&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Eros&lt;/title&gt;
+		&lt;artist&gt;Eros Ramazzotti&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;BMG&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;One night only&lt;/title&gt;
+		&lt;artist&gt;Bee Gees&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1998&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Sylvias Mother&lt;/title&gt;
+		&lt;artist&gt;Dr.Hook&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS&lt;/company&gt;
+		&lt;price&gt;8.10&lt;/price&gt;
+		&lt;year&gt;1973&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Maggie May&lt;/title&gt;
+		&lt;artist&gt;Rod Stewart&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Pickwick&lt;/company&gt;
+		&lt;price&gt;8.50&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Romanza&lt;/title&gt;
+		&lt;artist&gt;Andrea Bocelli&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.80&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;When a man loves a woman&lt;/title&gt;
+		&lt;artist&gt;Percy Sledge&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Black angel&lt;/title&gt;
+		&lt;artist&gt;Savage Rose&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Mega&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;1999 Grammy Nominees&lt;/title&gt;
+		&lt;artist&gt;Many&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Grammy&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1999&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;For the good times&lt;/title&gt;
+		&lt;artist&gt;Kenny Rogers&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Mucik Master&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Big Willie style&lt;/title&gt;
+		&lt;artist&gt;Will Smith&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Tupelo Honey&lt;/title&gt;
+		&lt;artist&gt;Van Morrison&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1971&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Soulsville&lt;/title&gt;
+		&lt;artist&gt;Jorn Hoel&lt;/artist&gt;
+		&lt;country&gt;Norway&lt;/country&gt;
+		&lt;company&gt;WEA&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The very best of&lt;/title&gt;
+		&lt;artist&gt;Cat Stevens&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Island&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Stop&lt;/title&gt;
+		&lt;artist&gt;Sam Brown&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;A and M&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Bridge of Spies&lt;/title&gt;
+		&lt;artist&gt;T`Pau&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Siren&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Private Dancer&lt;/title&gt;
+		&lt;artist&gt;Tina Turner&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Capitol&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Midt om natten&lt;/title&gt;
+		&lt;artist&gt;Kim Larsen&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Medley&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Pavarotti Gala Concert&lt;/title&gt;
+		&lt;artist&gt;Luciano Pavarotti&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;DECCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1991&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The dock of the bay&lt;/title&gt;
+		&lt;artist&gt;Otis Redding&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Picture book&lt;/title&gt;
+		&lt;artist&gt;Simply Red&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Elektra&lt;/company&gt;
+		&lt;price&gt;7.20&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Red&lt;/title&gt;
+		&lt;artist&gt;The Communards&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;London&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Unchain my heart&lt;/title&gt;
+		&lt;artist&gt;Joe Cocker&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;EMI&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+&lt;/catalog&gt;
+
+</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+&lt;xsl:template match="/"&gt;
+  &lt;html&gt;
+  &lt;body&gt;
+  &lt;h2&gt;My CD Collection&lt;/h2&gt;
+  &lt;table border="1"&gt;
+    &lt;tr bgcolor="#9acd32"&gt;
+      &lt;th&gt;Title&lt;/th&gt;
+      &lt;th&gt;Artist&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;xsl:value-of select="catalog/cd/title"/&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;xsl:value-of select="catalog/cd/artist"/&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>fa12f243-bdd0-475b-9f16-9402b815ee43</Id>
+        <DisplayName>XSL Transform - ForEach</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>6a15d3cc-566c-4c39-adc1-efdef5b0dbac</Id>
+            <ActivityNodeId>fa12f243-bdd0-475b-9f16-9402b815ee43</ActivityNodeId>
+            <CompletedId>59a39016-2767-440e-a6d8-4ff2918669d9</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>fa12f243-bdd0-475b-9f16-9402b815ee43</Id>
+          <DisplayName>XSL Transform - ForEach</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>012583e7-1086-490c-8102-056b946e18dc</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Empire Burlesque&lt;/title&gt;
+		&lt;artist&gt;Bob Dylan&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Hide your heart&lt;/title&gt;
+		&lt;artist&gt;Bonnie Tyler&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS Records&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Greatest Hits&lt;/title&gt;
+		&lt;artist&gt;Dolly Parton&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;RCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1982&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Still got the blues&lt;/title&gt;
+		&lt;artist&gt;Gary Moore&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Virgin records&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Eros&lt;/title&gt;
+		&lt;artist&gt;Eros Ramazzotti&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;BMG&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;One night only&lt;/title&gt;
+		&lt;artist&gt;Bee Gees&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1998&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Sylvias Mother&lt;/title&gt;
+		&lt;artist&gt;Dr.Hook&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS&lt;/company&gt;
+		&lt;price&gt;8.10&lt;/price&gt;
+		&lt;year&gt;1973&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Maggie May&lt;/title&gt;
+		&lt;artist&gt;Rod Stewart&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Pickwick&lt;/company&gt;
+		&lt;price&gt;8.50&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Romanza&lt;/title&gt;
+		&lt;artist&gt;Andrea Bocelli&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.80&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;When a man loves a woman&lt;/title&gt;
+		&lt;artist&gt;Percy Sledge&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Black angel&lt;/title&gt;
+		&lt;artist&gt;Savage Rose&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Mega&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;1999 Grammy Nominees&lt;/title&gt;
+		&lt;artist&gt;Many&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Grammy&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1999&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;For the good times&lt;/title&gt;
+		&lt;artist&gt;Kenny Rogers&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Mucik Master&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Big Willie style&lt;/title&gt;
+		&lt;artist&gt;Will Smith&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Tupelo Honey&lt;/title&gt;
+		&lt;artist&gt;Van Morrison&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1971&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Soulsville&lt;/title&gt;
+		&lt;artist&gt;Jorn Hoel&lt;/artist&gt;
+		&lt;country&gt;Norway&lt;/country&gt;
+		&lt;company&gt;WEA&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The very best of&lt;/title&gt;
+		&lt;artist&gt;Cat Stevens&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Island&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Stop&lt;/title&gt;
+		&lt;artist&gt;Sam Brown&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;A and M&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Bridge of Spies&lt;/title&gt;
+		&lt;artist&gt;T`Pau&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Siren&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Private Dancer&lt;/title&gt;
+		&lt;artist&gt;Tina Turner&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Capitol&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Midt om natten&lt;/title&gt;
+		&lt;artist&gt;Kim Larsen&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Medley&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Pavarotti Gala Concert&lt;/title&gt;
+		&lt;artist&gt;Luciano Pavarotti&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;DECCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1991&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The dock of the bay&lt;/title&gt;
+		&lt;artist&gt;Otis Redding&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Picture book&lt;/title&gt;
+		&lt;artist&gt;Simply Red&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Elektra&lt;/company&gt;
+		&lt;price&gt;7.20&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Red&lt;/title&gt;
+		&lt;artist&gt;The Communards&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;London&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Unchain my heart&lt;/title&gt;
+		&lt;artist&gt;Joe Cocker&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;EMI&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+&lt;/catalog&gt;
+
+</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;html&gt;
+  &lt;body&gt;
+    &lt;h2&gt;My CD Collection&lt;/h2&gt;
+    &lt;table border="1"&gt;
+      &lt;tr bgcolor="#9acd32"&gt;
+        &lt;th&gt;Title&lt;/th&gt;
+        &lt;th&gt;Artist&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;xsl:for-each select="catalog/cd"&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;xsl:value-of select="title" /&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;xsl:value-of select="artist" /&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/xsl:for-each&gt;
+    &lt;/table&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>6f9657ac-b785-463f-84c4-88cf92b6f694</Id>
+        <DisplayName>XSL Transform - Sort</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>42158231-3c62-4960-bc0a-455458ce6732</Id>
+            <ActivityNodeId>6f9657ac-b785-463f-84c4-88cf92b6f694</ActivityNodeId>
+            <CompletedId>e8937b92-f5b4-4eee-9e2b-d4a898fc48b9</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>6f9657ac-b785-463f-84c4-88cf92b6f694</Id>
+          <DisplayName>XSL Transform - Sort</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>012583e7-1086-490c-8102-056b946e18dc</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Empire Burlesque&lt;/title&gt;
+		&lt;artist&gt;Bob Dylan&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Hide your heart&lt;/title&gt;
+		&lt;artist&gt;Bonnie Tyler&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS Records&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Greatest Hits&lt;/title&gt;
+		&lt;artist&gt;Dolly Parton&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;RCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1982&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Still got the blues&lt;/title&gt;
+		&lt;artist&gt;Gary Moore&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Virgin records&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Eros&lt;/title&gt;
+		&lt;artist&gt;Eros Ramazzotti&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;BMG&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;One night only&lt;/title&gt;
+		&lt;artist&gt;Bee Gees&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1998&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Sylvias Mother&lt;/title&gt;
+		&lt;artist&gt;Dr.Hook&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS&lt;/company&gt;
+		&lt;price&gt;8.10&lt;/price&gt;
+		&lt;year&gt;1973&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Maggie May&lt;/title&gt;
+		&lt;artist&gt;Rod Stewart&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Pickwick&lt;/company&gt;
+		&lt;price&gt;8.50&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Romanza&lt;/title&gt;
+		&lt;artist&gt;Andrea Bocelli&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.80&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;When a man loves a woman&lt;/title&gt;
+		&lt;artist&gt;Percy Sledge&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Black angel&lt;/title&gt;
+		&lt;artist&gt;Savage Rose&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Mega&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;1999 Grammy Nominees&lt;/title&gt;
+		&lt;artist&gt;Many&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Grammy&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1999&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;For the good times&lt;/title&gt;
+		&lt;artist&gt;Kenny Rogers&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Mucik Master&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Big Willie style&lt;/title&gt;
+		&lt;artist&gt;Will Smith&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Tupelo Honey&lt;/title&gt;
+		&lt;artist&gt;Van Morrison&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1971&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Soulsville&lt;/title&gt;
+		&lt;artist&gt;Jorn Hoel&lt;/artist&gt;
+		&lt;country&gt;Norway&lt;/country&gt;
+		&lt;company&gt;WEA&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The very best of&lt;/title&gt;
+		&lt;artist&gt;Cat Stevens&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Island&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Stop&lt;/title&gt;
+		&lt;artist&gt;Sam Brown&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;A and M&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Bridge of Spies&lt;/title&gt;
+		&lt;artist&gt;T`Pau&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Siren&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Private Dancer&lt;/title&gt;
+		&lt;artist&gt;Tina Turner&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Capitol&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Midt om natten&lt;/title&gt;
+		&lt;artist&gt;Kim Larsen&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Medley&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Pavarotti Gala Concert&lt;/title&gt;
+		&lt;artist&gt;Luciano Pavarotti&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;DECCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1991&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The dock of the bay&lt;/title&gt;
+		&lt;artist&gt;Otis Redding&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Picture book&lt;/title&gt;
+		&lt;artist&gt;Simply Red&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Elektra&lt;/company&gt;
+		&lt;price&gt;7.20&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Red&lt;/title&gt;
+		&lt;artist&gt;The Communards&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;London&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Unchain my heart&lt;/title&gt;
+		&lt;artist&gt;Joe Cocker&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;EMI&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+&lt;/catalog&gt;
+
+</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;
+&lt;xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+&lt;xsl:template match="/"&gt;
+  &lt;html&gt;
+  &lt;body&gt;
+    &lt;h2&gt;My CD Collection&lt;/h2&gt;
+    &lt;table border="1"&gt;
+      &lt;tr bgcolor="#9acd32"&gt;
+        &lt;th&gt;Title&lt;/th&gt;
+        &lt;th&gt;Artist&lt;/th&gt;
+      &lt;/tr&gt;
+      &lt;xsl:for-each select="catalog/cd"&gt;
+      &lt;xsl:sort select="artist"/&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;xsl:value-of select="title"/&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;xsl:value-of select="artist"/&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;/xsl:for-each&gt;
+    &lt;/table&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+
+</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>07fde6d2-fe36-42e3-95b2-8a77efd11a78</Id>
+        <DisplayName>XSL Transform - If </DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>0525e039-69dc-4e3e-afdc-5c4b44783e69</Id>
+            <ActivityNodeId>07fde6d2-fe36-42e3-95b2-8a77efd11a78</ActivityNodeId>
+            <CompletedId>4279c166-417a-4d09-8f1b-63a7ad38c39b</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>07fde6d2-fe36-42e3-95b2-8a77efd11a78</Id>
+          <DisplayName>XSL Transform - If </DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>012583e7-1086-490c-8102-056b946e18dc</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Empire Burlesque&lt;/title&gt;
+		&lt;artist&gt;Bob Dylan&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Hide your heart&lt;/title&gt;
+		&lt;artist&gt;Bonnie Tyler&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS Records&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Greatest Hits&lt;/title&gt;
+		&lt;artist&gt;Dolly Parton&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;RCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1982&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Still got the blues&lt;/title&gt;
+		&lt;artist&gt;Gary Moore&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Virgin records&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Eros&lt;/title&gt;
+		&lt;artist&gt;Eros Ramazzotti&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;BMG&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;One night only&lt;/title&gt;
+		&lt;artist&gt;Bee Gees&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1998&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Sylvias Mother&lt;/title&gt;
+		&lt;artist&gt;Dr.Hook&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS&lt;/company&gt;
+		&lt;price&gt;8.10&lt;/price&gt;
+		&lt;year&gt;1973&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Maggie May&lt;/title&gt;
+		&lt;artist&gt;Rod Stewart&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Pickwick&lt;/company&gt;
+		&lt;price&gt;8.50&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Romanza&lt;/title&gt;
+		&lt;artist&gt;Andrea Bocelli&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.80&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;When a man loves a woman&lt;/title&gt;
+		&lt;artist&gt;Percy Sledge&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Black angel&lt;/title&gt;
+		&lt;artist&gt;Savage Rose&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Mega&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;1999 Grammy Nominees&lt;/title&gt;
+		&lt;artist&gt;Many&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Grammy&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1999&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;For the good times&lt;/title&gt;
+		&lt;artist&gt;Kenny Rogers&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Mucik Master&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Big Willie style&lt;/title&gt;
+		&lt;artist&gt;Will Smith&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Tupelo Honey&lt;/title&gt;
+		&lt;artist&gt;Van Morrison&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1971&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Soulsville&lt;/title&gt;
+		&lt;artist&gt;Jorn Hoel&lt;/artist&gt;
+		&lt;country&gt;Norway&lt;/country&gt;
+		&lt;company&gt;WEA&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The very best of&lt;/title&gt;
+		&lt;artist&gt;Cat Stevens&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Island&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Stop&lt;/title&gt;
+		&lt;artist&gt;Sam Brown&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;A and M&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Bridge of Spies&lt;/title&gt;
+		&lt;artist&gt;T`Pau&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Siren&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Private Dancer&lt;/title&gt;
+		&lt;artist&gt;Tina Turner&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Capitol&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Midt om natten&lt;/title&gt;
+		&lt;artist&gt;Kim Larsen&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Medley&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Pavarotti Gala Concert&lt;/title&gt;
+		&lt;artist&gt;Luciano Pavarotti&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;DECCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1991&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The dock of the bay&lt;/title&gt;
+		&lt;artist&gt;Otis Redding&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Picture book&lt;/title&gt;
+		&lt;artist&gt;Simply Red&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Elektra&lt;/company&gt;
+		&lt;price&gt;7.20&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Red&lt;/title&gt;
+		&lt;artist&gt;The Communards&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;London&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Unchain my heart&lt;/title&gt;
+		&lt;artist&gt;Joe Cocker&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;EMI&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+&lt;/catalog&gt;
+
+</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:template match="/"&gt;
+  &lt;html&gt;
+  &lt;body&gt;
+    &lt;h2&gt;My CD Collection&lt;/h2&gt;
+    &lt;table border="1"&gt;
+      &lt;tr bgcolor="#9acd32"&gt;
+      &lt;th&gt;Title&lt;/th&gt;
+      &lt;th&gt;Artist&lt;/th&gt;
+      &lt;th&gt;Price&lt;/th&gt;      
+    &lt;/tr&gt;
+    &lt;xsl:for-each select="catalog/cd"&gt;
+    &lt;xsl:if test="price&gt;10"&gt;
+      &lt;tr&gt;
+        &lt;td&gt;&lt;xsl:value-of select="title"/&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;xsl:value-of select="artist"/&gt;&lt;/td&gt;
+        &lt;td&gt;&lt;xsl:value-of select="price"/&gt;&lt;/td&gt;        
+	    &lt;/tr&gt;
+    &lt;/xsl:if&gt;
+    &lt;/xsl:for-each&gt;
+    &lt;/table&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+
+</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>9da8aed6-3b53-4405-9c5c-9ef34ea8f7aa</Id>
+        <DisplayName>XSL Transform - Choose</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>5333302e-072a-442f-b56f-904da7e5041a</Id>
+            <ActivityNodeId>9da8aed6-3b53-4405-9c5c-9ef34ea8f7aa</ActivityNodeId>
+            <CompletedId>4052d1f3-b1e0-449d-a596-f10801e983b5</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>9da8aed6-3b53-4405-9c5c-9ef34ea8f7aa</Id>
+          <DisplayName>XSL Transform - Choose</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>012583e7-1086-490c-8102-056b946e18dc</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Empire Burlesque&lt;/title&gt;
+		&lt;artist&gt;Bob Dylan&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Hide your heart&lt;/title&gt;
+		&lt;artist&gt;Bonnie Tyler&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS Records&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Greatest Hits&lt;/title&gt;
+		&lt;artist&gt;Dolly Parton&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;RCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1982&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Still got the blues&lt;/title&gt;
+		&lt;artist&gt;Gary Moore&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Virgin records&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Eros&lt;/title&gt;
+		&lt;artist&gt;Eros Ramazzotti&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;BMG&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;One night only&lt;/title&gt;
+		&lt;artist&gt;Bee Gees&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1998&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Sylvias Mother&lt;/title&gt;
+		&lt;artist&gt;Dr.Hook&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS&lt;/company&gt;
+		&lt;price&gt;8.10&lt;/price&gt;
+		&lt;year&gt;1973&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Maggie May&lt;/title&gt;
+		&lt;artist&gt;Rod Stewart&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Pickwick&lt;/company&gt;
+		&lt;price&gt;8.50&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Romanza&lt;/title&gt;
+		&lt;artist&gt;Andrea Bocelli&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.80&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;When a man loves a woman&lt;/title&gt;
+		&lt;artist&gt;Percy Sledge&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Black angel&lt;/title&gt;
+		&lt;artist&gt;Savage Rose&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Mega&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;1999 Grammy Nominees&lt;/title&gt;
+		&lt;artist&gt;Many&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Grammy&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1999&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;For the good times&lt;/title&gt;
+		&lt;artist&gt;Kenny Rogers&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Mucik Master&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Big Willie style&lt;/title&gt;
+		&lt;artist&gt;Will Smith&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Tupelo Honey&lt;/title&gt;
+		&lt;artist&gt;Van Morrison&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1971&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Soulsville&lt;/title&gt;
+		&lt;artist&gt;Jorn Hoel&lt;/artist&gt;
+		&lt;country&gt;Norway&lt;/country&gt;
+		&lt;company&gt;WEA&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The very best of&lt;/title&gt;
+		&lt;artist&gt;Cat Stevens&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Island&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Stop&lt;/title&gt;
+		&lt;artist&gt;Sam Brown&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;A and M&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Bridge of Spies&lt;/title&gt;
+		&lt;artist&gt;T`Pau&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Siren&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Private Dancer&lt;/title&gt;
+		&lt;artist&gt;Tina Turner&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Capitol&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Midt om natten&lt;/title&gt;
+		&lt;artist&gt;Kim Larsen&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Medley&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Pavarotti Gala Concert&lt;/title&gt;
+		&lt;artist&gt;Luciano Pavarotti&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;DECCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1991&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The dock of the bay&lt;/title&gt;
+		&lt;artist&gt;Otis Redding&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Picture book&lt;/title&gt;
+		&lt;artist&gt;Simply Red&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Elektra&lt;/company&gt;
+		&lt;price&gt;7.20&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Red&lt;/title&gt;
+		&lt;artist&gt;The Communards&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;London&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Unchain my heart&lt;/title&gt;
+		&lt;artist&gt;Joe Cocker&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;EMI&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+&lt;/catalog&gt;
+
+</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:template match="/"&gt;
+&lt;html&gt;
+&lt;body&gt;
+  &lt;h2&gt;My CD Collection&lt;/h2&gt;
+  &lt;table border="1"&gt;
+    &lt;tr bgcolor="#9acd32"&gt;
+      &lt;th&gt;Title&lt;/th&gt;
+      &lt;th&gt;Artist&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;xsl:for-each select="catalog/cd"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;xsl:value-of select="title"/&gt;&lt;/td&gt;
+      &lt;xsl:choose&gt;
+      &lt;xsl:when test="price &gt; 10"&gt;
+         &lt;td bgcolor="#ff00ff"&gt;
+         &lt;xsl:value-of select="artist"/&gt;
+         &lt;/td&gt;
+      &lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;
+         &lt;td&gt;&lt;xsl:value-of select="artist"/&gt;&lt;/td&gt;
+      &lt;/xsl:otherwise&gt;
+      &lt;/xsl:choose&gt;
+	  &lt;/tr&gt;
+    &lt;/xsl:for-each&gt;
+  &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+
+</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>846e27cd-6389-4267-a05b-f5a4ea3d3d5c</Id>
+        <DisplayName>XSL Transform - Apply</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>ca423992-764d-4297-a7c7-cfaafc7b9b72</Id>
+            <ActivityNodeId>846e27cd-6389-4267-a05b-f5a4ea3d3d5c</ActivityNodeId>
+            <CompletedId>aab5ca55-0903-4316-88e4-61d2d60910f0</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>846e27cd-6389-4267-a05b-f5a4ea3d3d5c</Id>
+          <DisplayName>XSL Transform - Apply</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>012583e7-1086-490c-8102-056b946e18dc</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;catalog&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Empire Burlesque&lt;/title&gt;
+		&lt;artist&gt;Bob Dylan&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Hide your heart&lt;/title&gt;
+		&lt;artist&gt;Bonnie Tyler&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS Records&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Greatest Hits&lt;/title&gt;
+		&lt;artist&gt;Dolly Parton&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;RCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1982&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Still got the blues&lt;/title&gt;
+		&lt;artist&gt;Gary Moore&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Virgin records&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Eros&lt;/title&gt;
+		&lt;artist&gt;Eros Ramazzotti&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;BMG&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;One night only&lt;/title&gt;
+		&lt;artist&gt;Bee Gees&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1998&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Sylvias Mother&lt;/title&gt;
+		&lt;artist&gt;Dr.Hook&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;CBS&lt;/company&gt;
+		&lt;price&gt;8.10&lt;/price&gt;
+		&lt;year&gt;1973&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Maggie May&lt;/title&gt;
+		&lt;artist&gt;Rod Stewart&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Pickwick&lt;/company&gt;
+		&lt;price&gt;8.50&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Romanza&lt;/title&gt;
+		&lt;artist&gt;Andrea Bocelli&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;10.80&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;When a man loves a woman&lt;/title&gt;
+		&lt;artist&gt;Percy Sledge&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Black angel&lt;/title&gt;
+		&lt;artist&gt;Savage Rose&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Mega&lt;/company&gt;
+		&lt;price&gt;10.90&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;1999 Grammy Nominees&lt;/title&gt;
+		&lt;artist&gt;Many&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Grammy&lt;/company&gt;
+		&lt;price&gt;10.20&lt;/price&gt;
+		&lt;year&gt;1999&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;For the good times&lt;/title&gt;
+		&lt;artist&gt;Kenny Rogers&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Mucik Master&lt;/company&gt;
+		&lt;price&gt;8.70&lt;/price&gt;
+		&lt;year&gt;1995&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Big Willie style&lt;/title&gt;
+		&lt;artist&gt;Will Smith&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Columbia&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1997&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Tupelo Honey&lt;/title&gt;
+		&lt;artist&gt;Van Morrison&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Polydor&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1971&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Soulsville&lt;/title&gt;
+		&lt;artist&gt;Jorn Hoel&lt;/artist&gt;
+		&lt;country&gt;Norway&lt;/country&gt;
+		&lt;company&gt;WEA&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1996&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The very best of&lt;/title&gt;
+		&lt;artist&gt;Cat Stevens&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Island&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1990&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Stop&lt;/title&gt;
+		&lt;artist&gt;Sam Brown&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;A and M&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1988&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Bridge of Spies&lt;/title&gt;
+		&lt;artist&gt;T`Pau&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Siren&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Private Dancer&lt;/title&gt;
+		&lt;artist&gt;Tina Turner&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;Capitol&lt;/company&gt;
+		&lt;price&gt;8.90&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Midt om natten&lt;/title&gt;
+		&lt;artist&gt;Kim Larsen&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Medley&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1983&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Pavarotti Gala Concert&lt;/title&gt;
+		&lt;artist&gt;Luciano Pavarotti&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;DECCA&lt;/company&gt;
+		&lt;price&gt;9.90&lt;/price&gt;
+		&lt;year&gt;1991&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;The dock of the bay&lt;/title&gt;
+		&lt;artist&gt;Otis Redding&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;Atlantic&lt;/company&gt;
+		&lt;price&gt;7.90&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Picture book&lt;/title&gt;
+		&lt;artist&gt;Simply Red&lt;/artist&gt;
+		&lt;country&gt;EU&lt;/country&gt;
+		&lt;company&gt;Elektra&lt;/company&gt;
+		&lt;price&gt;7.20&lt;/price&gt;
+		&lt;year&gt;1985&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Red&lt;/title&gt;
+		&lt;artist&gt;The Communards&lt;/artist&gt;
+		&lt;country&gt;UK&lt;/country&gt;
+		&lt;company&gt;London&lt;/company&gt;
+		&lt;price&gt;7.80&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+	&lt;cd&gt;
+		&lt;title&gt;Unchain my heart&lt;/title&gt;
+		&lt;artist&gt;Joe Cocker&lt;/artist&gt;
+		&lt;country&gt;USA&lt;/country&gt;
+		&lt;company&gt;EMI&lt;/company&gt;
+		&lt;price&gt;8.20&lt;/price&gt;
+		&lt;year&gt;1987&lt;/year&gt;
+	&lt;/cd&gt;
+&lt;/catalog&gt;
+
+</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+
+&lt;xsl:template match="/"&gt;
+  &lt;html&gt;
+  &lt;body&gt;
+  &lt;h2&gt;My CD Collection&lt;/h2&gt;  
+  &lt;xsl:apply-templates/&gt;  
+  &lt;/body&gt;
+  &lt;/html&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="cd"&gt;
+  &lt;p&gt;
+    &lt;xsl:apply-templates select="title"/&gt;  
+    &lt;xsl:apply-templates select="artist"/&gt;
+  &lt;/p&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="title"&gt;
+  Title: &lt;span style="color:#ff0000"&gt;
+  &lt;xsl:value-of select="."/&gt;&lt;/span&gt;
+  &lt;br /&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="artist"&gt;
+  Artist: &lt;span style="color:#00ff00"&gt;
+  &lt;xsl:value-of select="."/&gt;&lt;/span&gt;
+  &lt;br /&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+
+</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>3c12e2fa-eb0f-414d-a682-51b4bca3f427</Id>
+        <DisplayName>XSL Transform - Client</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>61b0cdc6-2d28-4311-841b-068901e497c5</Id>
+            <ActivityNodeId>3c12e2fa-eb0f-414d-a682-51b4bca3f427</ActivityNodeId>
+            <CompletedId>eb3261a1-526b-460b-8bac-fcf660c57cce</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>3c12e2fa-eb0f-414d-a682-51b4bca3f427</Id>
+          <DisplayName>XSL Transform - Client</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>012583e7-1086-490c-8102-056b946e18dc</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;catalog&gt;
+&lt;cd&gt;
+&lt;title&gt;Empire Burlesque&lt;/title&gt;
+&lt;artist&gt;Bob Dylan&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;Columbia&lt;/company&gt;
+&lt;price&gt;10.90&lt;/price&gt;
+&lt;year&gt;1985&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Hide your heart&lt;/title&gt;
+&lt;artist&gt;Bonnie Tyler&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;CBS Records&lt;/company&gt;
+&lt;price&gt;9.90&lt;/price&gt;
+&lt;year&gt;1988&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Greatest Hits&lt;/title&gt;
+&lt;artist&gt;Dolly Parton&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;RCA&lt;/company&gt;
+&lt;price&gt;9.90&lt;/price&gt;
+&lt;year&gt;1982&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Still got the blues&lt;/title&gt;
+&lt;artist&gt;Gary Moore&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Virgin records&lt;/company&gt;
+&lt;price&gt;10.20&lt;/price&gt;
+&lt;year&gt;1990&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Eros&lt;/title&gt;
+&lt;artist&gt;Eros Ramazzotti&lt;/artist&gt;
+&lt;country&gt;EU&lt;/country&gt;
+&lt;company&gt;BMG&lt;/company&gt;
+&lt;price&gt;9.90&lt;/price&gt;
+&lt;year&gt;1997&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;One night only&lt;/title&gt;
+&lt;artist&gt;Bee Gees&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Polydor&lt;/company&gt;
+&lt;price&gt;10.90&lt;/price&gt;
+&lt;year&gt;1998&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Sylvias Mother&lt;/title&gt;
+&lt;artist&gt;Dr.Hook&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;CBS&lt;/company&gt;
+&lt;price&gt;8.10&lt;/price&gt;
+&lt;year&gt;1973&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Maggie May&lt;/title&gt;
+&lt;artist&gt;Rod Stewart&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Pickwick&lt;/company&gt;
+&lt;price&gt;8.50&lt;/price&gt;
+&lt;year&gt;1990&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Romanza&lt;/title&gt;
+&lt;artist&gt;Andrea Bocelli&lt;/artist&gt;
+&lt;country&gt;EU&lt;/country&gt;
+&lt;company&gt;Polydor&lt;/company&gt;
+&lt;price&gt;10.80&lt;/price&gt;
+&lt;year&gt;1996&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;When a man loves a woman&lt;/title&gt;
+&lt;artist&gt;Percy Sledge&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;Atlantic&lt;/company&gt;
+&lt;price&gt;8.70&lt;/price&gt;
+&lt;year&gt;1987&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Black angel&lt;/title&gt;
+&lt;artist&gt;Savage Rose&lt;/artist&gt;
+&lt;country&gt;EU&lt;/country&gt;
+&lt;company&gt;Mega&lt;/company&gt;
+&lt;price&gt;10.90&lt;/price&gt;
+&lt;year&gt;1995&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;1999 Grammy Nominees&lt;/title&gt;
+&lt;artist&gt;Many&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;Grammy&lt;/company&gt;
+&lt;price&gt;10.20&lt;/price&gt;
+&lt;year&gt;1999&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;For the good times&lt;/title&gt;
+&lt;artist&gt;Kenny Rogers&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Mucik Master&lt;/company&gt;
+&lt;price&gt;8.70&lt;/price&gt;
+&lt;year&gt;1995&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Big Willie style&lt;/title&gt;
+&lt;artist&gt;Will Smith&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;Columbia&lt;/company&gt;
+&lt;price&gt;9.90&lt;/price&gt;
+&lt;year&gt;1997&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Tupelo Honey&lt;/title&gt;
+&lt;artist&gt;Van Morrison&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Polydor&lt;/company&gt;
+&lt;price&gt;8.20&lt;/price&gt;
+&lt;year&gt;1971&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Soulsville&lt;/title&gt;
+&lt;artist&gt;Jorn Hoel&lt;/artist&gt;
+&lt;country&gt;Norway&lt;/country&gt;
+&lt;company&gt;WEA&lt;/company&gt;
+&lt;price&gt;7.90&lt;/price&gt;
+&lt;year&gt;1996&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;The very best of&lt;/title&gt;
+&lt;artist&gt;Cat Stevens&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Island&lt;/company&gt;
+&lt;price&gt;8.90&lt;/price&gt;
+&lt;year&gt;1990&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Stop&lt;/title&gt;
+&lt;artist&gt;Sam Brown&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;A and M&lt;/company&gt;
+&lt;price&gt;8.90&lt;/price&gt;
+&lt;year&gt;1988&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Bridge of Spies&lt;/title&gt;
+&lt;artist&gt;T`Pau&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Siren&lt;/company&gt;
+&lt;price&gt;7.90&lt;/price&gt;
+&lt;year&gt;1987&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Private Dancer&lt;/title&gt;
+&lt;artist&gt;Tina Turner&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Capitol&lt;/company&gt;
+&lt;price&gt;8.90&lt;/price&gt;
+&lt;year&gt;1983&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Midt om natten&lt;/title&gt;
+&lt;artist&gt;Kim Larsen&lt;/artist&gt;
+&lt;country&gt;EU&lt;/country&gt;
+&lt;company&gt;Medley&lt;/company&gt;
+&lt;price&gt;7.80&lt;/price&gt;
+&lt;year&gt;1983&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Pavarotti Gala Concert&lt;/title&gt;
+&lt;artist&gt;Luciano Pavarotti&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;DECCA&lt;/company&gt;
+&lt;price&gt;9.90&lt;/price&gt;
+&lt;year&gt;1991&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;The dock of the bay&lt;/title&gt;
+&lt;artist&gt;Otis Redding&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;Atlantic&lt;/company&gt;
+&lt;price&gt;7.90&lt;/price&gt;
+&lt;year&gt;1987&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Picture book&lt;/title&gt;
+&lt;artist&gt;Simply Red&lt;/artist&gt;
+&lt;country&gt;EU&lt;/country&gt;
+&lt;company&gt;Elektra&lt;/company&gt;
+&lt;price&gt;7.20&lt;/price&gt;
+&lt;year&gt;1985&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Red&lt;/title&gt;
+&lt;artist&gt;The Communards&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;London&lt;/company&gt;
+&lt;price&gt;7.80&lt;/price&gt;
+&lt;year&gt;1987&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Unchain my heart&lt;/title&gt;
+&lt;artist&gt;Joe Cocker&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;EMI&lt;/company&gt;
+&lt;price&gt;8.20&lt;/price&gt;
+&lt;year&gt;1987&lt;/year&gt;
+&lt;/cd&gt;
+&lt;/catalog&gt;</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+&lt;xsl:template match="/"&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h2&gt;My CD Collection&lt;/h2&gt;
+&lt;table border="1"&gt;
+&lt;tr bgcolor="#9acd32"&gt;
+&lt;th style="text-align:left"&gt;Title&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Artist&lt;/th&gt;
+&lt;/tr&gt;
+&lt;xsl:for-each select="catalog/cd"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;xsl:value-of select="title"/&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;xsl:value-of select="artist"/&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/xsl:for-each&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>6b60b306-fa5d-4654-8fda-66ae2da1234f</Id>
+        <DisplayName>XSL Transform - Server</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>cf24cf33-63b0-43a8-a19d-30aff28ae645</Id>
+            <ActivityNodeId>6b60b306-fa5d-4654-8fda-66ae2da1234f</ActivityNodeId>
+            <CompletedId>4b9b5074-0168-4b6e-8fb9-64caf66ce066</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>6b60b306-fa5d-4654-8fda-66ae2da1234f</Id>
+          <DisplayName>XSL Transform - Server</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>012583e7-1086-490c-8102-056b946e18dc</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;catalog&gt;
+&lt;cd&gt;
+&lt;title&gt;Empire Burlesque&lt;/title&gt;
+&lt;artist&gt;Bob Dylan&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;Columbia&lt;/company&gt;
+&lt;price&gt;10.90&lt;/price&gt;
+&lt;year&gt;1985&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Hide your heart&lt;/title&gt;
+&lt;artist&gt;Bonnie Tyler&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;CBS Records&lt;/company&gt;
+&lt;price&gt;9.90&lt;/price&gt;
+&lt;year&gt;1988&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Greatest Hits&lt;/title&gt;
+&lt;artist&gt;Dolly Parton&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;RCA&lt;/company&gt;
+&lt;price&gt;9.90&lt;/price&gt;
+&lt;year&gt;1982&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Still got the blues&lt;/title&gt;
+&lt;artist&gt;Gary Moore&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Virgin records&lt;/company&gt;
+&lt;price&gt;10.20&lt;/price&gt;
+&lt;year&gt;1990&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Eros&lt;/title&gt;
+&lt;artist&gt;Eros Ramazzotti&lt;/artist&gt;
+&lt;country&gt;EU&lt;/country&gt;
+&lt;company&gt;BMG&lt;/company&gt;
+&lt;price&gt;9.90&lt;/price&gt;
+&lt;year&gt;1997&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;One night only&lt;/title&gt;
+&lt;artist&gt;Bee Gees&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Polydor&lt;/company&gt;
+&lt;price&gt;10.90&lt;/price&gt;
+&lt;year&gt;1998&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Sylvias Mother&lt;/title&gt;
+&lt;artist&gt;Dr.Hook&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;CBS&lt;/company&gt;
+&lt;price&gt;8.10&lt;/price&gt;
+&lt;year&gt;1973&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Maggie May&lt;/title&gt;
+&lt;artist&gt;Rod Stewart&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Pickwick&lt;/company&gt;
+&lt;price&gt;8.50&lt;/price&gt;
+&lt;year&gt;1990&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Romanza&lt;/title&gt;
+&lt;artist&gt;Andrea Bocelli&lt;/artist&gt;
+&lt;country&gt;EU&lt;/country&gt;
+&lt;company&gt;Polydor&lt;/company&gt;
+&lt;price&gt;10.80&lt;/price&gt;
+&lt;year&gt;1996&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;When a man loves a woman&lt;/title&gt;
+&lt;artist&gt;Percy Sledge&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;Atlantic&lt;/company&gt;
+&lt;price&gt;8.70&lt;/price&gt;
+&lt;year&gt;1987&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Black angel&lt;/title&gt;
+&lt;artist&gt;Savage Rose&lt;/artist&gt;
+&lt;country&gt;EU&lt;/country&gt;
+&lt;company&gt;Mega&lt;/company&gt;
+&lt;price&gt;10.90&lt;/price&gt;
+&lt;year&gt;1995&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;1999 Grammy Nominees&lt;/title&gt;
+&lt;artist&gt;Many&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;Grammy&lt;/company&gt;
+&lt;price&gt;10.20&lt;/price&gt;
+&lt;year&gt;1999&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;For the good times&lt;/title&gt;
+&lt;artist&gt;Kenny Rogers&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Mucik Master&lt;/company&gt;
+&lt;price&gt;8.70&lt;/price&gt;
+&lt;year&gt;1995&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Big Willie style&lt;/title&gt;
+&lt;artist&gt;Will Smith&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;Columbia&lt;/company&gt;
+&lt;price&gt;9.90&lt;/price&gt;
+&lt;year&gt;1997&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Tupelo Honey&lt;/title&gt;
+&lt;artist&gt;Van Morrison&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Polydor&lt;/company&gt;
+&lt;price&gt;8.20&lt;/price&gt;
+&lt;year&gt;1971&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Soulsville&lt;/title&gt;
+&lt;artist&gt;Jorn Hoel&lt;/artist&gt;
+&lt;country&gt;Norway&lt;/country&gt;
+&lt;company&gt;WEA&lt;/company&gt;
+&lt;price&gt;7.90&lt;/price&gt;
+&lt;year&gt;1996&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;The very best of&lt;/title&gt;
+&lt;artist&gt;Cat Stevens&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Island&lt;/company&gt;
+&lt;price&gt;8.90&lt;/price&gt;
+&lt;year&gt;1990&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Stop&lt;/title&gt;
+&lt;artist&gt;Sam Brown&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;A and M&lt;/company&gt;
+&lt;price&gt;8.90&lt;/price&gt;
+&lt;year&gt;1988&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Bridge of Spies&lt;/title&gt;
+&lt;artist&gt;T`Pau&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Siren&lt;/company&gt;
+&lt;price&gt;7.90&lt;/price&gt;
+&lt;year&gt;1987&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Private Dancer&lt;/title&gt;
+&lt;artist&gt;Tina Turner&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;Capitol&lt;/company&gt;
+&lt;price&gt;8.90&lt;/price&gt;
+&lt;year&gt;1983&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Midt om natten&lt;/title&gt;
+&lt;artist&gt;Kim Larsen&lt;/artist&gt;
+&lt;country&gt;EU&lt;/country&gt;
+&lt;company&gt;Medley&lt;/company&gt;
+&lt;price&gt;7.80&lt;/price&gt;
+&lt;year&gt;1983&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Pavarotti Gala Concert&lt;/title&gt;
+&lt;artist&gt;Luciano Pavarotti&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;DECCA&lt;/company&gt;
+&lt;price&gt;9.90&lt;/price&gt;
+&lt;year&gt;1991&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;The dock of the bay&lt;/title&gt;
+&lt;artist&gt;Otis Redding&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;Atlantic&lt;/company&gt;
+&lt;price&gt;7.90&lt;/price&gt;
+&lt;year&gt;1987&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Picture book&lt;/title&gt;
+&lt;artist&gt;Simply Red&lt;/artist&gt;
+&lt;country&gt;EU&lt;/country&gt;
+&lt;company&gt;Elektra&lt;/company&gt;
+&lt;price&gt;7.20&lt;/price&gt;
+&lt;year&gt;1985&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Red&lt;/title&gt;
+&lt;artist&gt;The Communards&lt;/artist&gt;
+&lt;country&gt;UK&lt;/country&gt;
+&lt;company&gt;London&lt;/company&gt;
+&lt;price&gt;7.80&lt;/price&gt;
+&lt;year&gt;1987&lt;/year&gt;
+&lt;/cd&gt;
+&lt;cd&gt;
+&lt;title&gt;Unchain my heart&lt;/title&gt;
+&lt;artist&gt;Joe Cocker&lt;/artist&gt;
+&lt;country&gt;USA&lt;/country&gt;
+&lt;company&gt;EMI&lt;/company&gt;
+&lt;price&gt;8.20&lt;/price&gt;
+&lt;year&gt;1987&lt;/year&gt;
+&lt;/cd&gt;
+&lt;/catalog&gt;</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"&gt;
+&lt;xsl:template match="/"&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;h2&gt;My CD Collection&lt;/h2&gt;
+&lt;table border="1"&gt;
+&lt;tr bgcolor="#9acd32"&gt;
+&lt;th style="text-align:left"&gt;Title&lt;/th&gt;
+&lt;th style="text-align:left"&gt;Artist&lt;/th&gt;
+&lt;/tr&gt;
+&lt;xsl:for-each select="catalog/cd"&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;xsl:value-of select="title"/&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;xsl:value-of select="artist"/&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/xsl:for-each&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Html</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>012583e7-1086-490c-8102-056b946e18dc</ProcessId>
+</WorkflowConfiguration>

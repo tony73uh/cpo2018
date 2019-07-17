@@ -1,0 +1,677 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>15ed78d8-b8fe-45c3-b5ea-bb1d8b6547a4</Id>
+  <DisplayName>Twn233974r: XPath and XSLT 2.0 Enhancement</DisplayName>
+  <VersionNumber>7</VersionNumber>
+  <CreatedTime>2019-05-03T15:09:48.9662141Z</CreatedTime>
+  <ModifiedTime>2019-06-12T22:05:10.5882767Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>be094b93-1395-41ad-acb9-986c47477d8a</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>e819dcba-6a6a-4226-8c4e-6b0e362065be</Id>
+        <DisplayName>XPath Query 1.0</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>50bfe402-51f4-4e77-a7bb-1ba6e8aca8ea</Id>
+            <ActivityNodeId>e819dcba-6a6a-4226-8c4e-6b0e362065be</ActivityNodeId>
+            <CompletedId>d36477fe-631b-4751-b054-2570e9c610a0</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XPathQueryActivityConfiguration" xml:space="preserve">
+          <Id>e819dcba-6a6a-4226-8c4e-6b0e362065be</Id>
+          <DisplayName>XPath Query 1.0</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>936cd442-ea45-4ab9-9d45-4c428ca7cf11</ContainingProcessId>
+          <SourceXml>
+            <HardcodedValue>&lt;root xmlns:foo="http://www.foo.org/" xmlns:bar="http://www.bar.org"&gt;
+	&lt;actors&gt;
+		&lt;actor id="1"&gt;Christian Bale&lt;/actor&gt;
+	&lt;/actors&gt;
+	&lt;foo:singers&gt;
+                                       &lt;orderDate&gt;2002-05-30T09:00:00&lt;/orderDate&gt;
+                                       &lt;actor id="1"&gt;Christian Bale&lt;/actor&gt;
+		&lt;foo:singer id="4"&gt;Tom Waits&lt;/foo:singer&gt;
+		&lt;foo:singer id="5"&gt;B.B. King&lt;/foo:singer&gt;
+		&lt;foo:singer id="6"&gt;Ray Charles&lt;/foo:singer&gt;
+	&lt;/foo:singers&gt;
+&lt;/root&gt;</HardcodedValue>
+          </SourceXml>
+          <Namespaces />
+          <Queries>
+            <XPathQueryDefinition>
+              <DisplayName>actors</DisplayName>
+              <Query>
+                <HardcodedValue>/root/actors/actor</HardcodedValue>
+              </Query>
+              <ReturnType>String</ReturnType>
+              <DefaultBehavior>Fail</DefaultBehavior>
+            </XPathQueryDefinition>
+          </Queries>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>eb26c522-dd88-43dd-9e2a-0a9f5a952eaf</Id>
+        <DisplayName>XPath Query 1.0 with Namespaces</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>057bc191-8395-4394-871f-8aad0ad0c731</Id>
+            <ActivityNodeId>eb26c522-dd88-43dd-9e2a-0a9f5a952eaf</ActivityNodeId>
+            <CompletedId>e9dd684a-2b8e-4117-b417-ece608527013</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XPathQueryActivityConfiguration" xml:space="preserve">
+          <Id>eb26c522-dd88-43dd-9e2a-0a9f5a952eaf</Id>
+          <DisplayName>XPath Query 1.0 with Namespaces</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>936cd442-ea45-4ab9-9d45-4c428ca7cf11</ContainingProcessId>
+          <SourceXml>
+            <HardcodedValue>&lt;datetime&gt;
+&lt;important-date&gt;
+&lt;holiday&gt;2013-10-23&lt;/holiday&gt;
+&lt;fun-begin-time&gt;18:00:00&lt;/fun-begin-time&gt;
+&lt;fun-end-time&gt;23:00:00&lt;/fun-end-time&gt;
+&lt;job-duration&gt;P1Y1DT20H25M30S&lt;/job-duration&gt;
+&lt;birthdatetime&gt;2001-04-16T15:23:15&lt;/birthdatetime&gt;
+&lt;payday&gt;---15&lt;/payday&gt;
+&lt;description&gt;
+2nd-Nov-2004, 6:00PM, 11:00PM, 1Yr and a day - 20hours, 16th Apr 2001 3:23 and 15 seconds
+&lt;/description&gt;
+&lt;/important-date&gt;
+&lt;important-date&gt;
+&lt;holiday&gt;2004-07-04&lt;/holiday&gt;
+&lt;fun-begin-time&gt;10:30:35&lt;/fun-begin-time&gt;
+&lt;fun-end-time&gt;12:40:12&lt;/fun-end-time&gt;
+&lt;job-duration&gt;P2Y4M5DT10H12M15S&lt;/job-duration&gt;
+&lt;birthdatetime&gt;1977-11-29T10:10:12&lt;/birthdatetime&gt;
+&lt;payday&gt;-2&lt;/payday&gt;
+&lt;description&gt;Description&lt;/description&gt;
+&lt;/important-date&gt;
+&lt;important-date&gt;
+&lt;holiday&gt;2012-11-02&lt;/holiday&gt;
+&lt;fun-begin-time&gt;11:59:00&lt;/fun-begin-time&gt;
+&lt;fun-end-time&gt;11:59:59&lt;/fun-end-time&gt;
+&lt;job-duration&gt;P1Y1DT20H25M30S&lt;/job-duration&gt;
+&lt;birthdatetime&gt;2012-04-16T23:59:00&lt;/birthdatetime&gt;
+&lt;payday&gt;1554863485486486486484258488488643864843883483484384848438&lt;/payday&gt;
+&lt;description&gt;
+2nd-Nov-2004, 6:00PM, 11:00PM, 1Yr and a day - 20hours, 16th Apr 2001 3:23 and 15 seconds
+&lt;/description&gt;
+&lt;/important-date&gt;
+&lt;important-date&gt;
+&lt;holiday&gt;2004-08-04&lt;/holiday&gt;
+&lt;fun-begin-time&gt;10:30:35&lt;/fun-begin-time&gt;
+&lt;fun-end-time&gt;12:40:12&lt;/fun-end-time&gt;
+&lt;job-duration&gt;P2Y4M5DT10H12M15S&lt;/job-duration&gt;
+&lt;birthdatetime&gt;1977-11-29T10:10:12&lt;/birthdatetime&gt;
+&lt;payday&gt;.000000000001&lt;/payday&gt;
+&lt;description&gt;Description&lt;/description&gt;
+&lt;/important-date&gt;
+&lt;important-date&gt;
+&lt;holiday&gt;2004-08-04&lt;/holiday&gt;
+&lt;fun-begin-time&gt;10:30:35&lt;/fun-begin-time&gt;
+&lt;fun-end-time&gt;12:40:12&lt;/fun-end-time&gt;
+&lt;job-duration&gt;P2Y4M5DT10H12M15S&lt;/job-duration&gt;
+&lt;birthdatetime&gt;1977-11-29T10:10:12&lt;/birthdatetime&gt;
+&lt;payday&gt;3.14E-5&lt;/payday&gt;
+&lt;description&gt;Description&lt;/description&gt;
+&lt;/important-date&gt;
+&lt;important-date&gt;
+&lt;holiday&gt;2004-08-04&lt;/holiday&gt;
+&lt;fun-begin-time&gt;10:30:35&lt;/fun-begin-time&gt;
+&lt;fun-end-time&gt;12:40:12&lt;/fun-end-time&gt;
+&lt;job-duration&gt;P2Y4M5DT10H12M15S&lt;/job-duration&gt;
+&lt;birthdatetime&gt;1977-11-29T10:10:12&lt;/birthdatetime&gt;
+&lt;payday&gt;.00000001E5&lt;/payday&gt;
+&lt;description&gt;Description&lt;/description&gt;
+&lt;/important-date&gt;
+&lt;/datetime&gt;</HardcodedValue>
+          </SourceXml>
+          <Namespaces>
+            <XPathNamespaceDefinition>
+              <Prefix>
+                <HardcodedValue>s</HardcodedValue>
+              </Prefix>
+              <Uri>
+                <HardcodedValue>http://schemas.xmlsoap.org/soap/envelope/</HardcodedValue>
+              </Uri>
+            </XPathNamespaceDefinition>
+            <XPathNamespaceDefinition>
+              <Prefix>
+                <HardcodedValue>r</HardcodedValue>
+              </Prefix>
+              <Uri>
+                <HardcodedValue>http://schemas.microsoft.com/MSNSearch/2005/09/fex</HardcodedValue>
+              </Uri>
+            </XPathNamespaceDefinition>
+          </Namespaces>
+          <Queries>
+            <XPathQueryDefinition>
+              <DisplayName>DateTime</DisplayName>
+              <Query>
+                <HardcodedValue>datetime/important-date[1]/holiday</HardcodedValue>
+              </Query>
+              <ReturnType>String</ReturnType>
+              <DefaultBehavior>Fail</DefaultBehavior>
+            </XPathQueryDefinition>
+          </Queries>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>52ca6fb7-58a6-41c6-8144-46d68b98d3cc</Id>
+        <DisplayName>XPath Query 2.0</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>9435d9a3-9bf7-46c9-a6cc-96eea8cfabaf</Id>
+            <ActivityNodeId>52ca6fb7-58a6-41c6-8144-46d68b98d3cc</ActivityNodeId>
+            <CompletedId>1ba644be-1ac7-44c7-a2d6-48edc9fb7405</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XPathQueryActivityConfiguration" xml:space="preserve">
+          <Id>52ca6fb7-58a6-41c6-8144-46d68b98d3cc</Id>
+          <DisplayName>XPath Query 2.0</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>936cd442-ea45-4ab9-9d45-4c428ca7cf11</ContainingProcessId>
+          <SourceXml>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;bookstore&gt;
+
+&lt;book category="COOKING"&gt;
+  &lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;
+  &lt;author&gt;Giada De Laurentiis&lt;/author&gt;
+  &lt;year&gt;2005&lt;/year&gt;
+  &lt;price&gt;30.00&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;book category="CHILDREN"&gt;
+  &lt;title lang="en"&gt;Harry Potter&lt;/title&gt;
+  &lt;author&gt;J K. Rowling&lt;/author&gt;
+  &lt;year&gt;2005&lt;/year&gt;
+  &lt;price&gt;29.99&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;book category="WEB"&gt;
+  &lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;
+  &lt;author&gt;James McGovern&lt;/author&gt;
+  &lt;author&gt;Per Bothner&lt;/author&gt;
+  &lt;author&gt;Kurt Cagle&lt;/author&gt;
+  &lt;author&gt;James Linn&lt;/author&gt;
+  &lt;author&gt;Vaidyanathan Nagarajan&lt;/author&gt;
+  &lt;year&gt;2003&lt;/year&gt;
+  &lt;price&gt;49.99&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;book category="WEB"&gt;
+  &lt;title lang="en"&gt;Learning XML&lt;/title&gt;
+  &lt;author&gt;Erik T. Ray&lt;/author&gt;
+  &lt;year&gt;2003&lt;/year&gt;
+  &lt;price&gt;39.95&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;/bookstore&gt;</HardcodedValue>
+          </SourceXml>
+          <Namespaces />
+          <Queries>
+            <XPathQueryDefinition>
+              <DisplayName>Sum</DisplayName>
+              <Query>
+                <HardcodedValue>sum(for $x in /bookstore/book return $x/price)</HardcodedValue>
+              </Query>
+              <ReturnType>String</ReturnType>
+              <DefaultBehavior>Fail</DefaultBehavior>
+            </XPathQueryDefinition>
+          </Queries>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>62e57caf-baad-44b0-8a89-e280c3bb4b4c</Id>
+        <DisplayName>Double Line Output</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>6050793d-daf3-4f20-ad6e-39b029331cf5</Id>
+            <ActivityNodeId>62e57caf-baad-44b0-8a89-e280c3bb4b4c</ActivityNodeId>
+            <CompletedId>e4693644-2fa8-4938-83d4-4e86bf55ff4e</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>62e57caf-baad-44b0-8a89-e280c3bb4b4c</Id>
+          <DisplayName>Double Line Output</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>936cd442-ea45-4ab9-9d45-4c428ca7cf11</ContainingProcessId>
+          <SourceText>
+            <HardcodedValue>&lt;DocumentElement&gt;
+  &lt;Row&gt;
+    &lt;ReqID&gt;20853&lt;/ReqID&gt;
+    &lt;StartedDate&gt;6/14/2017 4:55:29 PM&lt;/StartedDate&gt;
+    &lt;ClosedDate&gt;6/16/2017 7:11:19 PM&lt;/ClosedDate&gt;
+    &lt;Name&gt;Order Virtual Machine(s)&lt;/Name&gt;
+    &lt;PersonID&gt;onecloud-admin&lt;/PersonID&gt;
+  &lt;/Row&gt;
+  &lt;Row&gt;
+    &lt;ReqID&gt;20857&lt;/ReqID&gt;
+    &lt;StartedDate&gt;6/14/2017 6:33:13 PM&lt;/StartedDate&gt;
+    &lt;ClosedDate&gt;6/16/2017 11:07:44 PM&lt;/ClosedDate&gt;
+    &lt;Name&gt;Order Virtual Machine(s)&lt;/Name&gt;
+    &lt;PersonID&gt;onecloud-admin&lt;/PersonID&gt;
+  &lt;/Row&gt;
+  &lt;Row&gt;
+    &lt;ReqID&gt;21149&lt;/ReqID&gt;
+    &lt;StartedDate&gt;6/22/2017 5:27:06 PM&lt;/StartedDate&gt;
+    &lt;ClosedDate&gt;6/24/2017 7:42:22 PM&lt;/ClosedDate&gt;
+    &lt;Name&gt;Order Virtual Machine(s)&lt;/Name&gt;
+    &lt;PersonID&gt;onecloud-admin&lt;/PersonID&gt;
+  &lt;/Row&gt;
+  &lt;Row&gt;
+    &lt;ReqID&gt;21206&lt;/ReqID&gt;
+    &lt;StartedDate&gt;6/23/2017 4:24:35 PM&lt;/StartedDate&gt;
+    &lt;ClosedDate&gt;1/1/1900 12:00:00 AM&lt;/ClosedDate&gt;
+    &lt;Name&gt;Order Virtual Machine(s)&lt;/Name&gt;
+    &lt;PersonID&gt;onecloud-admin&lt;/PersonID&gt;
+  &lt;/Row&gt;
+  &lt;Row&gt;
+    &lt;ReqID&gt;21207&lt;/ReqID&gt;
+    &lt;StartedDate&gt;6/23/2017 4:28:32 PM&lt;/StartedDate&gt;
+    &lt;ClosedDate&gt;1/1/1900 12:00:00 AM&lt;/ClosedDate&gt;
+    &lt;Name&gt;Order Virtual Machine(s)&lt;/Name&gt;
+    &lt;PersonID&gt;onecloud-admin&lt;/PersonID&gt;
+  &lt;/Row&gt;
+  &lt;Row&gt;
+    &lt;ReqID&gt;21365&lt;/ReqID&gt;
+    &lt;StartedDate&gt;6/28/2017 4:15:58 PM&lt;/StartedDate&gt;
+    &lt;ClosedDate&gt;1/1/1900 12:00:00 AM&lt;/ClosedDate&gt;
+    &lt;Name&gt;Order Virtual Machine(s)&lt;/Name&gt;
+    &lt;PersonID&gt;onecloud-admin&lt;/PersonID&gt;
+  &lt;/Row&gt;
+  &lt;Row&gt;
+    &lt;ReqID&gt;21375&lt;/ReqID&gt;
+    &lt;StartedDate&gt;6/28/2017 7:58:25 PM&lt;/StartedDate&gt;
+    &lt;ClosedDate&gt;1/1/1900 12:00:00 AM&lt;/ClosedDate&gt;
+    &lt;Name&gt;Order Virtual Machine(s)&lt;/Name&gt;
+    &lt;PersonID&gt;onecloud-admin&lt;/PersonID&gt;
+  &lt;/Row&gt;
+&lt;/DocumentElement&gt;</HardcodedValue>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output method="text" encoding="iso-8859-1"/&gt;
+
+&lt;xsl:strip-space elements="*" /&gt;
+
+&lt;xsl:template match="/*/child::*"&gt;
+&lt;xsl:for-each select="child::*"&gt;
+&lt;xsl:if test="position() != last()"&gt;"&lt;xsl:value-of select="normalize-space(.)"/&gt;",&lt;/xsl:if&gt;
+&lt;xsl:if test="position()  = last()"&gt;"&lt;xsl:value-of select="normalize-space(.)"/&gt;"&lt;xsl:text&gt;&amp;#xD;&lt;/xsl:text&gt;
+&lt;/xsl:if&gt;
+&lt;/xsl:for-each&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Xml</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>523bd33f-cdca-4cd3-86b2-026bca539384</Id>
+        <DisplayName>XPath Query 2.0</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>7367002f-e225-45bf-a55e-c6e732b3215c</Id>
+            <ActivityNodeId>523bd33f-cdca-4cd3-86b2-026bca539384</ActivityNodeId>
+            <CompletedId>aef65702-6d7f-42f0-b758-98c081fe2f20</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XPathQueryActivityConfiguration" xml:space="preserve">
+          <Id>523bd33f-cdca-4cd3-86b2-026bca539384</Id>
+          <DisplayName>XPath Query 2.0</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>936cd442-ea45-4ab9-9d45-4c428ca7cf11</ContainingProcessId>
+          <SourceXml>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;bookstore&gt;
+
+&lt;book category="COOKING"&gt;
+  &lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;
+  &lt;author&gt;Giada De Laurentiis&lt;/author&gt;
+  &lt;year&gt;2005&lt;/year&gt;
+  &lt;price&gt;30.00&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;book category="CHILDREN"&gt;
+  &lt;title lang="en"&gt;Harry Potter&lt;/title&gt;
+  &lt;author&gt;J K. Rowling&lt;/author&gt;
+  &lt;year&gt;2005&lt;/year&gt;
+  &lt;price&gt;29.99&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;book category="WEB"&gt;
+  &lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;
+  &lt;author&gt;James McGovern&lt;/author&gt;
+  &lt;author&gt;Per Bothner&lt;/author&gt;
+  &lt;author&gt;Kurt Cagle&lt;/author&gt;
+  &lt;author&gt;James Linn&lt;/author&gt;
+  &lt;author&gt;Vaidyanathan Nagarajan&lt;/author&gt;
+  &lt;year&gt;2003&lt;/year&gt;
+  &lt;price&gt;49.99&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;book category="WEB"&gt;
+  &lt;title lang="en"&gt;Learning XML&lt;/title&gt;
+  &lt;author&gt;Erik T. Ray&lt;/author&gt;
+  &lt;year&gt;2003&lt;/year&gt;
+  &lt;price&gt;39.95&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;/bookstore&gt;</HardcodedValue>
+          </SourceXml>
+          <Namespaces />
+          <Queries>
+            <XPathQueryDefinition>
+              <DisplayName>book</DisplayName>
+              <Query>
+                <HardcodedValue>/bookstore/book[1]/title</HardcodedValue>
+              </Query>
+              <ReturnType>String</ReturnType>
+              <DefaultBehavior>Fail</DefaultBehavior>
+            </XPathQueryDefinition>
+            <XPathQueryDefinition>
+              <DisplayName>books</DisplayName>
+              <Query>
+                <HardcodedValue>/bookstore/book[1]/author</HardcodedValue>
+              </Query>
+              <ReturnType>String</ReturnType>
+              <DefaultBehavior>Fail</DefaultBehavior>
+            </XPathQueryDefinition>
+            <XPathQueryDefinition>
+              <DisplayName>book2</DisplayName>
+              <Query>
+                <HardcodedValue>/bookstore/book[2]/author</HardcodedValue>
+              </Query>
+              <ReturnType>String</ReturnType>
+              <DefaultBehavior>Fail</DefaultBehavior>
+            </XPathQueryDefinition>
+            <XPathQueryDefinition>
+              <DisplayName>price</DisplayName>
+              <Query>
+                <HardcodedValue>/bookstore/book[price&gt;40]/title</HardcodedValue>
+              </Query>
+              <ReturnType>String</ReturnType>
+              <DefaultBehavior>Fail</DefaultBehavior>
+            </XPathQueryDefinition>
+            <XPathQueryDefinition>
+              <DisplayName>Sum</DisplayName>
+              <Query>
+                <HardcodedValue>sum(for $x in /bookstore/book return $x/price)</HardcodedValue>
+              </Query>
+              <ReturnType>String</ReturnType>
+              <DefaultBehavior>Fail</DefaultBehavior>
+            </XPathQueryDefinition>
+            <XPathQueryDefinition>
+              <DisplayName>Sum1</DisplayName>
+              <Query>
+                <HardcodedValue>sum(for $x in /bookstore/book return $x/price * $x/year)</HardcodedValue>
+              </Query>
+              <ReturnType>String</ReturnType>
+              <DefaultBehavior>Fail</DefaultBehavior>
+            </XPathQueryDefinition>
+          </Queries>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>450f3989-65d4-481c-9149-5fdd6e65bc3d</Id>
+        <DisplayName>XSL Transform Fix for 3.4 Patch 4 and 3.5</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>bdb19f78-7e11-41ef-b6b2-3d2c52253d49</Id>
+            <ActivityNodeId>450f3989-65d4-481c-9149-5fdd6e65bc3d</ActivityNodeId>
+            <CompletedId>9460ebc2-ca8b-49c2-a160-284569b89a56</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XslTransformActivityConfiguration" xml:space="preserve">
+          <Id>450f3989-65d4-481c-9149-5fdd6e65bc3d</Id>
+          <DisplayName>XSL Transform Fix for 3.4 Patch 4 and 3.5</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>936cd442-ea45-4ab9-9d45-4c428ca7cf11</ContainingProcessId>
+          <SourceText>
+            <FormattedCode>{0}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Process.Variables.Local.New Variable.Table Schema XML</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>TableSchemaXml</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>ffc4d2c3-43f3-4ca6-85e4-637d65d80a5a</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableReference>
+            </References>
+          </SourceText>
+          <TransformPath>
+            <HardcodedValue />
+          </TransformPath>
+          <XSLDocument>
+            <HardcodedValue>&lt;xsl:stylesheet version="1.0"
+xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+&lt;xsl:output method="text" encoding="iso-8859-1"/&gt;
+
+&lt;xsl:strip-space elements="*" /&gt;
+
+&lt;xsl:template match="/*/*/*/*/*/*/child::*"&gt;
+&lt;xsl:for-each select="child::*"&gt;
+&lt;xsl:if test="position() != last()"&gt;"&lt;xsl:value-of select="@name"/&gt;",&lt;/xsl:if&gt;
+&lt;xsl:if test="position()  = last()"&gt;"&lt;xsl:value-of select="@name"/&gt;"&lt;xsl:text&gt;&amp;#xD;&lt;/xsl:text&gt;
+&lt;/xsl:if&gt;
+&lt;/xsl:for-each&gt;
+&lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;</HardcodedValue>
+          </XSLDocument>
+          <OutputFormat>Xml</OutputFormat>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="SwitchNode">
+        <Id>fa65fddc-9d52-429c-80e1-6b11f14be83e</Id>
+        <DisplayName>Double Line Output</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="ConditionBranchNode">
+            <Id>b01f5629-6bde-4ad0-8f5a-f03e324ed749</Id>
+            <DisplayName>Condition Branch</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="ExecuteActivityNode">
+                <Id>bca5c0da-f86f-463d-96b0-51101f5d4fc4</Id>
+                <DisplayName>Sleep</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                    <Id>86968cc4-60b2-40e3-9e70-279c62fb7df5</Id>
+                    <ActivityNodeId>bca5c0da-f86f-463d-96b0-51101f5d4fc4</ActivityNodeId>
+                    <CompletedId>aec1c28b-968e-4371-ab8a-1b3209c42f04</CompletedId>
+                  </ActivityNode>
+                </Children>
+                <Configuration xsi:type="SleepActivityConfiguration" xml:space="preserve">
+                  <Id>bca5c0da-f86f-463d-96b0-51101f5d4fc4</Id>
+                  <DisplayName>Sleep</DisplayName>
+                  <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                    <SingleTargetId>
+                      <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                    </SingleTargetId>
+                  </TargetLoadBalancer>
+                  <InheritTarget>false</InheritTarget>
+                  <ContainingProcessId>936cd442-ea45-4ab9-9d45-4c428ca7cf11</ContainingProcessId>
+                  <Seconds>
+                    <HardcodedValue>1</HardcodedValue>
+                  </Seconds>
+                </Configuration>
+              </ActivityNode>
+            </Children>
+            <Condition>
+              <Id>76fff07c-7778-4178-b7bc-6b1d3ef7b82d</Id>
+              <Conditions>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>3307eea9-c776-4242-a76c-7d548e92aeeb</Id>
+                  <Expression xsi:type="SubstitutableWildcard">
+                    <HardcodedValue>*20853*</HardcodedValue>
+                  </Expression>
+                  <Comparison>Wildcard</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Double Line Output.Output</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>Output</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>62e57caf-baad-44b0-8a89-e280c3bb4b4c</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>f571c8a0-2f02-4939-b827-3fd7ca296c13</Id>
+                  <Expression xsi:type="SubstitutableWildcard">
+                    <HardcodedValue>*21375*</HardcodedValue>
+                  </Expression>
+                  <Comparison>Wildcard</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Double Line Output.Output</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>Output</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>62e57caf-baad-44b0-8a89-e280c3bb4b4c</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+              </Conditions>
+            </Condition>
+          </ActivityNode>
+          <ActivityNode xsi:type="ConditionBranchNode">
+            <Id>697e82e1-9fb9-49a8-83cb-3331c24e510e</Id>
+            <DisplayName>Condition Branch</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="CompletedNode">
+                <Id>c8ab48f3-56bb-4ca8-b530-3c5ee06ab287</Id>
+                <CompletedType>Failed</CompletedType>
+                <ResultMessage>
+                  <HardcodedValue>Double Line is not there</HardcodedValue>
+                </ResultMessage>
+              </ActivityNode>
+            </Children>
+            <Condition>
+              <Id>b0e45edb-8807-495e-b2dc-b1d9cb8de27c</Id>
+              <Conditions />
+            </Condition>
+          </ActivityNode>
+        </Children>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>a0df84ab-f969-42e1-a068-678b50edb4bd</Id>
+        <DisplayName>XPath Query 2.0 </DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>e08834d5-5f16-436a-8d2d-dfbe8138a8ff</Id>
+            <ActivityNodeId>a0df84ab-f969-42e1-a068-678b50edb4bd</ActivityNodeId>
+            <CompletedId>f705df53-d110-4c42-997a-8228197b180e</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="XPathQueryActivityConfiguration" xml:space="preserve">
+          <Id>a0df84ab-f969-42e1-a068-678b50edb4bd</Id>
+          <DisplayName>XPath Query 2.0 </DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>936cd442-ea45-4ab9-9d45-4c428ca7cf11</ContainingProcessId>
+          <SourceXml>
+            <HardcodedValue>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;bookstore&gt;
+
+&lt;book category="COOKING"&gt;
+  &lt;title lang="en"&gt;Everyday Italian&lt;/title&gt;
+  &lt;author&gt;Giada De Laurentiis&lt;/author&gt;
+  &lt;year&gt;2005&lt;/year&gt;
+  &lt;price&gt;30.00&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;book category="CHILDREN"&gt;
+  &lt;title lang="en"&gt;Harry Potter&lt;/title&gt;
+  &lt;author&gt;J K. Rowling&lt;/author&gt;
+  &lt;year&gt;2005&lt;/year&gt;
+  &lt;price&gt;29.99&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;book category="WEB"&gt;
+  &lt;title lang="en"&gt;XQuery Kick Start&lt;/title&gt;
+  &lt;author&gt;James McGovern&lt;/author&gt;
+  &lt;author&gt;Per Bothner&lt;/author&gt;
+  &lt;author&gt;Kurt Cagle&lt;/author&gt;
+  &lt;author&gt;James Linn&lt;/author&gt;
+  &lt;author&gt;Vaidyanathan Nagarajan&lt;/author&gt;
+  &lt;year&gt;2003&lt;/year&gt;
+  &lt;price&gt;49.99&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;book category="WEB"&gt;
+  &lt;title lang="en"&gt;Learning XML&lt;/title&gt;
+  &lt;author&gt;Erik T. Ray&lt;/author&gt;
+  &lt;year&gt;2003&lt;/year&gt;
+  &lt;price&gt;39.95&lt;/price&gt;
+&lt;/book&gt;
+
+&lt;/bookstore&gt;</HardcodedValue>
+          </SourceXml>
+          <Namespaces />
+          <Queries>
+            <XPathQueryDefinition>
+              <DisplayName>Sum Multiply</DisplayName>
+              <Query>
+                <HardcodedValue>sum(for $x in /bookstore/book return $x/price * $x/year)</HardcodedValue>
+              </Query>
+              <ReturnType>String</ReturnType>
+              <DefaultBehavior>Fail</DefaultBehavior>
+            </XPathQueryDefinition>
+          </Queries>
+        </Configuration>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>936cd442-ea45-4ab9-9d45-4c428ca7cf11</ProcessId>
+</WorkflowConfiguration>
