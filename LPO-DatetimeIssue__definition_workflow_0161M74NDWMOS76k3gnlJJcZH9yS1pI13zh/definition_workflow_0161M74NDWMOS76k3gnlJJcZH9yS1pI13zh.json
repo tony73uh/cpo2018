@@ -1,0 +1,218 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_0161M74NDWMOS76k3gnlJJcZH9yS1pI13zh",
+    "name": "TN - DateTime Issue",
+    "title": "TN - DateTime Issue",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.date",
+        "properties": {
+          "scope": "local",
+          "name": "DateTime",
+          "type": "datatype.date"
+        },
+        "unique_name": "variable_workflow_0178QAJIXM4HW1SZofvVEcrf9orCiNkWuI6",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "local",
+          "name": "string",
+          "type": "datatype.string"
+        },
+        "unique_name": "variable_workflow_0178Q8820EBIV1g4RbNBUbDb52cKmSJoR85",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "TN - DateTime Issue",
+      "favorite": false,
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_0178Y2BRIXVYT0t8KsBcVPYlWAailqczobX",
+        "name": "Insert into Table via JDBC",
+        "title": "Insert into Table via JDBC",
+        "type": "corejava.insert_via_jdbc",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Insert into Table via JDBC",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "sql_query": "insert into datetestlpo\nvalues('2019-09-25 23:59:00.0','2019-08-25 23:59:00.0')",
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_015I1HQVJG30A6gvVPsOfzOWxWlJ7X8weOF"
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0161M7DNMYP8S2qYXhUsnurV0AbI0b2spyT",
+        "name": "Select from Table via JDBC",
+        "title": "Select (DateTime)",
+        "type": "corejava.select_from_via_jdbc",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Select (DateTime)",
+          "persist_output": false,
+          "populate_columns": false,
+          "row_count": 200,
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "sql_query": "select * from datetestlpo",
+          "table_columns": [
+            {
+              "column_name": "Datetest1",
+              "column_type": "date"
+            },
+            {
+              "column_name": "datetest",
+              "column_type": "date"
+            }
+          ],
+          "target": {
+            "override_workflow_target": true,
+            "override_workflow_target_group_criteria": false,
+            "target_id": "definition_target_015I1HQVJG30A6gvVPsOfzOWxWlJ7X8weOF",
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0178QC333V7VM1QmfWvnE7fmIsktrLUBKiO",
+        "name": "Select from Table via JDBC",
+        "title": "Select (String)",
+        "type": "corejava.select_from_via_jdbc",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Select (String)",
+          "persist_output": true,
+          "populate_columns": false,
+          "row_count": 200,
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "sql_query": "select * from datetestlpo",
+          "table_columns": [
+            {
+              "column_name": "Datetest1",
+              "column_type": "string"
+            },
+            {
+              "column_name": "datetest",
+              "column_type": "string"
+            }
+          ],
+          "target": {
+            "override_workflow_target": true,
+            "override_workflow_target_group_criteria": false,
+            "target_id": "definition_target_015I1HQVJG30A6gvVPsOfzOWxWlJ7X8weOF",
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0178Q7ZORSK4T2qKAMutZ2OFFqzxoyQtNhP",
+        "name": "Set Variables",
+        "title": "Set Variables String",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables String",
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_0161M74NDWMOS76k3gnlJJcZH9yS1pI13zh.local.variable_workflow_0178Q8820EBIV1g4RbNBUbDb52cKmSJoR85$",
+              "variable_value_new": "$activity.definition_activity_0178QC333V7VM1QmfWvnE7fmIsktrLUBKiO.output.response_body$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0178QALDLHZOZ6ChypJ97OqeTv3S5H964oj",
+        "name": "Set Variables",
+        "title": "Set Variables DateTime",
+        "type": "core.set_multiple_variables",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Set Variables DateTime",
+          "variables_to_update": [
+            {
+              "variable_to_update": "$workflow.definition_workflow_0161M74NDWMOS76k3gnlJJcZH9yS1pI13zh.local.variable_workflow_0178QAJIXM4HW1SZofvVEcrf9orCiNkWuI6$",
+              "variable_value_new": "$activity.definition_activity_0161M7DNMYP8S2qYXhUsnurV0AbI0b2spyT.output.response_body$"
+            }
+          ]
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_015I1HQVJG30A6gvVPsOfzOWxWlJ7X8weOF": {
+      "unique_name": "definition_target_015I1HQVJG30A6gvVPsOfzOWxWlJ7X8weOF",
+      "name": "TN - MSSQL Target",
+      "title": "TN - MSSQL Target",
+      "type": "corejava.jdbc_endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "database": "TestDB",
+        "dbtype": "sqlserver",
+        "default_runtime_user_id": "definition_runtime_user_01KuGWI6jabL9wvzGMDvLvbvIkFz7oCpS",
+        "description": "test1",
+        "display_name": "TN - MSSQL Target",
+        "port": 1433,
+        "server": "cpo-2016-sql17e.tidalsoft.local"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_01KuGWI6jabL9wvzGMDvLvbvIkFz7oCpS": {
+      "unique_name": "definition_runtime_user_01KuGWI6jabL9wvzGMDvLvbvIkFz7oCpS",
+      "name": "TN - sa",
+      "title": "TN - sa",
+      "type": "runtime_user.database_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "TN - sa",
+        "password": "*****",
+        "username": "*****"
+      }
+    }
+  }
+}
