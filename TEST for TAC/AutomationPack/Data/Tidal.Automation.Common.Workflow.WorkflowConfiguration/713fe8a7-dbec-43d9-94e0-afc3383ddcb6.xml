@@ -2,8 +2,8 @@
 <WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>713fe8a7-dbec-43d9-94e0-afc3383ddcb6</Id>
   <DisplayName>_TEST Process</DisplayName>
-  <CreatedTime>2019-06-26T22:00:25.3104041Z</CreatedTime>
-  <ModifiedTime>2019-06-26T22:00:25.3104041Z</ModifiedTime>
+  <CreatedTime>2019-07-26T15:51:12.1266685Z</CreatedTime>
+  <ModifiedTime>2019-07-26T15:51:12.1266685Z</ModifiedTime>
   <FirstActivity xsi:type="RootNode">
     <Id>54830d9f-bab6-4dbf-9327-430a9c675477</Id>
     <DisplayName />
