@@ -7,7 +7,7 @@
   <CreatedBy xsi:type="SidIdentity">
     <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
   </CreatedBy>
-  <ModifiedTime>2019-07-22T18:35:55.6853906Z</ModifiedTime>
+  <ModifiedTime>2019-07-29T22:11:02.3741134Z</ModifiedTime>
   <ModifiedBy xsi:type="SidIdentity">
     <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
   </ModifiedBy>
@@ -80,5 +80,7 @@
   </StyleCheckerIds>
   <AlwaysArchive>false</AlwaysArchive>
   <Patches />
+  <CommitHash>638a9dfbe40b9bc0978ee89518bee79e61f70314</CommitHash>
+  <RepositoryUrl>https://github.com/tony73uh/cpo2018/tree/master/TapBackup</RepositoryUrl>
   <EncodedMessage>y2vlXt1BSZcjZGxkCFnFkA==</EncodedMessage>
 </AutomationPackConfiguration>
