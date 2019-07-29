@@ -4,7 +4,16 @@
   <DisplayName>Twn233974r: XPath and XSLT 2.0 Enhancement</DisplayName>
   <VersionNumber>-1</VersionNumber>
   <CreatedTime>2019-05-03T15:09:49.1782198Z</CreatedTime>
+  <CreatedBy xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-21536</SecurityIdentifier>
+  </CreatedBy>
   <ModifiedTime>2019-06-12T22:05:10.4662749Z</ModifiedTime>
+  <ModifiedBy xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
+  </ModifiedBy>
+  <Owner xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-21536</SecurityIdentifier>
+  </Owner>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>

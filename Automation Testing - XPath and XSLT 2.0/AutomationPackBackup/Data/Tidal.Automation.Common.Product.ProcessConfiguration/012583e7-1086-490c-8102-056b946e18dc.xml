@@ -3,7 +3,16 @@
   <Id>012583e7-1086-490c-8102-056b946e18dc</Id>
   <DisplayName>XSL 1.0</DisplayName>
   <CreatedTime>2019-05-03T15:09:48.6651889Z</CreatedTime>
+  <CreatedBy xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-21536</SecurityIdentifier>
+  </CreatedBy>
   <ModifiedTime>2019-05-03T15:09:48.6651889Z</ModifiedTime>
+  <ModifiedBy xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-21536</SecurityIdentifier>
+  </ModifiedBy>
+  <Owner xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-21536</SecurityIdentifier>
+  </Owner>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>
