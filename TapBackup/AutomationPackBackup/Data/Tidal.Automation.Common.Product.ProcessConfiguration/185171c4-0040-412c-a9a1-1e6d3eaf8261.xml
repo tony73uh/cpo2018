@@ -2,11 +2,12 @@
 <ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>185171c4-0040-412c-a9a1-1e6d3eaf8261</Id>
   <DisplayName>New Process</DisplayName>
+  <VersionNumber>-1</VersionNumber>
   <CreatedTime>2019-08-02T14:40:41.1098627Z</CreatedTime>
   <CreatedBy xsi:type="SidIdentity">
     <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
   </CreatedBy>
-  <ModifiedTime>2019-08-02T14:40:41.1098627Z</ModifiedTime>
+  <ModifiedTime>2019-08-06T13:45:34.2832995Z</ModifiedTime>
   <ModifiedBy xsi:type="SidIdentity">
     <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
   </ModifiedBy>
