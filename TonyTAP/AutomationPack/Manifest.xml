@@ -1,27 +1,19 @@
 <?xml version="1.0"?>
 <AutomationPackConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
-  <Id>b2b14948-08f3-4b4f-865a-2a6e097b9702</Id>
+  <Id>2b0285ca-bd4c-466e-ad54-cdbb99a571ad</Id>
   <DisplayName>TonyTAP</DisplayName>
   <VersionNumber>-1</VersionNumber>
-  <CreatedTime>2019-07-17T21:17:47.0532048Z</CreatedTime>
-  <ModifiedTime>2019-07-23T21:01:29.286289Z</ModifiedTime>
-  <CompanyName>cisco</CompanyName>
-  <Version>3.3.3.5</Version>
-  <ExportProductVersion>3.5.1.165</ExportProductVersion>
-  <PublishDate>2019-07-23T21:01:29.2127012Z</PublishDate>
+  <CreatedTime>2019-08-06T13:15:08.6663038Z</CreatedTime>
+  <ModifiedTime>2019-08-06T13:15:36.0413674Z</ModifiedTime>
+  <CompanyName>Trial</CompanyName>
+  <Version>1.0.0.1</Version>
+  <ExportProductVersion>3.5.1.171</ExportProductVersion>
+  <PublishDate>2019-08-06T13:15:40.2654624Z</PublishDate>
   <ImportDate>0001-01-01T00:00:00Z</ImportDate>
   <DescriptionUrl />
-  <Copyright>cisco 2019</Copyright>
+  <Copyright>Trial 2019</Copyright>
   <ObjectEntries />
-  <AutomationPacks>
-    <AutomatioPackInfo>
-      <Id>861b9ea4-10ae-4e11-9417-08b3b8765f4a</Id>
-      <Company>Trial</Company>
-      <DisplayName>Automation Testing - MSsqlDB</DisplayName>
-      <Version>1.0.1.8</Version>
-      <Description />
-    </AutomatioPackInfo>
-  </AutomationPacks>
+  <AutomationPacks />
   <Adapters>
     <AdapterInfo>
       <Id>042b6e8a-90b1-4518-aa3e-398399e1b195</Id>
@@ -29,13 +21,6 @@
       <DisplayName>Core Functions Adapter</DisplayName>
       <Version>3.5.1.0</Version>
       <Description>Provides core functionality that is required by the Cisco Process Orchestrator Server.</Description>
-    </AdapterInfo>
-    <AdapterInfo>
-      <Id>e5128d48-9ee6-439f-8173-26e9e0bc79d5</Id>
-      <Company>Cisco</Company>
-      <DisplayName>Microsoft SQL Server Database Adapter</DisplayName>
-      <Version>3.5.1.0</Version>
-      <Description>Provides activities to access Microsoft SQL Server database objects and execute SQL queries.</Description>
     </AdapterInfo>
   </Adapters>
   <PageEntries />

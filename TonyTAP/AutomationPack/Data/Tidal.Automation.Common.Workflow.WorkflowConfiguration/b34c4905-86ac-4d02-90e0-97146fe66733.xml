@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>b34c4905-86ac-4d02-90e0-97146fe66733</Id>
+  <DisplayName>Tony TAP</DisplayName>
+  <CreatedTime>2019-08-06T13:14:40.3225086Z</CreatedTime>
+  <ModifiedTime>2019-08-06T13:14:40.3225086Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>2d014f2b-5b3b-4100-aa6d-7fa57f533246</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="CompletedNode">
+        <Id>211321c2-540b-4fac-817b-2805c16c03f5</Id>
+        <CompletedType>Succeeded</CompletedType>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>2c0d7f03-b601-40d5-aa61-efe38ea0fe9e</ProcessId>
+</WorkflowConfiguration>
