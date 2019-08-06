@@ -3,22 +3,13 @@
   <Id>8b4917c2-f4ed-4662-9851-c0b2556f07fb</Id>
   <DisplayName>TapBackup</DisplayName>
   <VersionNumber>-1</VersionNumber>
-  <CreatedTime>2019-07-18T20:24:21.5019357Z</CreatedTime>
-  <CreatedBy xsi:type="SidIdentity">
-    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
-  </CreatedBy>
-  <ModifiedTime>2019-08-02T14:31:23.0553947Z</ModifiedTime>
-  <ModifiedBy xsi:type="SidIdentity">
-    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
-  </ModifiedBy>
-  <Owner xsi:type="SidIdentity">
-    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
-  </Owner>
+  <CreatedTime>2019-08-02T15:24:30.8229131Z</CreatedTime>
+  <ModifiedTime>2019-08-06T12:00:37.6262227Z</ModifiedTime>
   <CompanyName>cisco</CompanyName>
-  <Version>3.5.1.1</Version>
-  <ExportProductVersion>3.5.1.168</ExportProductVersion>
-  <PublishDate>2019-07-29T22:24:49.8450826Z</PublishDate>
-  <ImportDate>2019-07-18T20:24:21.5019797Z</ImportDate>
+  <Version>3.5.1.2</Version>
+  <ExportProductVersion>3.5.1.162</ExportProductVersion>
+  <PublishDate>2019-08-06T12:00:19.7101251Z</PublishDate>
+  <ImportDate>2019-08-02T15:24:30.8541625Z</ImportDate>
   <DescriptionUrl />
   <Copyright>cisco 2019</Copyright>
   <ObjectEntries />
@@ -80,7 +71,5 @@
   </StyleCheckerIds>
   <AlwaysArchive>false</AlwaysArchive>
   <Patches />
-  <CommitHash>479fbeaed5b4c4350aeb64bf3975bdb782e283ae</CommitHash>
-  <RepositoryUrl>https://github.com/tony73uh/cpo2018/tree/master/TapBackup</RepositoryUrl>
   <EncodedMessage>y2vlXt1BSZcjZGxkCFnFkA==</EncodedMessage>
 </AutomationPackConfiguration>
