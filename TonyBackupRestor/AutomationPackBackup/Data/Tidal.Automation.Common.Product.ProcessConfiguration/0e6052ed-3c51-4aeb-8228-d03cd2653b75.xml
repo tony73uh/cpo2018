@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>0e6052ed-3c51-4aeb-8228-d03cd2653b75</Id>
+  <DisplayName>TonyBackupRestor</DisplayName>
+  <CreatedTime>2019-08-15T19:02:10.4430135Z</CreatedTime>
+  <CreatedBy xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
+  </CreatedBy>
+  <ModifiedTime>2019-08-15T19:02:10.4430135Z</ModifiedTime>
+  <ModifiedBy xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
+  </ModifiedBy>
+  <Owner xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
+  </Owner>
+  <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+    <FormattedCode />
+    <HardcodedValue>
+      <Id>00000000-0000-0000-0000-000000000000</Id>
+      <ObjectType>RuntimeUser</ObjectType>
+    </HardcodedValue>
+  </RuntimeUserObject>
+  <TargetLoadBalancer xsi:type="SingleTargetReferenceLoadBalancer">
+    <SingleTargetReference>
+      <FormattedCode />
+      <HardcodedValue>
+        <Id>6611c207-c71b-42f7-8a28-cbaf71e587fa</Id>
+        <ObjectType>Target</ObjectType>
+      </HardcodedValue>
+    </SingleTargetReference>
+  </TargetLoadBalancer>
+  <AuditStarts>true</AuditStarts>
+  <AuditSuccesses>true</AuditSuccesses>
+  <WorkflowId>12a1ba36-dcba-417b-a54a-2817cbe7ffa4</WorkflowId>
+  <CategoryIds />
+  <TriggerOwner>4cefbd84-8be6-4730-a4a3-bc6b829c9609</TriggerOwner>
+  <Triggers>
+    <TriggerDefinition>
+      <Event xsi:type="AdHocEventDefinition">
+        <Id>ddc6629c-6716-45db-a058-e6c53d326b5e</Id>
+        <DisplayName>Started by User</DisplayName>
+        <Identities />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>912ef675-5295-407c-8160-b5579f39a098</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>569edb67-ea9d-42dc-9c9f-11ac86909eb9</TriggerId>
+    </TriggerDefinition>
+    <TriggerDefinition>
+      <Event xsi:type="StartProcessEventDefinition">
+        <Id>61e887ad-54a1-4d0b-8148-ddea05e12b9e</Id>
+        <DisplayName>Started by Parent Process</DisplayName>
+        <ProcessIds />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>642f8947-bbaf-4ad0-a2fb-9446a13062b3</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>da76a57c-c467-487f-a483-6fe9300bceed</TriggerId>
+    </TriggerDefinition>
+  </Triggers>
+  <VariableDefinitions />
+  <Notes />
+  <ValidTargetTypeNames>
+    <string>Tidal.Automation.Sql.Common.SqlServerInstanceTargetConfiguration, Tidal.Automation.Sql.Common</string>
+  </ValidTargetTypeNames>
+  <ValidTargetTypeExtensionIds>
+    <guid>b4cfceaf-65fb-f719-6b63-20f99c59cde1</guid>
+  </ValidTargetTypeExtensionIds>
+  <ValidRuntimeUserTypeNames>
+    <string>Tidal.Automation.CloudPortal.Common.User.CloudPortalUserConfiguration, Tidal.Automation.CloudPortal.Common</string>
+    <string>Tidal.Automation.WebService.Common.ClientCertificateUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.CloudCenter.Users.CloudCenterApiAccessCredentialsConfiguration, Tidal.Automation.CloudCenter.Common</string>
+    <string>Tidal.Automation.WebService.Common.OAuthUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.OpenStack.Common.User.OpenStackUserConfiguration, Tidal.Automation.OpenStack.Common</string>
+    <string>Tidal.Automation.Ssh.Common.PublicKeyAdminUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.GitAdapter.Common.GitRepositoryRuntimeUserConfiguration, Tidal.Automation.GitAdapter.Common</string>
+    <string>Tidal.Automation.Ssh.Common.IOSUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.BuiltinAdapter.Common.GenericRuntimeUserConfiguration, Tidal.Automation.BuiltinAdapter.Common</string>
+    <string>Tidal.Automation.Azure.Common.AzureAccessKeyConfiguration, Tidal.Automation.Azure.Common</string>
+    <string>Tidal.Automation.Snmp.Common.SnmpUserConfiguration, Tidal.Automation.Snmp.Common</string>
+    <string>Tidal.Automation.vCloud.Common.Users.vCloudUserConfiguration, Tidal.Automation.vCloud.Common</string>
+    <string>Tidal.Automation.Windows.Common.WindowsUserConfiguration, Tidal.Automation.Windows.Common</string>
+  </ValidRuntimeUserTypeNames>
+</ProcessConfiguration>
