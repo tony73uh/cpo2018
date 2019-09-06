@@ -2,8 +2,8 @@
 <TargetGroupConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ByTypeTargetGroupConfiguration" xml:space="preserve">
   <Id>4a4df09e-cb8e-48d6-8f14-fc3b4c2d7d87</Id>
   <DisplayName>TEST Target Group</DisplayName>
-  <CreatedTime>2019-08-02T19:39:06.6052824Z</CreatedTime>
-  <ModifiedTime>2019-08-02T19:39:06.6052824Z</ModifiedTime>
+  <CreatedTime>2019-07-26T15:51:11.6246501Z</CreatedTime>
+  <ModifiedTime>2019-07-26T15:51:11.6246501Z</ModifiedTime>
   <Enabled>true</Enabled>
   <TargetType>Tidal.Automation.WebService.Common.WebTargetConfiguration, Tidal.Automation.WebService.Common</TargetType>
   <TargetTypeExtensionId>86e5a024-9ad5-462c-819b-c0e479e34d17</TargetTypeExtensionId>

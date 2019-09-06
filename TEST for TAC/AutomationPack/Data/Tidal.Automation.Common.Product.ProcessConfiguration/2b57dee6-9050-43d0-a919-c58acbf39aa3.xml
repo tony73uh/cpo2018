@@ -2,8 +2,8 @@
 <ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>2b57dee6-9050-43d0-a919-c58acbf39aa3</Id>
   <DisplayName>_TEST Process</DisplayName>
-  <CreatedTime>2019-08-02T19:39:06.8552941Z</CreatedTime>
-  <ModifiedTime>2019-08-02T19:39:06.8552941Z</ModifiedTime>
+  <CreatedTime>2019-07-26T15:51:12.2846788Z</CreatedTime>
+  <ModifiedTime>2019-07-26T15:51:12.2846788Z</ModifiedTime>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>
@@ -29,7 +29,7 @@
   <AuditSuccesses>true</AuditSuccesses>
   <WorkflowId>713fe8a7-dbec-43d9-94e0-afc3383ddcb6</WorkflowId>
   <CategoryIds />
-  <TriggerOwner>85998b8c-1a39-4bc0-b4f3-0c4ce7ef8465</TriggerOwner>
+  <TriggerOwner>4cefbd84-8be6-4730-a4a3-bc6b829c9609</TriggerOwner>
   <Triggers>
     <TriggerDefinition>
       <Event xsi:type="AdHocEventDefinition">
