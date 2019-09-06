@@ -4,11 +4,11 @@
   <DisplayName>TEST for TAC</DisplayName>
   <VersionNumber>-1</VersionNumber>
   <CreatedTime>2019-05-30T16:50:54.4150742Z</CreatedTime>
-  <ModifiedTime>2019-09-06T15:58:22.8355426Z</ModifiedTime>
+  <ModifiedTime>2019-09-06T17:45:12.1681927Z</ModifiedTime>
   <CompanyName>Community Automation Pack</CompanyName>
   <Version>1.0.0.3</Version>
   <ExportProductVersion>3.5.1.177</ExportProductVersion>
-  <PublishDate>2019-09-06T15:58:20.5091732Z</PublishDate>
+  <PublishDate>2019-09-06T17:45:12.1233114Z</PublishDate>
   <ImportDate>2019-07-26T15:51:12.9181143Z</ImportDate>
   <DescriptionUrl />
   <Copyright>GEICO 2019</Copyright>
@@ -30,7 +30,21 @@
       <Description>Provides activity to call Web Service methods.</Description>
     </AdapterInfo>
   </Adapters>
-  <PageEntries />
+  <PageEntries>
+    <PageEntry>
+      <TypeName>Tidal.Automation.WinForms.ImportAutomationPack.ExecutePowerShellScriptImportTask, Tidal.Automation.WinForms.Objects</TypeName>
+      <Parameters>
+        <ImportCustomTaskParameter>
+          <ParameterName>Script</ParameterName>
+          <ParameterValue>ping</ParameterValue>
+        </ImportCustomTaskParameter>
+        <ImportCustomTaskParameter>
+          <ParameterName>DataExtractionLocationVarName</ParameterName>
+          <ParameterValue>c:\</ParameterValue>
+        </ImportCustomTaskParameter>
+      </Parameters>
+    </PageEntry>
+  </PageEntries>
   <PrerequisiteEntries />
   <ReplaceUnexportableObject>true</ReplaceUnexportableObject>
   <CommunityAP>true</CommunityAP>
