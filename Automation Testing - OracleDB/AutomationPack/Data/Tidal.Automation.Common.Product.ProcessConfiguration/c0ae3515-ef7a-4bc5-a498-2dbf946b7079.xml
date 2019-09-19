@@ -2,9 +2,8 @@
 <ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>c0ae3515-ef7a-4bc5-a498-2dbf946b7079</Id>
   <DisplayName>Twn131312c: QE-Oracle-Delete-Positive(Final)</DisplayName>
-  <VersionNumber>-1</VersionNumber>
-  <CreatedTime>2019-09-10T15:13:19.6329245Z</CreatedTime>
-  <ModifiedTime>2019-09-10T15:26:39.4388308Z</ModifiedTime>
+  <CreatedTime>2019-09-19T19:12:17.6950779Z</CreatedTime>
+  <ModifiedTime>2019-09-19T19:12:17.6950779Z</ModifiedTime>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>
@@ -16,7 +15,7 @@
     <SingleTargetReference>
       <FormattedCode />
       <HardcodedValue>
-        <Id>b6e80020-d239-42b0-a59f-1ec789532d2c</Id>
+        <Id>10571415-255d-4662-a4f4-2a465d7d4e7c</Id>
         <ObjectType>Target</ObjectType>
       </HardcodedValue>
     </SingleTargetReference>
@@ -25,7 +24,7 @@
   <AuditSuccesses>true</AuditSuccesses>
   <WorkflowId>f2591fac-611f-46fb-adc1-0f8436abcaa2</WorkflowId>
   <CategoryIds />
-  <TriggerOwner>62065558-d038-42da-8c1a-6d9b1ad31d45</TriggerOwner>
+  <TriggerOwner>691b936e-b6ec-4b03-a503-91d7935395d2</TriggerOwner>
   <Triggers>
     <TriggerDefinition>
       <Event xsi:type="AdHocEventDefinition">
@@ -80,7 +79,6 @@
       </Scope>
       <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
       <CustomPropertiesString />
-      <Sequence>2</Sequence>
     </VariableConfiguration>
     <VariableConfiguration xsi:type="StringVariableConfiguration" xml:space="preserve">
       <Id>e3f670f5-94e9-4f8c-b6b1-31b98f59484e</Id>
@@ -93,7 +91,6 @@
       </Scope>
       <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
       <CustomPropertiesString />
-      <Sequence>3</Sequence>
     </VariableConfiguration>
     <VariableConfiguration xsi:type="TableVariableConfiguration" xml:space="preserve">
       <Id>3262a7d0-a3c5-43ad-89ed-86843d5bc0ea</Id>

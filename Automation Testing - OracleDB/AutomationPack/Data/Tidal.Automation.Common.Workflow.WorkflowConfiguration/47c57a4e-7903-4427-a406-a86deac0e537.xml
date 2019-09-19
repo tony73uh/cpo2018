@@ -2,11 +2,10 @@
 <WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>47c57a4e-7903-4427-a406-a86deac0e537</Id>
   <DisplayName>Twn131305c: QE-Oracle-Select-All-PreDefined-Positive(Final)</DisplayName>
-  <VersionNumber>2</VersionNumber>
-  <CreatedTime>2019-09-10T15:13:17.9228282Z</CreatedTime>
-  <ModifiedTime>2019-09-10T15:26:56.228687Z</ModifiedTime>
+  <CreatedTime>2019-09-19T19:12:16.8144807Z</CreatedTime>
+  <ModifiedTime>2019-09-19T19:12:16.8144807Z</ModifiedTime>
   <FirstActivity xsi:type="RootNode">
-    <Id>e7dd73e0-22b3-4105-8ea1-af0437b4f334</Id>
+    <Id>3737f700-1c8e-4e67-a28a-51ea6820c848</Id>
     <DisplayName />
     <Children>
       <ActivityNode xsi:type="SequenceNode">

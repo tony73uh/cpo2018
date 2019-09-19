@@ -2,11 +2,10 @@
 <WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>4e47cdf5-0cd8-46c6-923c-cab082dcd69a</Id>
   <DisplayName>Twn131308c: QE-Oracle-BulkInsert-Positive(Final)</DisplayName>
-  <VersionNumber>2</VersionNumber>
-  <CreatedTime>2019-09-10T15:13:20.5079746Z</CreatedTime>
-  <ModifiedTime>2019-09-10T15:22:17.4447609Z</ModifiedTime>
+  <CreatedTime>2019-09-19T19:12:18.5219809Z</CreatedTime>
+  <ModifiedTime>2019-09-19T19:12:18.5219809Z</ModifiedTime>
   <FirstActivity xsi:type="RootNode">
-    <Id>85d121ef-7154-4576-94e7-ab7dcde48c07</Id>
+    <Id>ca930570-f928-4999-b6b6-69beb506ae9e</Id>
     <DisplayName />
     <Children>
       <ActivityNode xsi:type="ExecuteActivityNode">

@@ -2,8 +2,8 @@
 <ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>7ecd4121-fe71-4849-9dca-50962e5edf06</Id>
   <DisplayName>Twn131319c: QE-Oracle-SingleStatement-Negative(Final)</DisplayName>
-  <CreatedTime>2019-09-10T15:13:17.5528031Z</CreatedTime>
-  <ModifiedTime>2019-09-10T15:13:17.5528031Z</ModifiedTime>
+  <CreatedTime>2019-09-19T19:12:16.4905178Z</CreatedTime>
+  <ModifiedTime>2019-09-19T19:12:16.4905178Z</ModifiedTime>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>
@@ -24,7 +24,7 @@
   <AuditSuccesses>true</AuditSuccesses>
   <WorkflowId>a3a52fc0-cf33-4520-8900-09a9f61d3f91</WorkflowId>
   <CategoryIds />
-  <TriggerOwner>62065558-d038-42da-8c1a-6d9b1ad31d45</TriggerOwner>
+  <TriggerOwner>691b936e-b6ec-4b03-a503-91d7935395d2</TriggerOwner>
   <Triggers>
     <TriggerDefinition>
       <Event xsi:type="AdHocEventDefinition">
