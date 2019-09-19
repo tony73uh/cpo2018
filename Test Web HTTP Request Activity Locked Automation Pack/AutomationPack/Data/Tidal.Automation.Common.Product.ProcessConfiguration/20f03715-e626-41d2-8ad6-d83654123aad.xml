@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>20f03715-e626-41d2-8ad6-d83654123aad</Id>
+  <DisplayName>Run Process</DisplayName>
+  <VersionNumber>-1</VersionNumber>
+  <CreatedTime>2019-09-17T16:44:57.2359668Z</CreatedTime>
+  <ModifiedTime>2019-09-18T15:07:44.2467516Z</ModifiedTime>
+  <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+    <FormattedCode />
+    <HardcodedValue>
+      <Id>00000000-0000-0000-0000-000000000000</Id>
+      <ObjectType>RuntimeUser</ObjectType>
+    </HardcodedValue>
+  </RuntimeUserObject>
+  <TargetLoadBalancer xsi:type="SingleTargetReferenceLoadBalancer">
+    <SingleTargetReference>
+      <FormattedCode />
+      <HardcodedValue>
+        <Id>4dce1d44-c28e-4c21-9612-18e81036c80a</Id>
+        <ObjectType>Target</ObjectType>
+      </HardcodedValue>
+    </SingleTargetReference>
+  </TargetLoadBalancer>
+  <AuditStarts>true</AuditStarts>
+  <AuditSuccesses>true</AuditSuccesses>
+  <WorkflowId>8f79fd68-5e05-40f8-9229-42196dbd4f8e</WorkflowId>
+  <CategoryIds />
+  <TriggerOwner>691b936e-b6ec-4b03-a503-91d7935395d2</TriggerOwner>
+  <Triggers>
+    <TriggerDefinition>
+      <Event xsi:type="AdHocEventDefinition">
+        <Id>6bac98b4-e0f3-4f12-9b77-ac55377f4e9d</Id>
+        <DisplayName>Started by User</DisplayName>
+        <Imported>true</Imported>
+        <Identities />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>b20c3843-07c7-4e3d-be65-ca32f580b27a</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>bd9e2c2c-7b38-4176-8796-ee408abc03e1</TriggerId>
+    </TriggerDefinition>
+    <TriggerDefinition>
+      <Event xsi:type="StartProcessEventDefinition">
+        <Id>6a1bac40-eb25-4d8c-b682-cb019f839a46</Id>
+        <DisplayName>Started by Parent Process</DisplayName>
+        <Imported>true</Imported>
+        <ProcessIds />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>44bbdad0-5482-4170-9a72-6ad252fb32e5</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>89a4fbd8-34df-4e09-9323-fdf93f9f9193</TriggerId>
+    </TriggerDefinition>
+    <TriggerDefinition>
+      <Event xsi:type="NorthboundEventDefinition">
+        <Id>abade251-407f-4ddf-ac4a-3f4610140c7e</Id>
+        <DisplayName>Started by Web Service</DisplayName>
+        <NorthboundName>RunProcess</NorthboundName>
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>017e0447-c006-4b2e-b9b2-e586ab149d3b</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>dc414194-b819-4c15-b099-608497182a7d</TriggerId>
+    </TriggerDefinition>
+  </Triggers>
+  <VariableDefinitions>
+    <VariableConfiguration xsi:type="NumberVariableConfiguration" xml:space="preserve">
+      <Id>cd7f125e-da64-4b60-850a-a1a1d662516a</Id>
+      <DisplayName>Number of Runs</DisplayName>
+      <ModifiedTime>2019-09-17T16:45:40.7235105Z</ModifiedTime>
+      <double>200</double>
+      <Scope>
+        <Family>ProcessInstanceIn</Family>
+        <ControllingItemId>20f03715-e626-41d2-8ad6-d83654123aad</ControllingItemId>
+      </Scope>
+      <VariableTypeId>97f5f9a7-d76c-90c6-fcef-e0362ff3b2d2</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="NumberVariableConfiguration" xml:space="preserve">
+      <Id>42106ed4-6ca0-40fe-b2d0-b753afb530cb</Id>
+      <DisplayName>Loop Counter</DisplayName>
+      <double>0</double>
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>20f03715-e626-41d2-8ad6-d83654123aad</ControllingItemId>
+      </Scope>
+      <VariableTypeId>97f5f9a7-d76c-90c6-fcef-e0362ff3b2d2</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="StringVariableConfiguration" xml:space="preserve">
+      <Id>f95ab8ec-9f2c-4dc1-a6c6-a5c0ff24f4e8</Id>
+      <DisplayName>Target Name</DisplayName>
+      <ModifiedTime>2019-09-18T15:07:41.4583477Z</ModifiedTime>
+      <CustomizationSetting>Yes</CustomizationSetting>
+      <string>Dummy Web Target</string>
+      <Scope>
+        <Family>ProcessInstanceIn</Family>
+        <ControllingItemId>20f03715-e626-41d2-8ad6-d83654123aad</ControllingItemId>
+      </Scope>
+      <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
+      <CustomPropertiesString />
+      <Sequence>2</Sequence>
+      <ValueRequired>true</ValueRequired>
+    </VariableConfiguration>
+  </VariableDefinitions>
+  <Notes />
+  <ValidTargetTypeNames>
+    <string>Tidal.Automation.WebService.Common.WebTargetConfiguration, Tidal.Automation.WebService.Common</string>
+  </ValidTargetTypeNames>
+  <ValidTargetTypeExtensionIds>
+    <guid>86e5a024-9ad5-462c-819b-c0e479e34d17</guid>
+  </ValidTargetTypeExtensionIds>
+  <ValidRuntimeUserTypeNames>
+    <string>Tidal.Automation.CloudPortal.Common.User.CloudPortalUserConfiguration, Tidal.Automation.CloudPortal.Common</string>
+    <string>Tidal.Automation.WebService.Common.ClientCertificateUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.CloudCenter.Users.CloudCenterApiAccessCredentialsConfiguration, Tidal.Automation.CloudCenter.Common</string>
+    <string>Tidal.Automation.WebService.Common.OAuthUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.OpenStack.Common.User.OpenStackUserConfiguration, Tidal.Automation.OpenStack.Common</string>
+    <string>Tidal.Automation.Ssh.Common.PublicKeyAdminUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.GitAdapter.Common.GitRepositoryRuntimeUserConfiguration, Tidal.Automation.GitAdapter.Common</string>
+    <string>Tidal.Automation.Ssh.Common.IOSUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.BuiltinAdapter.Common.GenericRuntimeUserConfiguration, Tidal.Automation.BuiltinAdapter.Common</string>
+    <string>Tidal.Automation.Azure.Common.AzureAccessKeyConfiguration, Tidal.Automation.Azure.Common</string>
+    <string>Tidal.Automation.Snmp.Common.SnmpUserConfiguration, Tidal.Automation.Snmp.Common</string>
+    <string>Tidal.Automation.vCloud.Common.Users.vCloudUserConfiguration, Tidal.Automation.vCloud.Common</string>
+    <string>Tidal.Automation.Windows.Common.WindowsUserConfiguration, Tidal.Automation.Windows.Common</string>
+  </ValidRuntimeUserTypeNames>
+</ProcessConfiguration>

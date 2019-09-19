@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<RuntimeUserConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="GenericRuntimeUserConfiguration" xml:space="preserve">
+  <Id>381d670a-44f1-44a9-adfa-cb46b9d0b235</Id>
+  <DisplayName>TIDALSOFT\ttran</DisplayName>
+  <VersionNumber>3</VersionNumber>
+  <CreatedTime>2019-09-17T16:44:56.7912082Z</CreatedTime>
+  <ModifiedTime>2019-09-18T11:07:05.4997874Z</ModifiedTime>
+  <EncryptedPassword>
+    <EncryptedForm />
+  </EncryptedPassword>
+</RuntimeUserConfiguration>
