@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>73ccf6ca-f8fd-4bdd-bf91-28fc12110b28</Id>
+  <DisplayName>New Process</DisplayName>
+  <CreatedTime>2019-09-09T21:30:08.0846222Z</CreatedTime>
+  <ModifiedTime>2019-09-09T21:30:08.0846222Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>422b6ad9-a59a-4023-8a54-e234cd8bcb8d</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>3c34c499-7374-4803-bb30-4a927c4bb373</Id>
+        <DisplayName>Read Table from Text</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>e9b70e9a-afd3-479e-9068-5482d85560b6</Id>
+            <ActivityNodeId>3c34c499-7374-4803-bb30-4a927c4bb373</ActivityNodeId>
+            <CompletedId>9d1e7f12-6732-4981-af55-48535f25b8f3</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="BuiltinReadTableFromTextActivityConfiguration" xml:space="preserve">
+          <Id>3c34c499-7374-4803-bb30-4a927c4bb373</Id>
+          <DisplayName>Read Table from Text</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>1188e04e-0e13-4ffd-bbe8-1f94760e594b</ContainingProcessId>
+          <Columns>
+            <BuiltinTableColumn>
+              <Name>Name</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+            <BuiltinTableColumn>
+              <Name>Address</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+          </Columns>
+          <SourceText>
+            <HardcodedValue>"Mr. James, Bond", "123 West Bellfort, Houston, TX, 77406"</HardcodedValue>
+          </SourceText>
+          <ReturnAllColumns>false</ReturnAllColumns>
+        </Configuration>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>1188e04e-0e13-4ffd-bbe8-1f94760e594b</ProcessId>
+</WorkflowConfiguration>
