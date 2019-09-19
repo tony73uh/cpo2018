@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>b264201f-b74f-47ac-a72c-6933af856438</Id>
+  <DisplayName>Twn131313c: QE-Oracle-ExecuteScript-Positive(Final)</DisplayName>
+  <CreatedTime>2019-09-10T15:13:19.1499341Z</CreatedTime>
+  <ModifiedTime>2019-09-10T15:13:19.1499341Z</ModifiedTime>
+  <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+    <FormattedCode />
+    <HardcodedValue>
+      <Id>00000000-0000-0000-0000-000000000000</Id>
+      <ObjectType>RuntimeUser</ObjectType>
+    </HardcodedValue>
+  </RuntimeUserObject>
+  <TargetLoadBalancer xsi:type="SingleTargetReferenceLoadBalancer">
+    <SingleTargetReference>
+      <FormattedCode />
+      <HardcodedValue>
+        <Id>10571415-255d-4662-a4f4-2a465d7d4e7c</Id>
+        <ObjectType>Target</ObjectType>
+      </HardcodedValue>
+    </SingleTargetReference>
+  </TargetLoadBalancer>
+  <AuditStarts>true</AuditStarts>
+  <AuditSuccesses>true</AuditSuccesses>
+  <WorkflowId>66c0d00f-e944-40d0-b40e-8195c393f3f6</WorkflowId>
+  <CategoryIds />
+  <TriggerOwner>62065558-d038-42da-8c1a-6d9b1ad31d45</TriggerOwner>
+  <Triggers>
+    <TriggerDefinition>
+      <Event xsi:type="AdHocEventDefinition">
+        <Id>745e3d90-553a-48be-b699-472efe525aa0</Id>
+        <DisplayName>Started by User</DisplayName>
+        <Imported>true</Imported>
+        <Identities />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>4180f99c-24ff-4627-9a60-3d436daedf57</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>caaf7905-c1f4-40e2-98f2-efdc065c2009</TriggerId>
+    </TriggerDefinition>
+    <TriggerDefinition>
+      <Event xsi:type="StartProcessEventDefinition">
+        <Id>b15f9494-5b33-4f17-84b5-ac672d5bff75</Id>
+        <DisplayName>Started by Parent Process</DisplayName>
+        <Imported>true</Imported>
+        <ProcessIds />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>f0957dbb-4195-42e2-acc0-8317259e5f69</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>82118712-7a63-46be-b00f-66f59cfe7f01</TriggerId>
+    </TriggerDefinition>
+  </Triggers>
+  <VariableDefinitions>
+    <VariableConfiguration xsi:type="StringVariableConfiguration" xml:space="preserve">
+      <Id>82cc6613-dfa9-46aa-9414-aa0d77943038</Id>
+      <DisplayName>Test Case Name-Default TestCase</DisplayName>
+      <Description>This is the name of your Test Case</Description>
+      <ModifiedTime>2013-08-27T00:43:26.6135483Z</ModifiedTime>
+      <string>Default Test Case Name</string>
+      <Scope>
+        <Family>ProcessInstanceIn</Family>
+        <ControllingItemId>0ca439eb-d6e6-4726-b408-dab9fece5b14</ControllingItemId>
+      </Scope>
+      <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="StringVariableConfiguration" xml:space="preserve">
+      <Id>bd99609c-7ba8-430b-ace1-6f96f859b55b</Id>
+      <DisplayName>TestCaseID-Iteration</DisplayName>
+      <Description>Creat Test Case Iteration</Description>
+      <ModifiedTime>2013-10-16T14:43:01.5110699Z</ModifiedTime>
+      <string>Twn131313c</string>
+      <Scope>
+        <Family>ProcessInstanceIn</Family>
+        <ControllingItemId>0ca439eb-d6e6-4726-b408-dab9fece5b14</ControllingItemId>
+      </Scope>
+      <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
+      <CustomPropertiesString />
+      <Sequence>2</Sequence>
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="StringVariableConfiguration" xml:space="preserve">
+      <Id>ca1d5f5e-4733-4c82-bb06-34af068a137b</Id>
+      <DisplayName>Update-Error Update</DisplayName>
+      <ModifiedTime>2013-08-27T14:35:51.4479871Z</ModifiedTime>
+      <string />
+      <Scope>
+        <Family>ProcessInstanceIn</Family>
+        <ControllingItemId>0ca439eb-d6e6-4726-b408-dab9fece5b14</ControllingItemId>
+      </Scope>
+      <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
+      <CustomPropertiesString />
+      <Sequence>3</Sequence>
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="TableVariableConfiguration" xml:space="preserve">
+      <Id>c67da0c1-f00d-444c-984a-b53164b29a30</Id>
+      <DisplayName>Oracle Table</DisplayName>
+      <ModifiedTime>2013-09-03T18:51:47.9763313Z</ModifiedTime>
+      <FixedSchemaDataTable>
+        <Row>
+          <Data>
+            <string>Яшефдчйклжщэюбвцあかさたなぎゃじゃにゃびゃみゃ理解</string>
+            <string>Tony</string>
+            <int>4</int>
+            <int>5</int>
+          </Data>
+        </Row>
+        <FixedSchema>
+          <Columns>
+            <TableSchemaColumn>
+              <Name>LastName</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>FirstName</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>Num</Name>
+              <DataType>System.Int32</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>Int</Name>
+              <DataType>System.Int32</DataType>
+            </TableSchemaColumn>
+          </Columns>
+        </FixedSchema>
+      </FixedSchemaDataTable>
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>0ca439eb-d6e6-4726-b408-dab9fece5b14</ControllingItemId>
+      </Scope>
+      <VariableTypeId>27fc86d1-8ae5-d1a4-8d06-88ee0acd318a</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="StringVariableConfiguration" xml:space="preserve">
+      <Id>7ea44606-79fe-4e6b-9319-a18182680c76</Id>
+      <DisplayName>Status - Passed or Failed</DisplayName>
+      <ModifiedTime>2013-10-15T22:23:44.3285759Z</ModifiedTime>
+      <string>failed</string>
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>0ca439eb-d6e6-4726-b408-dab9fece5b14</ControllingItemId>
+      </Scope>
+      <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+  </VariableDefinitions>
+  <Notes />
+  <ValidTargetTypeNames>
+    <string>Tidal.Automation.Sql.Common.OracleDatabaseTargetConfiguration, Tidal.Automation.Sql.Common</string>
+  </ValidTargetTypeNames>
+  <ValidTargetTypeExtensionIds>
+    <guid>421ca68f-b30f-e119-7803-a056ef401b71</guid>
+  </ValidTargetTypeExtensionIds>
+  <ValidRuntimeUserTypeNames>
+    <string>Tidal.Automation.WebService.Common.ClientCertificateUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.Ssh.Common.PublicKeyAdminUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.Ssh.Common.IOSUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.BuiltinAdapter.Common.GenericRuntimeUserConfiguration, Tidal.Automation.BuiltinAdapter.Common</string>
+    <string>Tidal.Automation.Snmp.Common.SnmpUserConfiguration, Tidal.Automation.Snmp.Common</string>
+    <string>Tidal.Automation.vCloud.Common.Users.vCloudUserConfiguration, Tidal.Automation.vCloud.Common</string>
+    <string>Tidal.Automation.Windows.Common.WindowsUserConfiguration, Tidal.Automation.Windows.Common</string>
+  </ValidRuntimeUserTypeNames>
+</ProcessConfiguration>

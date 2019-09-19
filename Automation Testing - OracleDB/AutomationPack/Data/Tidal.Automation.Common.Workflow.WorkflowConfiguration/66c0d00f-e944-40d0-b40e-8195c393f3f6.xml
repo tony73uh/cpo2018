@@ -1,0 +1,679 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>66c0d00f-e944-40d0-b40e-8195c393f3f6</Id>
+  <DisplayName>Twn131313c: QE-Oracle-ExecuteScript-Positive(Final)</DisplayName>
+  <CreatedTime>2019-09-10T15:13:18.8838859Z</CreatedTime>
+  <ModifiedTime>2019-09-10T15:13:18.8838859Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>368a73ec-0183-44c7-af9d-4027e84a255d</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>0a87ef19-bb42-4f9a-bea7-1e349ac356b3</Id>
+        <DisplayName>Delete from Oracle</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>7554a943-f39c-43e4-8749-ab906a46dea1</Id>
+            <ActivityNodeId>0a87ef19-bb42-4f9a-bea7-1e349ac356b3</ActivityNodeId>
+            <CompletedId>1b13cc4b-5f3d-49cc-925b-fddec91c8d4f</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="DeleteOracleActivityConfiguration" xml:space="preserve">
+          <Id>0a87ef19-bb42-4f9a-bea7-1e349ac356b3</Id>
+          <DisplayName>Delete from Oracle</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+          <PermissionLevel>Modify</PermissionLevel>
+          <SqlCommandText>
+            <HardcodedValue>delete Test_Table</HardcodedValue>
+          </SqlCommandText>
+          <CommandTimeout>
+            <DisplayUnits>Seconds</DisplayUnits>
+            <Period>
+              <HardcodedValue>0</HardcodedValue>
+            </Period>
+          </CommandTimeout>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>56627559-540f-4753-8aaf-7da2e194e93d</Id>
+        <DisplayName>Select from Oracle (0 row)</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>ab70c010-cb09-48f6-8ab5-7f991dd905a8</Id>
+            <ActivityNodeId>56627559-540f-4753-8aaf-7da2e194e93d</ActivityNodeId>
+            <CompletedId>e6528f39-04f4-4785-8578-eb5f4293e594</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="SelectFromOracleActivityConfiguration" xml:space="preserve">
+          <Id>56627559-540f-4753-8aaf-7da2e194e93d</Id>
+          <DisplayName>Select from Oracle (0 row)</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+          <PermissionLevel>Select</PermissionLevel>
+          <SqlCommandText>
+            <HardcodedValue>select * from Test_Table</HardcodedValue>
+          </SqlCommandText>
+          <CommandTimeout>
+            <DisplayUnits>Seconds</DisplayUnits>
+            <Period>
+              <HardcodedValue>0</HardcodedValue>
+            </Period>
+          </CommandTimeout>
+          <Columns />
+          <RowNumberPerPage>
+            <HardcodedValue>100</HardcodedValue>
+          </RowNumberPerPage>
+          <ReturnAllColumns>false</ReturnAllColumns>
+          <RowLimit>
+            <HardcodedValue>200</HardcodedValue>
+          </RowLimit>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="SwitchNode">
+        <Id>82c145cf-dd5c-44dc-a335-b2ea6ed13373</Id>
+        <DisplayName>Condition Block</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="ConditionBranchNode">
+            <Id>8e970356-63b5-42f7-97c1-2b461b1b5335</Id>
+            <DisplayName>Condition Branch</DisplayName>
+            <Children />
+            <Condition>
+              <Id>a8c7dc68-c146-42c9-a45e-6200618c4546</Id>
+              <Conditions>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>a39b0c1a-a7c9-4dd6-aac1-11fc68605387</Id>
+                  <Expression xsi:type="SubstitutableBoolean">
+                    <HardcodedValue>false</HardcodedValue>
+                  </Expression>
+                  <Comparison>Equals</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Delete from Oracle.Instance Failed</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>InstanceFailed</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>0a87ef19-bb42-4f9a-bea7-1e349ac356b3</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>5738694f-fa03-4d2f-86fe-5f3543068d7f</Id>
+                  <Expression xsi:type="SubstitutableNumber">
+                    <HardcodedValue>0</HardcodedValue>
+                  </Expression>
+                  <Comparison>Equals</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Select from Oracle (0 row).Records Affected</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>RecordsAffected</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>56627559-540f-4753-8aaf-7da2e194e93d</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+              </Conditions>
+            </Condition>
+          </ActivityNode>
+          <ActivityNode xsi:type="ConditionBranchNode">
+            <Id>092e3759-b216-4cab-8b62-ae548c7d838e</Id>
+            <DisplayName>Condition Branch</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="ExecuteActivityNode">
+                <Id>431cf5ce-7824-4374-8c06-1478d7591bae</Id>
+                <DisplayName>Delete from Oracle (2)</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+                    <Id>0ddffba8-7acf-4425-aef0-b50bdf8b6685</Id>
+                    <ActivityNodeId>431cf5ce-7824-4374-8c06-1478d7591bae</ActivityNodeId>
+                    <CompletedId>84147c9f-3b51-4539-96a0-658ad524393d</CompletedId>
+                  </ActivityNode>
+                </Children>
+                <Configuration xsi:type="DeleteOracleActivityConfiguration" xml:space="preserve">
+                  <Id>431cf5ce-7824-4374-8c06-1478d7591bae</Id>
+                  <DisplayName>Delete from Oracle (2)</DisplayName>
+                  <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                    <FormattedCode />
+                    <HardcodedValue>
+                      <Id>00000000-0000-0000-0000-000000000000</Id>
+                      <ObjectType>RuntimeUser</ObjectType>
+                    </HardcodedValue>
+                  </RuntimeUserObject>
+                  <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+                  <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+                  <PermissionLevel>Modify</PermissionLevel>
+                  <SqlCommandText>
+                    <HardcodedValue>delete Test_Table</HardcodedValue>
+                  </SqlCommandText>
+                  <CommandTimeout>
+                    <DisplayUnits>Seconds</DisplayUnits>
+                    <Period>
+                      <HardcodedValue>0</HardcodedValue>
+                    </Period>
+                  </CommandTimeout>
+                </Configuration>
+              </ActivityNode>
+            </Children>
+            <Condition>
+              <Id>e135a447-bccc-4221-989b-5d05909b9c72</Id>
+              <Conditions />
+            </Condition>
+          </ActivityNode>
+        </Children>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>c4b8e40f-a394-4163-9986-53e6f782af74</Id>
+        <DisplayName>Insert Into Oracle</DisplayName>
+        <Children />
+        <Configuration xsi:type="InsertIntoOracleActivityConfiguration" xml:space="preserve">
+          <Id>c4b8e40f-a394-4163-9986-53e6f782af74</Id>
+          <DisplayName>Insert Into Oracle</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+          <PermissionLevel>Modify</PermissionLevel>
+          <SqlCommandText>
+            <FormattedCode>INSERT INTO Test_Table
+VALUES ('{0}','myfirstname',20,999)</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Global Variables.tony2-unicode</DisplayPath>
+                <LinkChain />
+                <ObjectId>3c42c7d5-cf00-43b4-a7ff-c905827c47d7</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableReference>
+            </References>
+          </SqlCommandText>
+          <CommandTimeout>
+            <DisplayUnits>Seconds</DisplayUnits>
+            <Period>
+              <HardcodedValue>0</HardcodedValue>
+            </Period>
+          </CommandTimeout>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>81547b36-eb50-4c65-89c6-8d9177d43ec1</Id>
+        <DisplayName>Execute Oracle  SQL Script</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>8b002799-c99d-47da-9fdd-a0f9ac36bd64</Id>
+            <ActivityNodeId>81547b36-eb50-4c65-89c6-8d9177d43ec1</ActivityNodeId>
+            <CompletedId>1be270f2-0db1-46ce-b963-3223c2631a56</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="ExecOracleCommandActivityConfiguration" xml:space="preserve">
+          <Id>81547b36-eb50-4c65-89c6-8d9177d43ec1</Id>
+          <DisplayName>Execute Oracle  SQL Script</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+          <PermissionLevel>DDL</PermissionLevel>
+          <SqlCommandText>
+            <FormattedCode>select LastName, FirstName, Num, Int from Test_Table
+where LastName = '{0}'</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Global Variables.tony2-unicode</DisplayPath>
+                <LinkChain />
+                <ObjectId>3c42c7d5-cf00-43b4-a7ff-c905827c47d7</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableReference>
+            </References>
+          </SqlCommandText>
+          <CommandTimeout>
+            <DisplayUnits>Seconds</DisplayUnits>
+            <Period>
+              <HardcodedValue>0</HardcodedValue>
+            </Period>
+          </CommandTimeout>
+          <Columns>
+            <TableSchemaColumn>
+              <Name>LastName</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>FirstName</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>Int</Name>
+              <DataType>System.Double</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>Num</Name>
+              <DataType>System.Double</DataType>
+            </TableSchemaColumn>
+          </Columns>
+          <RowNumberPerPage>
+            <HardcodedValue>100</HardcodedValue>
+          </RowNumberPerPage>
+          <ReturnAllColumns>false</ReturnAllColumns>
+          <RowLimit>
+            <HardcodedValue>200</HardcodedValue>
+          </RowLimit>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>16129d59-87ff-47e9-a01c-b6e096b3460b</Id>
+        <DisplayName>Bulk Insert Into Oracle</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>0535602a-f3d1-4952-8370-ed0f425f5de3</Id>
+            <ActivityNodeId>16129d59-87ff-47e9-a01c-b6e096b3460b</ActivityNodeId>
+            <CompletedId>bf8e5df9-27ea-40f4-9382-10f3c215cc05</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="BulkInsertIntoOracleActivityConfiguration" xml:space="preserve">
+          <Id>16129d59-87ff-47e9-a01c-b6e096b3460b</Id>
+          <DisplayName>Bulk Insert Into Oracle</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+          <PermissionLevel>Modify</PermissionLevel>
+          <SqlCommandText>
+            <HardcodedValue>insert into table values(v1,v2)</HardcodedValue>
+          </SqlCommandText>
+          <CommandTimeout>
+            <DisplayUnits>Seconds</DisplayUnits>
+            <Period>
+              <HardcodedValue>0</HardcodedValue>
+            </Period>
+          </CommandTimeout>
+          <TableSource xsi:type="PropertyReference">
+            <DisplayPath>Workflow.Execute Oracle  SQL Script.Result Table</DisplayPath>
+            <LinkChain>
+              <Link xsi:type="PropertyNameLink">
+                <PropertyName>ResultTable</PropertyName>
+              </Link>
+            </LinkChain>
+            <ObjectId>81547b36-eb50-4c65-89c6-8d9177d43ec1</ObjectId>
+            <ObjectType>ActivityInstance</ObjectType>
+          </TableSource>
+          <Columns>
+            <DataMapRelation>
+              <FormattedCode>LastName</FormattedCode>
+              <TargetName>LastName</TargetName>
+              <DataType>System.String</DataType>
+              <DisplayName>LastName</DisplayName>
+            </DataMapRelation>
+            <DataMapRelation>
+              <FormattedCode>FirstName</FormattedCode>
+              <TargetName>FirstName</TargetName>
+              <DataType>System.String</DataType>
+              <DisplayName>FirstName</DisplayName>
+            </DataMapRelation>
+            <DataMapRelation>
+              <FormattedCode>Num</FormattedCode>
+              <TargetName>Num</TargetName>
+              <DataType>System.Int32</DataType>
+              <DisplayName>Num</DisplayName>
+            </DataMapRelation>
+            <DataMapRelation>
+              <FormattedCode>Int</FormattedCode>
+              <TargetName>Int</TargetName>
+              <DataType>System.Double</DataType>
+              <DisplayName>Int</DisplayName>
+            </DataMapRelation>
+          </Columns>
+          <TargetTableName>
+            <HardcodedValue>Test_Table</HardcodedValue>
+          </TargetTableName>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>a5b7b5c9-b639-4236-aa29-0edbaedcc3f4</Id>
+        <DisplayName>Select from Oracle (2 row)</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>c9c36028-a2a3-4f56-9c96-e5086b219525</Id>
+            <ActivityNodeId>a5b7b5c9-b639-4236-aa29-0edbaedcc3f4</ActivityNodeId>
+            <CompletedId>ee3296da-7f47-4803-924b-30b7d684a3b6</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="SelectFromOracleActivityConfiguration" xml:space="preserve">
+          <Id>a5b7b5c9-b639-4236-aa29-0edbaedcc3f4</Id>
+          <DisplayName>Select from Oracle (2 row)</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+          <PermissionLevel>Select</PermissionLevel>
+          <SqlCommandText>
+            <HardcodedValue>select * from Test_Table</HardcodedValue>
+          </SqlCommandText>
+          <CommandTimeout>
+            <DisplayUnits>Seconds</DisplayUnits>
+            <Period>
+              <HardcodedValue>0</HardcodedValue>
+            </Period>
+          </CommandTimeout>
+          <Columns />
+          <RowNumberPerPage>
+            <HardcodedValue>100</HardcodedValue>
+          </RowNumberPerPage>
+          <ReturnAllColumns>false</ReturnAllColumns>
+          <RowLimit>
+            <HardcodedValue>200</HardcodedValue>
+          </RowLimit>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>1c0f9677-0a4c-4ec4-aa34-5c53abde8131</Id>
+        <DisplayName>Execute Oracle  SQL Script (2)</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>d9c396b7-ed84-4495-a677-22c8122fc59c</Id>
+            <ActivityNodeId>1c0f9677-0a4c-4ec4-aa34-5c53abde8131</ActivityNodeId>
+            <CompletedId>6e3a881d-5700-4501-985b-1895ae7ad1a0</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="ExecOracleCommandActivityConfiguration" xml:space="preserve">
+          <Id>1c0f9677-0a4c-4ec4-aa34-5c53abde8131</Id>
+          <DisplayName>Execute Oracle  SQL Script (2)</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+          <PermissionLevel>DDL</PermissionLevel>
+          <SqlCommandText>
+            <HardcodedValue>CREATE OR REPLACE PROCEDURE SYSTEM.getprocess 
+(p_recordset OUT SYS_REFCURSOR) 
+IS 
+BEGIN     
+    open p_recordset FOR  select "LASTNAME", "FIRSTNAME", "NUM", "INT" from "TEST_TABLE"; 
+END getprocess;
+/</HardcodedValue>
+          </SqlCommandText>
+          <CommandTimeout>
+            <DisplayUnits>Seconds</DisplayUnits>
+            <Period>
+              <HardcodedValue>0</HardcodedValue>
+            </Period>
+          </CommandTimeout>
+          <Columns />
+          <RowNumberPerPage>
+            <HardcodedValue>100</HardcodedValue>
+          </RowNumberPerPage>
+          <ReturnAllColumns>false</ReturnAllColumns>
+          <RowLimit>
+            <HardcodedValue>200</HardcodedValue>
+          </RowLimit>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>b290c965-fb14-4d7a-a744-d307b8fdd8d9</Id>
+        <DisplayName>Execute (Run PROC) (2)</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>f448f09f-f759-41ea-9039-ae8c0825865c</Id>
+            <ActivityNodeId>47ccc677-6a0e-468e-b214-383b211efb6a</ActivityNodeId>
+            <CompletedId>b2b64609-6651-456a-bf0a-ab056bb5dab9</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="ExecOracleCommandActivityConfiguration" xml:space="preserve">
+          <Id>b290c965-fb14-4d7a-a744-d307b8fdd8d9</Id>
+          <DisplayName>Execute (Run PROC) (2)</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+          <PermissionLevel>DDL</PermissionLevel>
+          <SqlCommandText>
+            <HardcodedValue>DECLARE 
+  P_RECORDSET SYS_REFCURSOR;
+
+BEGIN 
+  P_RECORDSET := NULL;
+
+  SYSTEM.GETPROCESS ( P_RECORDSET );
+  COMMIT; 
+END;</HardcodedValue>
+          </SqlCommandText>
+          <CommandTimeout>
+            <DisplayUnits>Seconds</DisplayUnits>
+            <Period>
+              <HardcodedValue>0</HardcodedValue>
+            </Period>
+          </CommandTimeout>
+          <Columns />
+          <RowNumberPerPage>
+            <HardcodedValue>100</HardcodedValue>
+          </RowNumberPerPage>
+          <ReturnAllColumns>false</ReturnAllColumns>
+          <RowLimit>
+            <HardcodedValue>200</HardcodedValue>
+          </RowLimit>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>cfdbc392-0784-4c5c-977d-ccab77d282b6</Id>
+        <DisplayName>Execute (Run PROC)</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>059dbb9b-a021-48af-b1c7-08411bdbf4bd</Id>
+            <ActivityNodeId>47ccc677-6a0e-468e-b214-383b211efb6a</ActivityNodeId>
+            <CompletedId>25e4b03c-abed-4905-af9e-0bb9f174330a</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="ExecOracleCommandActivityConfiguration" xml:space="preserve">
+          <Id>cfdbc392-0784-4c5c-977d-ccab77d282b6</Id>
+          <DisplayName>Execute (Run PROC)</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+          <PermissionLevel>DDL</PermissionLevel>
+          <SqlCommandText>
+            <HardcodedValue>DECLARE MYDATA SYS_REFCURSOR;
+BEGIN
+   getprocess(:MYDATA);
+END;</HardcodedValue>
+          </SqlCommandText>
+          <CommandTimeout>
+            <DisplayUnits>Seconds</DisplayUnits>
+            <Period>
+              <HardcodedValue>0</HardcodedValue>
+            </Period>
+          </CommandTimeout>
+          <Columns />
+          <RowNumberPerPage>
+            <HardcodedValue>100</HardcodedValue>
+          </RowNumberPerPage>
+          <ReturnAllColumns>false</ReturnAllColumns>
+          <RowLimit>
+            <HardcodedValue>200</HardcodedValue>
+          </RowLimit>
+          <StoredProcedureReturnTableCursorName>
+            <HardcodedValue>MYDATA</HardcodedValue>
+          </StoredProcedureReturnTableCursorName>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="SwitchNode">
+        <Id>29d39fc3-cc3f-45af-b051-7b53c057fc6e</Id>
+        <DisplayName>Condition Block</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="ConditionBranchNode">
+            <Id>fc351c8b-1dda-4d2e-be7f-299e84a40e28</Id>
+            <DisplayName>Condition Branch</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="ExecuteActivityNode">
+                <Id>ccc6bb53-cb6a-4ef0-838a-de5005acf01a</Id>
+                <DisplayName>Passed</DisplayName>
+                <Children />
+                <Configuration xsi:type="SetVariableActivityConfiguration" xml:space="preserve">
+                  <Id>ccc6bb53-cb6a-4ef0-838a-de5005acf01a</Id>
+                  <DisplayName>Passed</DisplayName>
+                  <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                    <SingleTargetId>
+                      <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                    </SingleTargetId>
+                  </TargetLoadBalancer>
+                  <InheritTarget>false</InheritTarget>
+                  <ContainingProcessId>b264201f-b74f-47ac-a72c-6933af856438</ContainingProcessId>
+                  <VariableToSet>
+                    <DisplayPath>Process.Variables.Local.Status - Passed or Failed</DisplayPath>
+                    <LinkChain />
+                    <ObjectId>7ea44606-79fe-4e6b-9319-a18182680c76</ObjectId>
+                    <ObjectType>GlobalVariable</ObjectType>
+                  </VariableToSet>
+                  <NewValue xsi:type="SubstitutableString">
+                    <HardcodedValue>passed</HardcodedValue>
+                  </NewValue>
+                </Configuration>
+              </ActivityNode>
+            </Children>
+            <Condition>
+              <Id>0a76ef3e-3526-4bbc-8bc9-a79c0fb5383f</Id>
+              <Conditions>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>017c33a9-b588-40e4-b661-1e1cc295218b</Id>
+                  <Expression xsi:type="SubstitutableWildcard">
+                    <FormattedCode>*{0}*</FormattedCode>
+                    <References>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Global Variables.tony2-unicode</DisplayPath>
+                        <LinkChain />
+                        <ObjectId>3c42c7d5-cf00-43b4-a7ff-c905827c47d7</ObjectId>
+                        <ObjectType>GlobalVariable</ObjectType>
+                      </VariableReference>
+                    </References>
+                  </Expression>
+                  <Comparison>Wildcard</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Execute Oracle  SQL Script.Result Table.Table Data XML</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>ResultTable</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>TableDataXml</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>81547b36-eb50-4c65-89c6-8d9177d43ec1</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>38099395-fc14-44e2-aa6b-6a564eeb99b3</Id>
+                  <Expression xsi:type="SubstitutableBoolean">
+                    <HardcodedValue>false</HardcodedValue>
+                  </Expression>
+                  <Comparison>Equals</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Execute Oracle  SQL Script (2).Instance Failed</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>InstanceFailed</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>1c0f9677-0a4c-4ec4-aa34-5c53abde8131</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>d4fd11ff-781b-4a0e-bb27-c737eb0bc3da</Id>
+                  <Expression xsi:type="SubstitutableWildcard">
+                    <FormattedCode>*{0}*</FormattedCode>
+                    <References>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Global Variables.tony2-unicode</DisplayPath>
+                        <LinkChain />
+                        <ObjectId>3c42c7d5-cf00-43b4-a7ff-c905827c47d7</ObjectId>
+                        <ObjectType>GlobalVariable</ObjectType>
+                      </VariableReference>
+                    </References>
+                  </Expression>
+                  <Comparison>Wildcard</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Execute (Run PROC).Result Table.Table Data XML</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>ResultTable</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>TableDataXml</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>cfdbc392-0784-4c5c-977d-ccab77d282b6</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+              </Conditions>
+            </Condition>
+          </ActivityNode>
+          <ActivityNode xsi:type="ConditionBranchNode">
+            <Id>4e738bf2-baad-4114-be0d-05eec6bcc009</Id>
+            <DisplayName>Condition Branch</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="CompletedNode">
+                <Id>e94e1666-9ddf-4171-a5bc-b7caff0ab430</Id>
+                <CompletedType>FailedNotCompleted</CompletedType>
+              </ActivityNode>
+            </Children>
+            <Condition>
+              <Id>434948ed-28a7-4e22-889f-763703d445b2</Id>
+              <Conditions />
+            </Condition>
+          </ActivityNode>
+        </Children>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>b264201f-b74f-47ac-a72c-6933af856438</ProcessId>
+</WorkflowConfiguration>

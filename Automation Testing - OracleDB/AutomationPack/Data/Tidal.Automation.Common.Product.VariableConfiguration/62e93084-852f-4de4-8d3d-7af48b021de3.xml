@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<VariableConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="StringVariableConfiguration" xml:space="preserve">
+  <Id>62e93084-852f-4de4-8d3d-7af48b021de3</Id>
+  <DisplayName>Int</DisplayName>
+  <CreatedTime>2019-09-10T15:13:20.4110217Z</CreatedTime>
+  <ModifiedTime>2019-09-10T15:13:20.4110217Z</ModifiedTime>
+  <Owner xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
+  </Owner>
+  <string>Int</string>
+  <Scope>
+    <Family>Global</Family>
+    <ControllingItemId>00000000-0000-0000-0000-000000000000</ControllingItemId>
+  </Scope>
+  <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
+  <CustomPropertiesString />
+</VariableConfiguration>

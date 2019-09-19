@@ -1,0 +1,610 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>47c57a4e-7903-4427-a406-a86deac0e537</Id>
+  <DisplayName>Twn131305c: QE-Oracle-Select-All-PreDefined-Positive(Final)</DisplayName>
+  <VersionNumber>2</VersionNumber>
+  <CreatedTime>2019-09-10T15:13:17.9228282Z</CreatedTime>
+  <ModifiedTime>2019-09-10T15:26:56.228687Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>e7dd73e0-22b3-4105-8ea1-af0437b4f334</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="SequenceNode">
+        <Id>eb3c6daf-61d7-481d-a5b8-18754b7dd8fc</Id>
+        <DisplayName>Positive Sequential Block</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>f2c18e6e-5ffd-48d0-b563-98d6ad02b838</Id>
+            <DisplayName>Check Oracle Library Cache</DisplayName>
+            <Children />
+            <Configuration xsi:type="CheckOracleLibraryCacheActivityConfiguration" xml:space="preserve">
+              <Id>f2c18e6e-5ffd-48d0-b563-98d6ad02b838</Id>
+              <DisplayName>Check Oracle Library Cache</DisplayName>
+              <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                <FormattedCode />
+                <HardcodedValue>
+                  <Id>00000000-0000-0000-0000-000000000000</Id>
+                  <ObjectType>RuntimeUser</ObjectType>
+                </HardcodedValue>
+              </RuntimeUserObject>
+              <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+              <ContainingProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ContainingProcessId>
+              <PermissionLevel>Select</PermissionLevel>
+              <SqlCommandText>
+                <HardcodedValue>select sum(pins) sum_pins, sum(reloads) sum_reloads, Cast(((sum(pins) - Sum(reloads))/sum(pins)) * 100 as int) hit_ratio from   v$librarycache</HardcodedValue>
+              </SqlCommandText>
+              <CommandTimeout>
+                <DisplayUnits>Seconds</DisplayUnits>
+                <Period>
+                  <HardcodedValue>0</HardcodedValue>
+                </Period>
+              </CommandTimeout>
+            </Configuration>
+          </ActivityNode>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>9321da2c-5252-4003-8c87-6e1fb09f3082</Id>
+            <DisplayName>Check Oracle Row Cache Hit Ratio</DisplayName>
+            <Children />
+            <Configuration xsi:type="CheckOracleRowCacheActivityConfiguration" xml:space="preserve">
+              <Id>9321da2c-5252-4003-8c87-6e1fb09f3082</Id>
+              <DisplayName>Check Oracle Row Cache Hit Ratio</DisplayName>
+              <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                <FormattedCode />
+                <HardcodedValue>
+                  <Id>00000000-0000-0000-0000-000000000000</Id>
+                  <ObjectType>RuntimeUser</ObjectType>
+                </HardcodedValue>
+              </RuntimeUserObject>
+              <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+              <ContainingProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ContainingProcessId>
+              <PermissionLevel>Select</PermissionLevel>
+              <SqlCommandText>
+                <HardcodedValue>select   sum(gets) Gets,  sum(getmisses) Misses,Cast((sum(gets)+0.00000000001)/ (sum(getmisses)  + sum(gets)) * 100 as int)  Hit_Ratio from v$rowcache</HardcodedValue>
+              </SqlCommandText>
+              <CommandTimeout>
+                <DisplayUnits>Seconds</DisplayUnits>
+                <Period>
+                  <HardcodedValue>0</HardcodedValue>
+                </Period>
+              </CommandTimeout>
+            </Configuration>
+          </ActivityNode>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>a944f921-ce14-4056-9f5f-bebff45b6b75</Id>
+            <DisplayName>Check Oracle Table Scan</DisplayName>
+            <Children />
+            <Configuration xsi:type="CheckOracleTableScanActivityConfiguration" xml:space="preserve">
+              <Id>a944f921-ce14-4056-9f5f-bebff45b6b75</Id>
+              <DisplayName>Check Oracle Table Scan</DisplayName>
+              <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                <FormattedCode />
+                <HardcodedValue>
+                  <Id>00000000-0000-0000-0000-000000000000</Id>
+                  <ObjectType>RuntimeUser</ObjectType>
+                </HardcodedValue>
+              </RuntimeUserObject>
+              <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+              <ContainingProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ContainingProcessId>
+              <PermissionLevel>Select</PermissionLevel>
+              <SqlCommandText>
+                <HardcodedValue>select plan.object_owner, plan.object_name,  substr(area.sql_text,1,40) SQL,plan.hash_value  
+from v$sql_plan plan, v$sqlarea area   
+where    
+area.hash_value = plan.hash_value   
+and plan.operation = 'TABLE ACCESS'   
+and plan.options = 'FULL'  
+and plan.cardinality &gt; _cardinality_ </HardcodedValue>
+              </SqlCommandText>
+              <CommandTimeout>
+                <DisplayUnits>Seconds</DisplayUnits>
+                <Period>
+                  <HardcodedValue>0</HardcodedValue>
+                </Period>
+              </CommandTimeout>
+              <HashValue>
+                <HardcodedValue />
+              </HashValue>
+              <RowLimit>
+                <HardcodedValue>5</HardcodedValue>
+              </RowLimit>
+              <Cardinality>
+                <HardcodedValue>10</HardcodedValue>
+              </Cardinality>
+            </Configuration>
+          </ActivityNode>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>c7ee5c30-8abf-4b2f-a760-bc88edee38e8</Id>
+            <DisplayName>Display Oracle Free Memory</DisplayName>
+            <Children />
+            <Configuration xsi:type="DisplayOracleFreeMemoryActivityConfiguration" xml:space="preserve">
+              <Id>c7ee5c30-8abf-4b2f-a760-bc88edee38e8</Id>
+              <DisplayName>Display Oracle Free Memory</DisplayName>
+              <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                <FormattedCode />
+                <HardcodedValue>
+                  <Id>00000000-0000-0000-0000-000000000000</Id>
+                  <ObjectType>RuntimeUser</ObjectType>
+                </HardcodedValue>
+              </RuntimeUserObject>
+              <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+              <ContainingProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ContainingProcessId>
+              <PermissionLevel>Select</PermissionLevel>
+              <SqlCommandText>
+                <HardcodedValue>select Name, Pool,   (bytes/1024/1024) FreeMemory
+from   v$sgastat
+where  name = 'free memory'
+and pool = 'shared pool'</HardcodedValue>
+              </SqlCommandText>
+              <CommandTimeout>
+                <DisplayUnits>Seconds</DisplayUnits>
+                <Period>
+                  <HardcodedValue>0</HardcodedValue>
+                </Period>
+              </CommandTimeout>
+            </Configuration>
+          </ActivityNode>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>cd87c7ec-1948-4a7b-b322-4c6a2b89f149</Id>
+            <DisplayName>List Oracle Heavy Queries</DisplayName>
+            <Children />
+            <Configuration xsi:type="OracleHeavyQueriesActivityConfiguration" xml:space="preserve">
+              <Id>cd87c7ec-1948-4a7b-b322-4c6a2b89f149</Id>
+              <DisplayName>List Oracle Heavy Queries</DisplayName>
+              <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                <FormattedCode />
+                <HardcodedValue>
+                  <Id>00000000-0000-0000-0000-000000000000</Id>
+                  <ObjectType>RuntimeUser</ObjectType>
+                </HardcodedValue>
+              </RuntimeUserObject>
+              <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+              <ContainingProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ContainingProcessId>
+              <PermissionLevel>Select</PermissionLevel>
+              <SqlCommandText>
+                <HardcodedValue>SELECT substr(sql_text,1,40) SQL, Cpu_time, Buffer_gets , Disk_reads, Executions, hash_value 
+FROM V$SQLAREA  
+WHERE (cpu_time &gt; _cpu_time_  
+Or disk_reads &gt; _disk_reads_  
+Or buffer_gets &gt; _buffer_gets_  
+Or executions &gt; _executions_)  
+And ( sysdate - to_date(first_load_time,'yyyy-mm-dd/hh24:mi:ss'))*24*60 &lt; _load_time_ </HardcodedValue>
+              </SqlCommandText>
+              <CommandTimeout>
+                <DisplayUnits>Seconds</DisplayUnits>
+                <Period>
+                  <HardcodedValue>0</HardcodedValue>
+                </Period>
+              </CommandTimeout>
+              <ProcessList>
+                <HardcodedValue />
+              </ProcessList>
+              <RowLimit>
+                <HardcodedValue>30</HardcodedValue>
+              </RowLimit>
+              <CPUTime>
+                <HardcodedValue>60000000</HardcodedValue>
+              </CPUTime>
+              <DiskReads>
+                <HardcodedValue>1000</HardcodedValue>
+              </DiskReads>
+              <BufferGets>
+                <HardcodedValue>10000</HardcodedValue>
+              </BufferGets>
+              <Executions>
+                <HardcodedValue>100</HardcodedValue>
+              </Executions>
+              <Time>
+                <DisplayUnits>Minutes</DisplayUnits>
+                <Period>
+                  <HardcodedValue>60</HardcodedValue>
+                </Period>
+              </Time>
+            </Configuration>
+          </ActivityNode>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>19479364-d916-44a9-8313-6edd16a884c8</Id>
+            <DisplayName>List Oracle Running SQL Queries</DisplayName>
+            <Children />
+            <Configuration xsi:type="OracleListRunningQueriesActivityConfiguration" xml:space="preserve">
+              <Id>19479364-d916-44a9-8313-6edd16a884c8</Id>
+              <DisplayName>List Oracle Running SQL Queries</DisplayName>
+              <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                <FormattedCode />
+                <HardcodedValue>
+                  <Id>00000000-0000-0000-0000-000000000000</Id>
+                  <ObjectType>RuntimeUser</ObjectType>
+                </HardcodedValue>
+              </RuntimeUserObject>
+              <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+              <ContainingProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ContainingProcessId>
+              <PermissionLevel>Select</PermissionLevel>
+              <SqlCommandText>
+                <HardcodedValue>select s.sid SID,
+s.status Status,
+s.process Process,
+s.osuser "OS User",
+a.sql_text "SQL Text",
+p.program Program
+from v$session s,
+v$sqlarea a,
+v$process p
+where s.sql_hash_value=a.hash_value
+and s.sql_address=a.address
+and s.paddr=p.addr
+and s.status='ACTIVE'</HardcodedValue>
+              </SqlCommandText>
+              <CommandTimeout>
+                <DisplayUnits>Seconds</DisplayUnits>
+                <Period>
+                  <HardcodedValue>0</HardcodedValue>
+                </Period>
+              </CommandTimeout>
+              <RowLimit>
+                <HardcodedValue>50</HardcodedValue>
+              </RowLimit>
+            </Configuration>
+          </ActivityNode>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>c385074e-4a29-4047-a90f-293553ed06b5</Id>
+            <DisplayName>Oracle Database Lock</DisplayName>
+            <Children />
+            <Configuration xsi:type="OracleDatabaseLockActivityConfiguration" xml:space="preserve">
+              <Id>c385074e-4a29-4047-a90f-293553ed06b5</Id>
+              <DisplayName>Oracle Database Lock</DisplayName>
+              <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                <FormattedCode />
+                <HardcodedValue>
+                  <Id>00000000-0000-0000-0000-000000000000</Id>
+                  <ObjectType>RuntimeUser</ObjectType>
+                </HardcodedValue>
+              </RuntimeUserObject>
+              <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+              <ContainingProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ContainingProcessId>
+              <PermissionLevel>Select</PermissionLevel>
+              <SqlCommandText>
+                <HardcodedValue>select waiting_session.process Waiting_Process,
+      blocker_session.process Blocking_Process, 
+      blocker.id1 Object, 
+      blocker.ctime Block_Time,
+      decode(blocker.type,  
+          'BL','Buffer hash table instance lock',  
+          'CF',' Control file schema global enqueue lock',  
+          'CI','Cross-instance function invocation instance lock',  
+          'CS','Control file schema global enqueue lock',  
+          'CU','Cursor bind lock',  
+          'DF','Data file instance lock',  
+          'DL','Direct loader parallel index create',  
+          'DM','Mount/startup db primary/secondary instance lock',  
+          'DR','Distributed recovery process lock',  
+          'DX','Distributed transaction entry lock',  
+          'FI','SGA open-file information lock',  
+          'FS','File set lock',  
+          'HW','Space management operations on a specific segment lock',  
+          'IN','Instance number lock',  
+          'IR','Instance recovery serialization global enqueue lock',  
+          'IS','Instance state lock',  
+          'IV','Library cache invalidation instance lock',  
+          'JQ','Job queue lock',  
+          'KK','Thread kick lock',  
+          'MB','Master buffer hash table instance lock',  
+          'MM','Mount definition gloabal enqueue lock',  
+          'MR','Media recovery lock',  
+          'PF','Password file lock',  
+          'PI','Parallel operation lock',  
+          'PR','Process startup lock',  
+          'PS','Parallel operation lock',  
+          'RE','USE_ROW_ENQUEUE enforcement lock',  
+          'RT','Redo thread global enqueue lock',  
+          'RW','Row wait enqueue lock',  
+          'SC','System commit number instance lock',  
+          'SH','System commit number high water mark enqueue lock',  
+          'SM','SMON lock',  
+          'SN','Sequence number instance lock',  
+          'SQ','Sequence number enqueue lock',  
+          'SS','Sort segment lock',  
+          'ST','Space transaction enqueue lock',  
+          'SV','Sequence number value lock',  
+          'TA','Generic enqueue lock',  
+          'TD','DDL enqueue lock',  
+          'TE','Extend-segment enqueue lock',  
+          'TM','DML enqueue lock',  
+          'TT','Temporary table enqueue lock',  
+          'TX','Transaction enqueue lock',  
+          'UL','User supplied lock',  
+          'UN','User name lock',  
+          'US','Undo segment DDL lock',  
+          'WL','Being-written redo log instance lock',  
+          'WS','Write-atomic-log-switch global enqueue lock') Lock_Type  
+      from v$lock blocker, v$lock requestor, v$session waiting_session, v$session blocker_session  
+      where blocker.id1 = requestor.id1  
+      and blocker.block = 1  
+      and requestor.lmode = 0  
+      and waiting_session.sid = requestor.sid   
+      and blocker_Session.sid = blocker.sid  
+      and blocker.ctime &gt; 120  
+      and rownum &lt; 30 </HardcodedValue>
+              </SqlCommandText>
+              <CommandTimeout>
+                <DisplayUnits>Seconds</DisplayUnits>
+                <Period>
+                  <HardcodedValue>0</HardcodedValue>
+                </Period>
+              </CommandTimeout>
+              <ProcessList>
+                <HardcodedValue />
+              </ProcessList>
+            </Configuration>
+          </ActivityNode>
+          <ActivityNode xsi:type="ExecuteActivityNode">
+            <Id>581e5a1d-3975-4c19-ae21-0c2cd90b4cf0</Id>
+            <DisplayName>Oracle Table Space</DisplayName>
+            <Children />
+            <Configuration xsi:type="OracleTableSpaceActivityConfiguration" xml:space="preserve">
+              <Id>581e5a1d-3975-4c19-ae21-0c2cd90b4cf0</Id>
+              <DisplayName>Oracle Table Space</DisplayName>
+              <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+                <FormattedCode />
+                <HardcodedValue>
+                  <Id>00000000-0000-0000-0000-000000000000</Id>
+                  <ObjectType>RuntimeUser</ObjectType>
+                </HardcodedValue>
+              </RuntimeUserObject>
+              <TargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+              <ContainingProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ContainingProcessId>
+              <PermissionLevel>Select</PermissionLevel>
+              <SqlCommandText>
+                <HardcodedValue>select tablespace_name,tablespace_size,tablespace_size - used_space Total_Free, cast((100 - used_percent) as number(5,2)) Percent_Free from dba_tablespace_usage_metrics</HardcodedValue>
+              </SqlCommandText>
+              <CommandTimeout>
+                <DisplayUnits>Seconds</DisplayUnits>
+                <Period>
+                  <HardcodedValue>0</HardcodedValue>
+                </Period>
+              </CommandTimeout>
+              <Autoextensible>false</Autoextensible>
+            </Configuration>
+          </ActivityNode>
+          <ActivityNode xsi:type="SwitchNode">
+            <Id>f8858062-8999-4b53-9b35-6dd8a5d03e8c</Id>
+            <DisplayName>Condition Block</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="ConditionBranchNode">
+                <Id>2d21d514-9308-4fac-adb6-83d3dad6ac49</Id>
+                <DisplayName>Condition Branch</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="ExecuteActivityNode">
+                    <Id>61b20e71-06dd-490c-958b-8d335ec28a12</Id>
+                    <DisplayName>Passed</DisplayName>
+                    <Children />
+                    <Configuration xsi:type="SetVariableActivityConfiguration" xml:space="preserve">
+                      <Id>61b20e71-06dd-490c-958b-8d335ec28a12</Id>
+                      <DisplayName>Passed</DisplayName>
+                      <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                        <SingleTargetId>
+                          <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                        </SingleTargetId>
+                      </TargetLoadBalancer>
+                      <InheritTarget>false</InheritTarget>
+                      <ContainingProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ContainingProcessId>
+                      <VariableToSet>
+                        <DisplayPath>Process.Variables.Local.Status - Passed or Failed</DisplayPath>
+                        <LinkChain />
+                        <ObjectId>3ff7a9b3-28ef-422b-a6c4-44a2a1ec4140</ObjectId>
+                        <ObjectType>GlobalVariable</ObjectType>
+                      </VariableToSet>
+                      <NewValue xsi:type="SubstitutableString">
+                        <HardcodedValue>passed</HardcodedValue>
+                      </NewValue>
+                    </Configuration>
+                  </ActivityNode>
+                </Children>
+                <Condition>
+                  <Id>90510269-6059-43b3-9b94-a0214c14c2a4</Id>
+                  <Operator>Or</Operator>
+                  <Conditions>
+                    <ConditionDefinition xsi:type="VariableConditionDefinition">
+                      <Id>17834d5a-ced3-4783-be0b-a8df03019db6</Id>
+                      <Expression xsi:type="SubstitutableNumber">
+                        <HardcodedValue>1</HardcodedValue>
+                      </Expression>
+                      <Comparison>GreaterThanOrEquals</Comparison>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.Check Oracle Library Cache.Query Result.Column Count</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>QueryResult</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>ColumnCount</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>f2c18e6e-5ffd-48d0-b563-98d6ad02b838</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </ConditionDefinition>
+                    <ConditionDefinition xsi:type="VariableConditionDefinition">
+                      <Id>7bb26428-8b55-404b-b211-81502de9606c</Id>
+                      <Expression xsi:type="SubstitutableNumber">
+                        <HardcodedValue>1</HardcodedValue>
+                      </Expression>
+                      <Comparison>GreaterThanOrEquals</Comparison>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.Check Oracle Row Cache Hit Ratio.Query Result.Column Count</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>QueryResult</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>ColumnCount</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>9321da2c-5252-4003-8c87-6e1fb09f3082</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </ConditionDefinition>
+                    <ConditionDefinition xsi:type="VariableConditionDefinition">
+                      <Id>f117c1b5-5129-4eac-8431-fec2575b4cbb</Id>
+                      <Expression xsi:type="SubstitutableNumber">
+                        <HardcodedValue>1</HardcodedValue>
+                      </Expression>
+                      <Comparison>GreaterThanOrEquals</Comparison>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.Check Oracle Table Scan.Query Result.Column Count</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>QueryResult</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>ColumnCount</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>a944f921-ce14-4056-9f5f-bebff45b6b75</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </ConditionDefinition>
+                    <ConditionDefinition xsi:type="VariableConditionDefinition">
+                      <Id>7105704f-ba38-4a35-a913-8c396106e79d</Id>
+                      <Expression xsi:type="SubstitutableNumber">
+                        <HardcodedValue>1</HardcodedValue>
+                      </Expression>
+                      <Comparison>GreaterThanOrEquals</Comparison>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.Display Oracle Free Memory.Query Result.Column Count</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>QueryResult</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>ColumnCount</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>c7ee5c30-8abf-4b2f-a760-bc88edee38e8</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </ConditionDefinition>
+                    <ConditionDefinition xsi:type="VariableConditionDefinition">
+                      <Id>39116373-5d11-416f-ac27-ddf4b8aa21c1</Id>
+                      <Expression xsi:type="SubstitutableNumber">
+                        <HardcodedValue>1</HardcodedValue>
+                      </Expression>
+                      <Comparison>GreaterThanOrEquals</Comparison>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.List Oracle Heavy Queries.Query Result.Column Count</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>QueryResult</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>ColumnCount</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>cd87c7ec-1948-4a7b-b322-4c6a2b89f149</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </ConditionDefinition>
+                    <ConditionDefinition xsi:type="VariableConditionDefinition">
+                      <Id>a2f44f80-a3ac-4a10-898e-18a9ac801120</Id>
+                      <Expression xsi:type="SubstitutableNumber">
+                        <HardcodedValue>1</HardcodedValue>
+                      </Expression>
+                      <Comparison>GreaterThanOrEquals</Comparison>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.List Oracle Running SQL Queries.Query Result.Column Count</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>QueryResult</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>ColumnCount</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>19479364-d916-44a9-8313-6edd16a884c8</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </ConditionDefinition>
+                    <ConditionDefinition xsi:type="VariableConditionDefinition">
+                      <Id>b185be33-82c0-431c-949b-3f9f3ec459aa</Id>
+                      <Expression xsi:type="SubstitutableNumber">
+                        <HardcodedValue>1</HardcodedValue>
+                      </Expression>
+                      <Comparison>GreaterThanOrEquals</Comparison>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.Oracle Database Lock.Query Result.Column Count</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>QueryResult</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>ColumnCount</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>c385074e-4a29-4047-a90f-293553ed06b5</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </ConditionDefinition>
+                    <ConditionDefinition xsi:type="VariableConditionDefinition">
+                      <Id>e93f4b2f-b274-425c-92ad-bb506a1aff42</Id>
+                      <Expression xsi:type="SubstitutableNumber">
+                        <HardcodedValue>1</HardcodedValue>
+                      </Expression>
+                      <Comparison>GreaterThanOrEquals</Comparison>
+                      <VariableReference xsi:type="PropertyReference">
+                        <DisplayPath>Workflow.Oracle Table Space.Query Result.Column Count</DisplayPath>
+                        <LinkChain>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>QueryResult</PropertyName>
+                          </Link>
+                          <Link xsi:type="PropertyNameLink">
+                            <PropertyName>ColumnCount</PropertyName>
+                          </Link>
+                        </LinkChain>
+                        <ObjectId>581e5a1d-3975-4c19-ae21-0c2cd90b4cf0</ObjectId>
+                        <ObjectType>ActivityInstance</ObjectType>
+                      </VariableReference>
+                    </ConditionDefinition>
+                  </Conditions>
+                </Condition>
+              </ActivityNode>
+              <ActivityNode xsi:type="ConditionBranchNode">
+                <Id>0ce1f43f-3c71-4ef2-919c-a6f8fcb103a9</Id>
+                <DisplayName>Condition Branch</DisplayName>
+                <Children>
+                  <ActivityNode xsi:type="ExecuteActivityNode">
+                    <Id>462da81a-71f2-46d0-9700-ec11c523830d</Id>
+                    <DisplayName>Failed</DisplayName>
+                    <Children />
+                    <Configuration xsi:type="SetVariableActivityConfiguration" xml:space="preserve">
+                      <Id>462da81a-71f2-46d0-9700-ec11c523830d</Id>
+                      <DisplayName>Failed</DisplayName>
+                      <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+                        <SingleTargetId>
+                          <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+                        </SingleTargetId>
+                      </TargetLoadBalancer>
+                      <InheritTarget>false</InheritTarget>
+                      <ContainingProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ContainingProcessId>
+                      <VariableToSet>
+                        <DisplayPath>Process.Variables.Input.Update-Error Update</DisplayPath>
+                        <LinkChain />
+                        <ObjectId>6785210c-3510-4878-a162-224acbada160</ObjectId>
+                        <ObjectType>GlobalVariable</ObjectType>
+                      </VariableToSet>
+                      <NewValue xsi:type="SubstitutableString">
+                        <HardcodedValue>This process had an error!</HardcodedValue>
+                      </NewValue>
+                    </Configuration>
+                  </ActivityNode>
+                </Children>
+                <Condition>
+                  <Id>1aff0201-1029-4ec8-98b2-c67b2a583cff</Id>
+                  <Conditions />
+                </Condition>
+              </ActivityNode>
+            </Children>
+          </ActivityNode>
+        </Children>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>a94ef11f-5ec1-4c17-a967-86595c6f2ee8</ProcessId>
+</WorkflowConfiguration>

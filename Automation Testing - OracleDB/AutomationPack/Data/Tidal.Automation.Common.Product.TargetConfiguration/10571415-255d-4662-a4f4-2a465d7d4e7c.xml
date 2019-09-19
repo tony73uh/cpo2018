@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<TargetConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="OracleDatabaseTargetConfiguration" xml:space="preserve">
+  <Id>10571415-255d-4662-a4f4-2a465d7d4e7c</Id>
+  <DisplayName>Oracle Database 12C</DisplayName>
+  <Description>For RAC via TNS, Oracle client needs to be install. Check prerequisite for Oracle client supported version.  Once installation is is completed, create tnsnames and point it the RAC DB.
+example:
+RAC =
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = ora-rac-scan.tidalsoft.local)(PORT = 1521))
+
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = orcl.tidalsoft.local)
+    )
+  )</Description>
+  <VersionNumber>2</VersionNumber>
+  <CreatedTime>2019-09-10T15:13:16.8267574Z</CreatedTime>
+  <ModifiedTime>2019-09-10T15:13:45.5984075Z</ModifiedTime>
+  <Owner xsi:type="SidIdentity">
+    <SecurityIdentifier>S-1-5-21-209125451-689648040-410060929-16762</SecurityIdentifier>
+  </Owner>
+  <DefaultRuntimeUserId>8a2fbc92-9fd1-4ce4-8cdc-c4070dcf4c5f</DefaultRuntimeUserId>
+  <TypeExtensionId>421ca68f-b30f-e119-7803-a056ef401b71</TypeExtensionId>
+  <ConnectionString>Data Source={DS};SID={SID};Port={PT};Unicode=true</ConnectionString>
+  <QueryTimeout>120</QueryTimeout>
+  <DatabaseVersion>12.1.0.1</DatabaseVersion>
+  <TargetPermission>DDL</TargetPermission>
+  <DatabaseName>cpo-w2012-81</DatabaseName>
+  <DatabaseOwner />
+  <DataSource>cpo-w2012-81</DataSource>
+  <SID>cpo</SID>
+  <PortNumber>1521</PortNumber>
+  <TNSAlias />
+</TargetConfiguration>
