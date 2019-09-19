@@ -2,8 +2,8 @@
 <ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>d56698c5-f429-4699-90e6-aded853789c3</Id>
   <DisplayName>Twn131318c: QE-Oracle-Select-Positive(Final)</DisplayName>
-  <CreatedTime>2019-09-19T19:12:17.9609709Z</CreatedTime>
-  <ModifiedTime>2019-09-19T19:12:17.9609709Z</ModifiedTime>
+  <CreatedTime>2019-09-19T19:02:54.1859193Z</CreatedTime>
+  <ModifiedTime>2019-09-19T19:02:54.1859193Z</ModifiedTime>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>
@@ -24,7 +24,7 @@
   <AuditSuccesses>true</AuditSuccesses>
   <WorkflowId>42eb74f7-daa6-4999-9f13-320b8a624129</WorkflowId>
   <CategoryIds />
-  <TriggerOwner>691b936e-b6ec-4b03-a503-91d7935395d2</TriggerOwner>
+  <TriggerOwner>0db799bb-6a93-4f97-a63b-d5231a274c1f</TriggerOwner>
   <Triggers>
     <TriggerDefinition>
       <Event xsi:type="AdHocEventDefinition">

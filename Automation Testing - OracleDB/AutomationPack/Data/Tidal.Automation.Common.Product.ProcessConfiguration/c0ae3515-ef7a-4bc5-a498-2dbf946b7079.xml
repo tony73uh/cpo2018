@@ -2,8 +2,8 @@
 <ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>c0ae3515-ef7a-4bc5-a498-2dbf946b7079</Id>
   <DisplayName>Twn131312c: QE-Oracle-Delete-Positive(Final)</DisplayName>
-  <CreatedTime>2019-09-19T19:12:17.6950779Z</CreatedTime>
-  <ModifiedTime>2019-09-19T19:12:17.6950779Z</ModifiedTime>
+  <CreatedTime>2019-09-19T19:02:50.0636837Z</CreatedTime>
+  <ModifiedTime>2019-09-19T19:02:50.0636837Z</ModifiedTime>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>
@@ -24,7 +24,7 @@
   <AuditSuccesses>true</AuditSuccesses>
   <WorkflowId>f2591fac-611f-46fb-adc1-0f8436abcaa2</WorkflowId>
   <CategoryIds />
-  <TriggerOwner>691b936e-b6ec-4b03-a503-91d7935395d2</TriggerOwner>
+  <TriggerOwner>0db799bb-6a93-4f97-a63b-d5231a274c1f</TriggerOwner>
   <Triggers>
     <TriggerDefinition>
       <Event xsi:type="AdHocEventDefinition">

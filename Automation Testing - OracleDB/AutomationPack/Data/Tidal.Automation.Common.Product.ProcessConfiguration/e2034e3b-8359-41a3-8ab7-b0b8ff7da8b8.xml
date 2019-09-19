@@ -2,8 +2,8 @@
 <ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
   <Id>e2034e3b-8359-41a3-8ab7-b0b8ff7da8b8</Id>
   <DisplayName>Twn131308c: QE-Oracle-BulkInsert-Positive(Final)</DisplayName>
-  <CreatedTime>2019-09-19T19:12:18.6029965Z</CreatedTime>
-  <ModifiedTime>2019-09-19T19:12:18.6029965Z</ModifiedTime>
+  <CreatedTime>2019-09-19T19:03:03.9064821Z</CreatedTime>
+  <ModifiedTime>2019-09-19T19:03:03.9064821Z</ModifiedTime>
   <RuntimeUserObject xsi:type="SubstitutableObjectReference">
     <FormattedCode />
     <HardcodedValue>
@@ -24,7 +24,7 @@
   <AuditSuccesses>true</AuditSuccesses>
   <WorkflowId>4e47cdf5-0cd8-46c6-923c-cab082dcd69a</WorkflowId>
   <CategoryIds />
-  <TriggerOwner>691b936e-b6ec-4b03-a503-91d7935395d2</TriggerOwner>
+  <TriggerOwner>0db799bb-6a93-4f97-a63b-d5231a274c1f</TriggerOwner>
   <Triggers>
     <TriggerDefinition>
       <Event xsi:type="AdHocEventDefinition">
