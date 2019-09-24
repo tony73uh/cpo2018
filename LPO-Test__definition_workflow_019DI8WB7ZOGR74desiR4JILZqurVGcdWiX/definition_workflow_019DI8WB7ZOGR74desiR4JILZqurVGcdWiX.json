@@ -11,6 +11,7 @@
         "is_atomic": false
       },
       "delete_workflow_instance": false,
+      "description": "test",
       "display_name": "TN - Query",
       "runtime_user": {
         "override_target_runtime_user": false,
@@ -35,6 +36,20 @@
         "properties": {
           "continue_on_failure": false,
           "display_name": "TonyTestImport",
+          "skip_execution": false,
+          "sleep_interval": 60
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_01ABAURYIATRU1ke7ofGTgmCpRwKSkCls8s",
+        "name": "Sleep",
+        "title": "TonyTestImportSleep2",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "TonyTestImportSleep2",
           "skip_execution": false,
           "sleep_interval": 60
         },
