@@ -1,0 +1,319 @@
+<?xml version="1.0"?>
+<ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>63d08e91-724f-4fa8-9e81-0cf7565f2074</Id>
+  <DisplayName>Twn321701c: Join Tables</DisplayName>
+  <CreatedTime>2020-04-21T14:44:34.9012804Z</CreatedTime>
+  <ModifiedTime>2020-04-21T14:44:34.9012804Z</ModifiedTime>
+  <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+    <FormattedCode />
+    <HardcodedValue>
+      <Id>00000000-0000-0000-0000-000000000000</Id>
+      <ObjectType>RuntimeUser</ObjectType>
+    </HardcodedValue>
+  </RuntimeUserObject>
+  <TargetLoadBalancer xsi:type="SingleTargetReferenceLoadBalancer">
+    <SingleTargetReference>
+      <FormattedCode />
+      <HardcodedValue>
+        <Id>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</Id>
+        <ObjectType>Target</ObjectType>
+      </HardcodedValue>
+    </SingleTargetReference>
+  </TargetLoadBalancer>
+  <AuditStarts>true</AuditStarts>
+  <AuditSuccesses>true</AuditSuccesses>
+  <WorkflowId>dfb7fe0a-859f-40f5-8f20-41ad3ffa46a9</WorkflowId>
+  <CategoryIds />
+  <TriggerOwner>2572d862-1ac8-4286-9c03-a0ad4395ff14</TriggerOwner>
+  <Triggers>
+    <TriggerDefinition>
+      <Event xsi:type="AdHocEventDefinition">
+        <Id>f48c4307-3874-4450-85f0-4bcfe65d4fa4</Id>
+        <DisplayName>Started by User</DisplayName>
+        <Imported>true</Imported>
+        <Identities />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>f1adbb13-5cf0-424c-ba43-c7a695f14c4f</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>25d4fcb4-8fad-4983-adf8-37f5ce7e6926</TriggerId>
+    </TriggerDefinition>
+    <TriggerDefinition>
+      <Event xsi:type="StartProcessEventDefinition">
+        <Id>228934fd-793d-46fb-934f-9c58bd5f61f3</Id>
+        <DisplayName>Started by Parent Process</DisplayName>
+        <Imported>true</Imported>
+        <ProcessIds />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>62892c4f-a471-4cc0-ab26-1919a7a75784</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>9f6ebaa4-1813-4988-80b1-93c80951f603</TriggerId>
+    </TriggerDefinition>
+  </Triggers>
+  <VariableDefinitions>
+    <VariableConfiguration xsi:type="TableVariableConfiguration" xml:space="preserve">
+      <Id>89f4bef1-7476-473e-bdf5-9ffee014d9e6</Id>
+      <DisplayName>Customers</DisplayName>
+      <FixedSchemaDataTable>
+        <Row>
+          <Data>
+            <string>1</string>
+            <string>Alfred</string>
+            <string>Germany</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>2</string>
+            <string>Ana</string>
+            <string>Mexico</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>3</string>
+            <string>Antonio</string>
+            <string>UK</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>4</string>
+            <string>Jose</string>
+            <string>Sweden</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>5</string>
+            <string>Liz</string>
+            <string>Germany</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>6</string>
+            <string>Karin</string>
+            <string>France</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>7</string>
+            <string>Paul</string>
+            <string>Canada</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>8</string>
+            <string>Karl</string>
+            <string>UK</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>9</string>
+            <string>Matti</string>
+            <string>Mexico</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10</string>
+            <string>Mary</string>
+            <string>Brazil</string>
+          </Data>
+        </Row>
+        <FixedSchema>
+          <Columns>
+            <TableSchemaColumn>
+              <Name>CustomerId</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>CustomerName</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>Country</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+          </Columns>
+        </FixedSchema>
+      </FixedSchemaDataTable>
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>63d08e91-724f-4fa8-9e81-0cf7565f2074</ControllingItemId>
+      </Scope>
+      <VariableTypeId>27fc86d1-8ae5-d1a4-8d06-88ee0acd318a</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="TableVariableConfiguration" xml:space="preserve">
+      <Id>e221e1de-b626-4326-921d-0acf7a7c78e0</Id>
+      <DisplayName>Orders</DisplayName>
+      <ModifiedTime>2017-08-16T16:27:40.2087268Z</ModifiedTime>
+      <FixedSchemaDataTable>
+        <Row>
+          <Data>
+            <string>10240</string>
+            <string>3</string>
+            <UtcDateTime>2017-06-06T16:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10241</string>
+            <string>4</string>
+            <UtcDateTime>2017-06-22T16:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10242</string>
+            <string>6</string>
+            <UtcDateTime>2017-03-17T16:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10243</string>
+            <string>2</string>
+            <UtcDateTime>2017-02-13T17:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10244</string>
+            <string>8</string>
+            <UtcDateTime>2017-03-14T16:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10245</string>
+            <string>4</string>
+            <UtcDateTime>2017-04-12T16:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10246</string>
+            <string>4</string>
+            <UtcDateTime>2017-05-29T16:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10247</string>
+            <string>6</string>
+            <UtcDateTime>2017-04-19T16:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10248</string>
+            <string>4</string>
+            <UtcDateTime>2017-02-14T17:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10249</string>
+            <string>6</string>
+            <UtcDateTime>2017-06-20T16:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10250</string>
+            <string>3</string>
+            <UtcDateTime>2017-06-28T16:03:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10251</string>
+            <string />
+            <UtcDateTime>2017-08-23T16:27:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>10252</string>
+            <string />
+            <UtcDateTime>2017-08-25T16:27:00Z</UtcDateTime>
+          </Data>
+        </Row>
+        <FixedSchema>
+          <Columns>
+            <TableSchemaColumn>
+              <Name>OrderID</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>CustomerID</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>OrderDate</Name>
+              <DataType>Tidal.Automation.Common.Product.UtcDateTime</DataType>
+            </TableSchemaColumn>
+          </Columns>
+        </FixedSchema>
+      </FixedSchemaDataTable>
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>63d08e91-724f-4fa8-9e81-0cf7565f2074</ControllingItemId>
+      </Scope>
+      <VariableTypeId>27fc86d1-8ae5-d1a4-8d06-88ee0acd318a</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="StringVariableConfiguration" xml:space="preserve">
+      <Id>24de6f6e-353e-4a87-b712-df741f9598bd</Id>
+      <DisplayName>xml</DisplayName>
+      <string />
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>63d08e91-724f-4fa8-9e81-0cf7565f2074</ControllingItemId>
+      </Scope>
+      <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="StringVariableConfiguration" xml:space="preserve">
+      <Id>3d234140-f8f0-4f78-8e44-f438b6b15808</Id>
+      <DisplayName>xml2</DisplayName>
+      <string />
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>63d08e91-724f-4fa8-9e81-0cf7565f2074</ControllingItemId>
+      </Scope>
+      <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+  </VariableDefinitions>
+  <Notes />
+  <ValidTargetTypeNames>
+    <string>Tidal.Automation.BuiltinAdapter.Common.MasterTargetConfiguration, Tidal.Automation.BuiltinAdapter.Common</string>
+  </ValidTargetTypeNames>
+  <ValidTargetTypeExtensionIds>
+    <guid>af449107-3bd4-c9a3-e2ab-5f4acf12ac03</guid>
+  </ValidTargetTypeExtensionIds>
+  <ValidRuntimeUserTypeNames>
+    <string>Tidal.Automation.WebService.Common.ClientCertificateUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.CloudCenter.Users.CloudCenterApiAccessCredentialsConfiguration, Tidal.Automation.CloudCenter.Common</string>
+    <string>Tidal.Automation.WebService.Common.OAuthUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.OpenStack.Common.User.OpenStackUserConfiguration, Tidal.Automation.OpenStack.Common</string>
+    <string>Tidal.Automation.Ssh.Common.PublicKeyAdminUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.GitAdapter.Common.GitRepositoryRuntimeUserConfiguration, Tidal.Automation.GitAdapter.Common</string>
+    <string>Tidal.Automation.Ssh.Common.IOSUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.BuiltinAdapter.Common.GenericRuntimeUserConfiguration, Tidal.Automation.BuiltinAdapter.Common</string>
+    <string>Tidal.Automation.Azure.Common.AzureAccessKeyConfiguration, Tidal.Automation.Azure.Common</string>
+    <string>Tidal.Automation.Snmp.Common.SnmpUserConfiguration, Tidal.Automation.Snmp.Common</string>
+    <string>Tidal.Automation.vCloud.Common.Users.vCloudUserConfiguration, Tidal.Automation.vCloud.Common</string>
+    <string>Tidal.Automation.Windows.Common.WindowsUserConfiguration, Tidal.Automation.Windows.Common</string>
+  </ValidRuntimeUserTypeNames>
+</ProcessConfiguration>

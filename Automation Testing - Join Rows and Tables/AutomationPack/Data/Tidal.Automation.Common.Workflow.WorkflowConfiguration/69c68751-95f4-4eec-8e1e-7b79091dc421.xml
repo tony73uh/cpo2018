@@ -1,0 +1,666 @@
+<?xml version="1.0"?>
+<WorkflowConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>69c68751-95f4-4eec-8e1e-7b79091dc421</Id>
+  <DisplayName>Twn321700c: Join Tables Process</DisplayName>
+  <CreatedTime>2020-04-21T14:44:34.6962815Z</CreatedTime>
+  <ModifiedTime>2020-04-21T14:44:34.6962815Z</ModifiedTime>
+  <FirstActivity xsi:type="RootNode">
+    <Id>97ffa6a5-9191-41f4-8198-7563551a0d20</Id>
+    <DisplayName />
+    <Children>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>f5fe6c0f-9cb8-426c-9c1d-ab62caad2254</Id>
+        <DisplayName>Join Tables (2)</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>0f00ad86-b6c1-4781-b7ea-7b5dfbdff1c6</Id>
+            <ActivityNodeId>f5fe6c0f-9cb8-426c-9c1d-ab62caad2254</ActivityNodeId>
+            <CompletedId>64013e61-6bf2-4502-aa5d-cbb8c40c0232</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="JoinTablesActivityConfiguration" xml:space="preserve">
+          <Id>f5fe6c0f-9cb8-426c-9c1d-ab62caad2254</Id>
+          <DisplayName>Join Tables (2)</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>0bbcd5f8-9b39-4828-8c70-ee61fdeedea4</ContainingProcessId>
+          <Columns>
+            <BuiltinTableColumn>
+              <Name>Table1.CName</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+            <BuiltinTableColumn>
+              <Name>Table1.ID</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+            <BuiltinTableColumn>
+              <Name>Table2.OrderName</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+            <BuiltinTableColumn>
+              <Name>Table2.CName</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+          </Columns>
+          <SourceTable xsi:type="PropertyReference">
+            <DisplayPath>Process.Variables.Local.Customers</DisplayPath>
+            <LinkChain />
+            <ObjectId>b1e10d4e-1bb3-403f-8b0f-8c16f7f393e2</ObjectId>
+            <ObjectType>GlobalVariable</ObjectType>
+          </SourceTable>
+          <SecondSourceTable xsi:type="PropertyReference">
+            <DisplayPath>Process.Variables.Local.Orders</DisplayPath>
+            <LinkChain />
+            <ObjectId>fa9c5bd1-a8cc-4f01-ba0b-2bdf2e211cf9</ObjectId>
+            <ObjectType>GlobalVariable</ObjectType>
+          </SecondSourceTable>
+          <Table1Column>
+            <HardcodedValue>CName</HardcodedValue>
+          </Table1Column>
+          <Table2Column>
+            <HardcodedValue>CName</HardcodedValue>
+          </Table2Column>
+          <SortColumn />
+          <SortOrder>Ascending</SortOrder>
+          <MaxRows>
+            <HardcodedValue>2147483647</HardcodedValue>
+          </MaxRows>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>7c7d128d-ffa8-4a8a-8ed4-6d95da9d6e4f</Id>
+        <DisplayName>Join Tables (3)</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>57100313-03d0-441c-87af-c968652dbb1d</Id>
+            <ActivityNodeId>7c7d128d-ffa8-4a8a-8ed4-6d95da9d6e4f</ActivityNodeId>
+            <CompletedId>e349f6da-e5c3-413c-8c8f-06d7c506db43</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="JoinTablesActivityConfiguration" xml:space="preserve">
+          <Id>7c7d128d-ffa8-4a8a-8ed4-6d95da9d6e4f</Id>
+          <DisplayName>Join Tables (3)</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>0bbcd5f8-9b39-4828-8c70-ee61fdeedea4</ContainingProcessId>
+          <Columns>
+            <BuiltinTableColumn>
+              <Name>Table1.EID</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+            <BuiltinTableColumn>
+              <Name>Table1.Name</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+            <BuiltinTableColumn>
+              <Name>Table2.CID</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+            <BuiltinTableColumn>
+              <Name>Table2.Name</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+          </Columns>
+          <SourceTable xsi:type="PropertyReference">
+            <DisplayPath>Process.Variables.Local.Employee</DisplayPath>
+            <LinkChain />
+            <ObjectId>466ab07a-d46f-481f-9528-70430a2b46a6</ObjectId>
+            <ObjectType>GlobalVariable</ObjectType>
+          </SourceTable>
+          <SecondSourceTable xsi:type="PropertyReference">
+            <DisplayPath>Process.Variables.Local.Company</DisplayPath>
+            <LinkChain />
+            <ObjectId>662a3be0-b28b-4eae-8f9b-c6e80d1e2b57</ObjectId>
+            <ObjectType>GlobalVariable</ObjectType>
+          </SecondSourceTable>
+          <Table1Column>
+            <FormattedCode>{0}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Process.Variables.Local.Employee.Columns.EID.Name</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>TIAColumns</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>EID</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Name</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>466ab07a-d46f-481f-9528-70430a2b46a6</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableReference>
+            </References>
+          </Table1Column>
+          <Table2Column>
+            <FormattedCode>{0}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Process.Variables.Local.Company.Columns.CID.Name</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>TIAColumns</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>CID</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Name</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>662a3be0-b28b-4eae-8f9b-c6e80d1e2b57</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableReference>
+            </References>
+          </Table2Column>
+          <SortColumn />
+          <SortOrder>Ascending</SortOrder>
+          <MaxRows>
+            <HardcodedValue>2147483647</HardcodedValue>
+          </MaxRows>
+          <JoinType>RightOuter</JoinType>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>9feadf1e-c2ec-4dca-b288-0604faa70b2e</Id>
+        <DisplayName>Join Tables</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>a85ac7ba-eb1b-4f69-8b48-0843282e1c0e</Id>
+            <ActivityNodeId>9feadf1e-c2ec-4dca-b288-0604faa70b2e</ActivityNodeId>
+            <CompletedId>cd5d6e0d-e130-45ce-99d6-660d21acf646</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="JoinTablesActivityConfiguration" xml:space="preserve">
+          <Id>9feadf1e-c2ec-4dca-b288-0604faa70b2e</Id>
+          <DisplayName>Join Tables</DisplayName>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>0bbcd5f8-9b39-4828-8c70-ee61fdeedea4</ContainingProcessId>
+          <Columns>
+            <BuiltinTableColumn>
+              <Name>Table1.s1</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+            <BuiltinTableColumn>
+              <Name>Table1.s2</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+            <BuiltinTableColumn>
+              <Name>Table2.c1</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+            <BuiltinTableColumn>
+              <Name>Table2.s2</Name>
+              <DataType>System.String</DataType>
+            </BuiltinTableColumn>
+          </Columns>
+          <SourceTable xsi:type="PropertyReference">
+            <DisplayPath>Process.Variables.Local.New Variable</DisplayPath>
+            <LinkChain />
+            <ObjectId>af15439f-7962-48d4-aa7c-18d0973e5350</ObjectId>
+            <ObjectType>GlobalVariable</ObjectType>
+          </SourceTable>
+          <SecondSourceTable xsi:type="PropertyReference">
+            <DisplayPath>Process.Variables.Local.er</DisplayPath>
+            <LinkChain />
+            <ObjectId>f4b75d65-ab7c-458e-b6a4-7640c401bbb6</ObjectId>
+            <ObjectType>GlobalVariable</ObjectType>
+          </SecondSourceTable>
+          <Table1Column>
+            <FormattedCode>{0}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Process.Variables.Local.New Variable.Columns.s1.Name</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>TIAColumns</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>s1</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Name</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>af15439f-7962-48d4-aa7c-18d0973e5350</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableReference>
+            </References>
+          </Table1Column>
+          <Table2Column>
+            <FormattedCode>{0}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Process.Variables.Local.er.Columns.c1.Name</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>TIAColumns</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>c1</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Name</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>f4b75d65-ab7c-458e-b6a4-7640c401bbb6</ObjectId>
+                <ObjectType>GlobalVariable</ObjectType>
+              </VariableReference>
+            </References>
+          </Table2Column>
+          <SortColumn />
+          <SortOrder>Ascending</SortOrder>
+          <MaxRows>
+            <HardcodedValue>2147483647</HardcodedValue>
+          </MaxRows>
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="ExecuteActivityNode">
+        <Id>f473c8b1-6bfe-4453-865c-5efe28435f4e</Id>
+        <DisplayName>Create Alert</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="FailedBranchPlaceholderNode">
+            <Id>daa1333c-d862-4dc6-9809-3c54b8805a52</Id>
+            <ActivityNodeId>f473c8b1-6bfe-4453-865c-5efe28435f4e</ActivityNodeId>
+            <CompletedId>b544b214-b3f9-4f0b-bb9a-bb024a4eff48</CompletedId>
+          </ActivityNode>
+        </Children>
+        <Configuration xsi:type="AlertActivityConfiguration" xml:space="preserve">
+          <Id>f473c8b1-6bfe-4453-865c-5efe28435f4e</Id>
+          <DisplayName>Create Alert</DisplayName>
+          <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+            <FormattedCode />
+            <HardcodedValue>
+              <Id>00000000-0000-0000-0000-000000000000</Id>
+              <ObjectType>RuntimeUser</ObjectType>
+            </HardcodedValue>
+          </RuntimeUserObject>
+          <TargetLoadBalancer xsi:type="SingleTargetLoadBalancer">
+            <SingleTargetId>
+              <HardcodedValue>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</HardcodedValue>
+            </SingleTargetId>
+          </TargetLoadBalancer>
+          <InheritTarget>false</InheritTarget>
+          <ContainingProcessId>0bbcd5f8-9b39-4828-8c70-ee61fdeedea4</ContainingProcessId>
+          <TaskExpiresPeriod>
+            <DisplayUnits>Days</DisplayUnits>
+            <Period>
+              <FormattedCode>{0}</FormattedCode>
+              <References>
+                <VariableReference xsi:type="PropertyReference">
+                  <DisplayPath>Adapters.Core Functions Adapter.Default Task Expiration Days</DisplayPath>
+                  <LinkChain>
+                    <Link xsi:type="PropertyNameLink">
+                      <PropertyName>DefaultTaskExpirationDays</PropertyName>
+                    </Link>
+                  </LinkChain>
+                  <ObjectId>042b6e8a-90b1-4518-aa3e-398399e1b195</ObjectId>
+                  <ObjectType>Adapter</ObjectType>
+                </VariableReference>
+              </References>
+            </Period>
+          </TaskExpiresPeriod>
+          <TaskAssignees />
+          <TaskPriority>Medium</TaskPriority>
+          <TaskBlock>false</TaskBlock>
+          <TaskXslFileName>
+            <FormattedCode>{0}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Adapters.Core Functions Adapter.Default Alert Task Transform</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>DefaultAlertTaskTransform</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>042b6e8a-90b1-4518-aa3e-398399e1b195</ObjectId>
+                <ObjectType>Adapter</ObjectType>
+              </VariableReference>
+            </References>
+          </TaskXslFileName>
+          <TaskName>
+            <HardcodedValue />
+          </TaskName>
+          <TaskDescription>
+            <FormattedCode>{0}
+
+{1}
+
+{2}
+
+{3}
+
+{4}
+
+{5}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Workflow.Join Tables.Result Table.First Row.Table1.s1</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>ResultTable</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>FirstRow</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Table1.s1</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>9feadf1e-c2ec-4dca-b288-0604faa70b2e</ObjectId>
+                <ObjectType>ActivityInstance</ObjectType>
+              </VariableReference>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Workflow.Join Tables.Result Table.Last Row.Table2.s2</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>ResultTable</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>LastRow</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Table2.s2</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>9feadf1e-c2ec-4dca-b288-0604faa70b2e</ObjectId>
+                <ObjectType>ActivityInstance</ObjectType>
+              </VariableReference>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Workflow.Join Tables (2).Result Table.First Row.Table1.CName</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>ResultTable</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>FirstRow</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Table1.CName</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>f5fe6c0f-9cb8-426c-9c1d-ab62caad2254</ObjectId>
+                <ObjectType>ActivityInstance</ObjectType>
+              </VariableReference>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Workflow.Join Tables (2).Result Table.Last Row.Table2.OrderName</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>ResultTable</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>LastRow</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Table2.OrderName</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>f5fe6c0f-9cb8-426c-9c1d-ab62caad2254</ObjectId>
+                <ObjectType>ActivityInstance</ObjectType>
+              </VariableReference>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Workflow.Join Tables (3).Result Table.First Row.Table1.EID</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>ResultTable</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>FirstRow</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Table1.EID</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>7c7d128d-ffa8-4a8a-8ed4-6d95da9d6e4f</ObjectId>
+                <ObjectType>ActivityInstance</ObjectType>
+              </VariableReference>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Workflow.Join Tables (3).Result Table.Last Row.Table2.Name</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>ResultTable</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>LastRow</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Table2.Name</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectId>7c7d128d-ffa8-4a8a-8ed4-6d95da9d6e4f</ObjectId>
+                <ObjectType>ActivityInstance</ObjectType>
+              </VariableReference>
+            </References>
+          </TaskDescription>
+          <TaskCategoryIds />
+          <TaskInheritCategories>true</TaskInheritCategories>
+          <TaskRelatedIds />
+          <ExternalSystem>
+            <HardcodedValue />
+          </ExternalSystem>
+          <ExternalId>
+            <HardcodedValue />
+          </ExternalId>
+          <TaskOwner>
+            <FormattedCode>{0}</FormattedCode>
+            <References>
+              <VariableReference xsi:type="PropertyReference">
+                <DisplayPath>Process.Target.Owner</DisplayPath>
+                <LinkChain>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>ResolvedTarget</PropertyName>
+                  </Link>
+                  <Link xsi:type="PropertyNameLink">
+                    <PropertyName>Owner</PropertyName>
+                  </Link>
+                </LinkChain>
+                <ObjectType>ProcessInstance</ObjectType>
+              </VariableReference>
+            </References>
+          </TaskOwner>
+          <TaskParameters />
+          <AffectedServices>
+            <HardcodedValue />
+          </AffectedServices>
+          <AffectedOrganizations>
+            <HardcodedValue />
+          </AffectedOrganizations>
+          <AffectedTargetLoadBalancer xsi:type="ProcessTargetLoadBalancer" />
+          <CreateAutomationSummary>false</CreateAutomationSummary>
+          <DiagnosticReportConfiguration>
+            <ReportStylesheet>SituationReport.xsl</ReportStylesheet>
+            <Formats />
+          </DiagnosticReportConfiguration>
+          <AlertClass>
+            <HardcodedValue>4234</HardcodedValue>
+          </AlertClass>
+          <MatchingCriteria />
+        </Configuration>
+      </ActivityNode>
+      <ActivityNode xsi:type="SwitchNode">
+        <Id>8aeaab90-4af8-4efc-bc99-fb2ff96c3fa7</Id>
+        <DisplayName>Condition Block</DisplayName>
+        <Children>
+          <ActivityNode xsi:type="ConditionBranchNode">
+            <Id>b482bda8-46a4-4ed4-9115-20d4dc1c420b</Id>
+            <DisplayName>Condition Branch</DisplayName>
+            <Children />
+            <Condition>
+              <Id>f11bf130-cda2-49e1-8ba0-d2960d74f5d1</Id>
+              <Conditions>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>63fe8eb4-a3c6-41e0-9db5-7f36844ee45e</Id>
+                  <Expression xsi:type="SubstitutableString">
+                    <HardcodedValue>1</HardcodedValue>
+                  </Expression>
+                  <Comparison>Equals</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Join Tables.Result Table.First Row.Table1.s1</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>ResultTable</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>FirstRow</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>Table1.s1</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>9feadf1e-c2ec-4dca-b288-0604faa70b2e</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>9dee544e-01b4-410e-b4ea-5123d291db8d</Id>
+                  <Expression xsi:type="SubstitutableString">
+                    <HardcodedValue>444</HardcodedValue>
+                  </Expression>
+                  <Comparison>Equals</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Join Tables.Result Table.Last Row.Table2.s2</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>ResultTable</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>LastRow</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>Table2.s2</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>9feadf1e-c2ec-4dca-b288-0604faa70b2e</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>15189a9d-3b9b-4728-8076-0384be334239</Id>
+                  <Expression xsi:type="SubstitutableString">
+                    <HardcodedValue>John</HardcodedValue>
+                  </Expression>
+                  <Comparison>Equals</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Join Tables (2).Result Table.First Row.Table1.CName</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>ResultTable</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>FirstRow</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>Table1.CName</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>f5fe6c0f-9cb8-426c-9c1d-ab62caad2254</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>c76a3ed1-f223-4b55-a5a3-abb750bee885</Id>
+                  <Expression xsi:type="SubstitutableString">
+                    <HardcodedValue />
+                  </Expression>
+                  <Comparison>Equals</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Join Tables (2).Result Table.Last Row.Table2.OrderName</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>ResultTable</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>LastRow</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>Table2.OrderName</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>f5fe6c0f-9cb8-426c-9c1d-ab62caad2254</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>f13df11f-ee97-4e30-b288-eb1e5f143d95</Id>
+                  <Expression xsi:type="SubstitutableString">
+                    <HardcodedValue>1</HardcodedValue>
+                  </Expression>
+                  <Comparison>Equals</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Join Tables (3).Result Table.First Row.Table1.EID</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>ResultTable</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>FirstRow</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>Table1.EID</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>7c7d128d-ffa8-4a8a-8ed4-6d95da9d6e4f</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+                <ConditionDefinition xsi:type="VariableConditionDefinition">
+                  <Id>b374cc51-a2d2-451a-8fe3-b97244c95342</Id>
+                  <Expression xsi:type="SubstitutableString">
+                    <HardcodedValue>blizzard</HardcodedValue>
+                  </Expression>
+                  <Comparison>Equals</Comparison>
+                  <VariableReference xsi:type="PropertyReference">
+                    <DisplayPath>Workflow.Join Tables (3).Result Table.Last Row.Table2.Name</DisplayPath>
+                    <LinkChain>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>ResultTable</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>LastRow</PropertyName>
+                      </Link>
+                      <Link xsi:type="PropertyNameLink">
+                        <PropertyName>Table2.Name</PropertyName>
+                      </Link>
+                    </LinkChain>
+                    <ObjectId>7c7d128d-ffa8-4a8a-8ed4-6d95da9d6e4f</ObjectId>
+                    <ObjectType>ActivityInstance</ObjectType>
+                  </VariableReference>
+                </ConditionDefinition>
+              </Conditions>
+            </Condition>
+          </ActivityNode>
+          <ActivityNode xsi:type="ConditionBranchNode">
+            <Id>c9d04e1a-3439-4eec-8085-f91dc8c3f4dc</Id>
+            <DisplayName>Condition Branch</DisplayName>
+            <Children>
+              <ActivityNode xsi:type="CompletedNode">
+                <Id>a67d185a-4ce2-4b01-afa8-b8e6d3859c9a</Id>
+                <CompletedType>FailedNotCompleted</CompletedType>
+              </ActivityNode>
+            </Children>
+            <Condition>
+              <Id>09874a64-c428-439c-b7d2-cf0853f3b1da</Id>
+              <Conditions />
+            </Condition>
+          </ActivityNode>
+        </Children>
+      </ActivityNode>
+    </Children>
+  </FirstActivity>
+  <ProcessId>0bbcd5f8-9b39-4828-8c70-ee61fdeedea4</ProcessId>
+</WorkflowConfiguration>

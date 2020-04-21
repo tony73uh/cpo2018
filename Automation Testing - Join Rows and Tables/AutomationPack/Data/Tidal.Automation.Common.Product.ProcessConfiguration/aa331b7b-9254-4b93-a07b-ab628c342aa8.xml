@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<ProcessConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:space="preserve">
+  <Id>aa331b7b-9254-4b93-a07b-ab628c342aa8</Id>
+  <DisplayName>Twn321699c: Join Rows</DisplayName>
+  <CreatedTime>2020-04-21T14:44:35.0152833Z</CreatedTime>
+  <ModifiedTime>2020-04-21T14:44:35.0152833Z</ModifiedTime>
+  <RuntimeUserObject xsi:type="SubstitutableObjectReference">
+    <FormattedCode />
+    <HardcodedValue>
+      <Id>00000000-0000-0000-0000-000000000000</Id>
+      <ObjectType>RuntimeUser</ObjectType>
+    </HardcodedValue>
+  </RuntimeUserObject>
+  <TargetLoadBalancer xsi:type="SingleTargetReferenceLoadBalancer">
+    <SingleTargetReference>
+      <FormattedCode />
+      <HardcodedValue>
+        <Id>bd4b3145-4e20-42bb-ba8f-34c013ca86cc</Id>
+        <ObjectType>Target</ObjectType>
+      </HardcodedValue>
+    </SingleTargetReference>
+  </TargetLoadBalancer>
+  <AuditStarts>true</AuditStarts>
+  <AuditSuccesses>true</AuditSuccesses>
+  <WorkflowId>ffed0eb9-518e-4480-a437-1a844d4a7504</WorkflowId>
+  <CategoryIds />
+  <TriggerOwner>2572d862-1ac8-4286-9c03-a0ad4395ff14</TriggerOwner>
+  <Triggers>
+    <TriggerDefinition>
+      <Event xsi:type="AdHocEventDefinition">
+        <Id>d8029ae3-ccab-49e9-93a4-b493c378dff5</Id>
+        <DisplayName>Started by User</DisplayName>
+        <Imported>true</Imported>
+        <Identities />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>b5591ba8-6731-4d17-95e9-5fc1adf0a8af</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>91b8ed5f-6d82-481e-9b6d-ee5e3befefdc</TriggerId>
+    </TriggerDefinition>
+    <TriggerDefinition>
+      <Event xsi:type="StartProcessEventDefinition">
+        <Id>f1672523-200e-4e27-b41e-f10f13c625e0</Id>
+        <DisplayName>Started by Parent Process</DisplayName>
+        <Imported>true</Imported>
+        <ProcessIds />
+      </Event>
+      <Condition xsi:type="RootConditionDefinition">
+        <Id>2a015672-9209-4548-8c39-9b2e2dc9f8f6</Id>
+        <Conditions />
+      </Condition>
+      <TriggerId>727520ec-5919-41e4-b626-bb1e2e8fc306</TriggerId>
+    </TriggerDefinition>
+  </Triggers>
+  <VariableDefinitions>
+    <VariableConfiguration xsi:type="TableVariableConfiguration" xml:space="preserve">
+      <Id>3562ac8e-1168-40f6-93b6-0ec08f07b38a</Id>
+      <DisplayName>TableA</DisplayName>
+      <ModifiedTime>2017-07-28T19:35:19.9371598Z</ModifiedTime>
+      <FixedSchemaDataTable>
+        <Row>
+          <Data>
+            <string>1</string>
+            <string>11</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>2</string>
+            <string>22</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>3</string>
+            <string>33</string>
+          </Data>
+        </Row>
+        <FixedSchema>
+          <Columns>
+            <TableSchemaColumn>
+              <Name>q</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>w</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+          </Columns>
+        </FixedSchema>
+      </FixedSchemaDataTable>
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>aa331b7b-9254-4b93-a07b-ab628c342aa8</ControllingItemId>
+      </Scope>
+      <VariableTypeId>27fc86d1-8ae5-d1a4-8d06-88ee0acd318a</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="TableVariableConfiguration" xml:space="preserve">
+      <Id>f41b51b9-5996-4139-92a3-4adb6b032b79</Id>
+      <DisplayName>TableB</DisplayName>
+      <ModifiedTime>2017-07-28T19:35:43.1571598Z</ModifiedTime>
+      <FixedSchemaDataTable>
+        <Row>
+          <Data>
+            <string>3</string>
+            <string>34</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>2</string>
+            <string>23</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>1</string>
+            <string>12</string>
+          </Data>
+        </Row>
+        <Row>
+          <Data>
+            <string>4</string>
+            <string>45</string>
+          </Data>
+        </Row>
+        <FixedSchema>
+          <Columns>
+            <TableSchemaColumn>
+              <Name>T</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+            <TableSchemaColumn>
+              <Name>H</Name>
+              <DataType>System.String</DataType>
+            </TableSchemaColumn>
+          </Columns>
+        </FixedSchema>
+      </FixedSchemaDataTable>
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>aa331b7b-9254-4b93-a07b-ab628c342aa8</ControllingItemId>
+      </Scope>
+      <VariableTypeId>27fc86d1-8ae5-d1a4-8d06-88ee0acd318a</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="NumberVariableConfiguration" xml:space="preserve">
+      <Id>92f4d428-03e6-4cc1-9cfe-b4b52a154551</Id>
+      <DisplayName>New Variable</DisplayName>
+      <ModifiedTime>2017-07-28T19:36:25.9411598Z</ModifiedTime>
+      <double>2</double>
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>aa331b7b-9254-4b93-a07b-ab628c342aa8</ControllingItemId>
+      </Scope>
+      <VariableTypeId>97f5f9a7-d76c-90c6-fcef-e0362ff3b2d2</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+    <VariableConfiguration xsi:type="StringVariableConfiguration" xml:space="preserve">
+      <Id>48c50445-9e6f-4e81-8546-45f864a2f335</Id>
+      <DisplayName>New cxvcxvVariable</DisplayName>
+      <string>fdsfdssfdsfd</string>
+      <Scope>
+        <Family>ProcessInstanceLocal</Family>
+        <ControllingItemId>aa331b7b-9254-4b93-a07b-ab628c342aa8</ControllingItemId>
+      </Scope>
+      <VariableTypeId>84e08004-8bba-7984-44e7-3c2dbb422f12</VariableTypeId>
+      <CustomPropertiesString />
+    </VariableConfiguration>
+  </VariableDefinitions>
+  <Notes />
+  <ValidTargetTypeNames>
+    <string>Tidal.Automation.BuiltinAdapter.Common.MasterTargetConfiguration, Tidal.Automation.BuiltinAdapter.Common</string>
+  </ValidTargetTypeNames>
+  <ValidTargetTypeExtensionIds>
+    <guid>af449107-3bd4-c9a3-e2ab-5f4acf12ac03</guid>
+  </ValidTargetTypeExtensionIds>
+  <ValidRuntimeUserTypeNames>
+    <string>Tidal.Automation.WebService.Common.ClientCertificateUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.CloudCenter.Users.CloudCenterApiAccessCredentialsConfiguration, Tidal.Automation.CloudCenter.Common</string>
+    <string>Tidal.Automation.WebService.Common.OAuthUserConfiguration, Tidal.Automation.WebService.Common</string>
+    <string>Tidal.Automation.OpenStack.Common.User.OpenStackUserConfiguration, Tidal.Automation.OpenStack.Common</string>
+    <string>Tidal.Automation.Ssh.Common.PublicKeyAdminUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.GitAdapter.Common.GitRepositoryRuntimeUserConfiguration, Tidal.Automation.GitAdapter.Common</string>
+    <string>Tidal.Automation.Ssh.Common.IOSUserConfiguration, Tidal.Automation.Ssh.Common</string>
+    <string>Tidal.Automation.BuiltinAdapter.Common.GenericRuntimeUserConfiguration, Tidal.Automation.BuiltinAdapter.Common</string>
+    <string>Tidal.Automation.Azure.Common.AzureAccessKeyConfiguration, Tidal.Automation.Azure.Common</string>
+    <string>Tidal.Automation.Snmp.Common.SnmpUserConfiguration, Tidal.Automation.Snmp.Common</string>
+    <string>Tidal.Automation.vCloud.Common.Users.vCloudUserConfiguration, Tidal.Automation.vCloud.Common</string>
+    <string>Tidal.Automation.Windows.Common.WindowsUserConfiguration, Tidal.Automation.Windows.Common</string>
+  </ValidRuntimeUserTypeNames>
+</ProcessConfiguration>
